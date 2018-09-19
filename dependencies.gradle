@@ -1,0 +1,19 @@
+ext {
+    versions = [
+            //Application
+            versionCode       : 1,
+            versionName       : '1.0',
+            //Android
+            androidCompileSdk : 28,
+            androidSupport    : '28.0.0-rc02',
+            androidMinSdk     : 16,
+            androidTargetSdk  : 28,
+            //Test
+            testJunit         : '4.12',
+            testRunner        : '1.0.2',
+            testEspresso      : '3.0.2',
+            //Libraries
+            //UI
+            uiConstraintLayout: '1.1.3',
+    ]
+}
