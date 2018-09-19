@@ -13,6 +13,7 @@ ext {
             testRunner        : '1.0.2',
             testEspresso      : '3.0.2',
             //Libraries
+            dagger2           : '2.13',
             //UI
             uiConstraintLayout: '1.1.3',
     ]

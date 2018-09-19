@@ -5,20 +5,28 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import dagger.android.AndroidInjection
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
+import javax.inject.Inject
+import javax.inject.Named
 
 class MainActivity : AppCompatActivity() {
+
+    @field:[Inject Named("hello")]
+    lateinit var hello: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AndroidInjection.inject(this)
         setSupportActionBar(toolbar)
-
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+        content_text.text = hello
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

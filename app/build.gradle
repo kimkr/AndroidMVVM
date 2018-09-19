@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 def ver = rootProject.ext.versions
 
@@ -27,8 +28,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$ver.androidSupport"
-    implementation "com.android.support.constraint:constraint-layout:$ver.uiConstraintLayout"
     implementation "com.android.support:design:$ver.androidSupport"
+    // UI
+    implementation "com.android.support.constraint:constraint-layout:$ver.uiConstraintLayout"
+    // Dagger2
+    implementation "com.google.dagger:dagger-android:$ver.dagger2"
+    kapt "com.google.dagger:dagger-compiler:$ver.dagger2"
+    kapt "com.google.dagger:dagger-android-processor:$ver.dagger2"
+    // Test
     testImplementation "junit:junit:$ver.testJunit"
     androidTestImplementation "com.android.support.test:runner:$ver.testRunner"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$ver.testEspresso"
