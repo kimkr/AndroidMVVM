@@ -1,19 +1,21 @@
-package io.github.kimkr.mvvmsample.persistence.user
+package io.github.kimkr.mvvmsample.persistence.db
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
+import io.github.kimkr.mvvmsample.persistence.model.User
+import io.github.kimkr.mvvmsample.persistence.sources.UserDataSource
 import io.reactivex.Flowable
 
 @Dao
-interface UserDao {
+interface UserDao : UserDataSource {
     @Query("SELECT * FROM Users WHERE userid = :id")
-    fun getUserById(id: String): Flowable<User>
+    override fun getUserById(id: String): Flowable<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUser(user: User)
+    override fun insertUser(user: User)
 
     @Query("DELETE FROM Users")
-    fun deleteAllUsers()
+    override fun deleteAllUsers()
 }

@@ -1,21 +1,22 @@
-package io.github.kimkr.mvvmsample.persistence.user
+package io.github.kimkr.mvvmsample.persistence.db
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import io.github.kimkr.mvvmsample.persistence.model.User
 
 @Database(entities = arrayOf(User::class), version = 1)
-abstract class UserDatabase : RoomDatabase() {
+abstract class LocalDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
 
     companion object {
 
         @Volatile
-        private var INSTANCE: UserDatabase? = null
+        private var INSTANCE: LocalDatabase? = null
 
-        fun getInstance(context: Context): UserDatabase =
+        fun getInstance(context: Context): LocalDatabase =
                 INSTANCE ?: synchronized(this) {
                     INSTANCE
                             ?: buildDatabase(context).also { INSTANCE = it }
@@ -23,7 +24,7 @@ abstract class UserDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context) =
                 Room.databaseBuilder(context.applicationContext,
-                        UserDatabase::class.java, "Sample.db")
+                        LocalDatabase::class.java, "Sample.db")
                         .build()
     }
 }

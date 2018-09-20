@@ -1,4 +1,4 @@
-package io.github.kimkr.mvvmsample.persistence.user
+package io.github.kimkr.mvvmsample.persistence.model
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity

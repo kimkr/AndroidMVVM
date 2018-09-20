@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModelProviders
 import dagger.Module
 import dagger.Provides
 import io.github.kimkr.mvvmsample.di.scopes.ActivityScope
-import io.github.kimkr.mvvmsample.persistence.user.UserDao
+import io.github.kimkr.mvvmsample.persistence.repository.UserRepository
 import io.github.kimkr.mvvmsample.ui.ViewModelFactory
 import javax.inject.Named
 
@@ -13,8 +13,8 @@ class UserModule {
 
     @Provides
     @ActivityScope
-    fun provideViewModelFactory(dataSource: UserDao): ViewModelFactory {
-        return ViewModelFactory(dataSource)
+    fun provideViewModelFactory(userRepository: UserRepository): ViewModelFactory {
+        return ViewModelFactory(userRepository)
     }
 
     @Provides
