@@ -1,24 +1,29 @@
-package io.github.kimkr.mvvmsample.ui
+package io.github.kimkr.mvvmsample.ui.user
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import io.github.kimkr.mvvmsample.R
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_user.*
 import javax.inject.Inject
+import javax.inject.Named
 
 
-class UserActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
-    @field:[Inject]
-    lateinit var viewModelFactory: ViewModelFactory
+    @field:[Inject Named("activity")]
+    lateinit var viewModel: UserViewModel
 
-    private lateinit var viewModel: UserViewModel
+    @Inject
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     private val disposable = CompositeDisposable()
 
@@ -26,8 +31,11 @@ class UserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
         AndroidInjection.inject(this)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
         update_user_button.setOnClickListener { updateUserName() }
+        supportFragmentManager
+                .beginTransaction()
+                .add(R.id.user_detail, UserDetailFragment(), "userDetail")
+                .commit()
     }
 
     override fun onStart() {
@@ -43,6 +51,8 @@ class UserActivity : AppCompatActivity() {
         super.onStop()
         disposable.clear()
     }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = fragmentInjector
 
     private fun updateUserName() {
         val userName = user_name_input.text.toString()

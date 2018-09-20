@@ -1,8 +1,8 @@
-package io.github.kimkr.mvvmsample.ui
+package io.github.kimkr.mvvmsample.ui.user
 
 import android.arch.lifecycle.ViewModel
-import io.github.kimkr.mvvmsample.persistence.User
-import io.github.kimkr.mvvmsample.persistence.UserDao
+import io.github.kimkr.mvvmsample.persistence.user.User
+import io.github.kimkr.mvvmsample.persistence.user.UserDao
 import io.reactivex.Completable
 import io.reactivex.Flowable
 

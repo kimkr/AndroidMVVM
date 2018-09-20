@@ -1,4 +1,4 @@
-package io.github.kimkr.mvvmsample.persistence
+package io.github.kimkr.mvvmsample.persistence.user
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
@@ -17,7 +17,8 @@ abstract class UserDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): UserDatabase =
                 INSTANCE ?: synchronized(this) {
-                    INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+                    INSTANCE
+                            ?: buildDatabase(context).also { INSTANCE = it }
                 }
 
         private fun buildDatabase(context: Context) =

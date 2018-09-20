@@ -1,4 +1,4 @@
-package io.github.kimkr.mvvmsample.persistence
+package io.github.kimkr.mvvmsample.persistence.user
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert

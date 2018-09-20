@@ -38,6 +38,7 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:$ver.uiConstraintLayout"
     // Dagger2
     implementation "com.google.dagger:dagger-android:$ver.dagger2"
+    implementation "com.google.dagger:dagger-android-support:$ver.dagger2"
     kapt "com.google.dagger:dagger-compiler:$ver.dagger2"
     kapt "com.google.dagger:dagger-android-processor:$ver.dagger2"
     // RxKotlin
