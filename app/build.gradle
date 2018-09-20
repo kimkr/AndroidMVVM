@@ -29,12 +29,21 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$ver.androidSupport"
     implementation "com.android.support:design:$ver.androidSupport"
+    implementation "android.arch.persistence.room:runtime:$ver.androidArchRoom"
+    implementation "android.arch.persistence.room:rxjava2:$ver.androidArchRoom"
+    kapt "android.arch.persistence.room:compiler:$ver.androidArchRoom"
+    implementation "android.arch.lifecycle:viewmodel:$ver.androidArchLifeCycle"
+    implementation "android.arch.lifecycle:extensions:$ver.androidArchLifeCycle"
     // UI
     implementation "com.android.support.constraint:constraint-layout:$ver.uiConstraintLayout"
     // Dagger2
     implementation "com.google.dagger:dagger-android:$ver.dagger2"
     kapt "com.google.dagger:dagger-compiler:$ver.dagger2"
     kapt "com.google.dagger:dagger-android-processor:$ver.dagger2"
+    // RxKotlin
+    implementation "io.reactivex.rxjava2:rxjava:$ver.rx"
+    implementation "io.reactivex.rxjava2:rxkotlin:$ver.rx"
+    implementation "io.reactivex.rxjava2:rxandroid:$ver.rxAndroid"
     // Test
     testImplementation "junit:junit:$ver.testJunit"
     androidTestImplementation "com.android.support.test:runner:$ver.testRunner"

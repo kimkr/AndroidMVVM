@@ -7,6 +7,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import io.github.kimkr.mvvmsample.di.component.DaggerAppComponent
 import io.github.kimkr.mvvmsample.di.modules.AppModule
+import io.github.kimkr.mvvmsample.di.modules.DataModule
 import javax.inject.Inject
 
 class App : Application(), HasActivityInjector {
@@ -19,6 +20,7 @@ class App : Application(), HasActivityInjector {
         DaggerAppComponent
                 .builder()
                 .appModule(AppModule(this))
+                .dataModule(DataModule(this))
                 .build().inject(this)
     }
 
