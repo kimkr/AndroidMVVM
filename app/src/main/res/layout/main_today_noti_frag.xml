@@ -1,0 +1,39 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dumi.svq_ver10.MainFragments.TodayNotiFragment">
+
+    <!--나중에 리스트뷰로 만들기-->
+
+    <!--설정 아이템들 감싸는 레이아웃-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/setting1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray">
+            <TextView
+                android:text="알림 확인"
+                android:layout_marginLeft="10dp"
+                android:padding="@dimen/side_list_padding"
+                android:fontFamily="@font/nanum_regular"
+                android:textColor="@color/main_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <ListView
+            android:id="@+id/nList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

@@ -1,0 +1,303 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dumi.svq_ver10.MainFragments.WeeklyFragment">
+
+    <!--설정 아이템들 감싸는 레이아웃-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/svq_app_bar">
+
+            <LinearLayout
+                android:id="@+id/setting1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_gray">
+                <TextView
+                    android:text="과제 진행 상태"
+                    android:fontFamily="@font/nanum_light"
+                    android:textColor="@color/main_black"
+                    android:layout_marginLeft="10dp"
+                    android:padding="@dimen/side_list_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/weekly_progress"
+                android:layout_below="@+id/setting1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/setting2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:text="0%"
+                            android:textColor="@color/main_black"
+                            android:fontFamily="@font/nanum_light"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:padding="5dp"
+                            android:layout_marginLeft="70dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <!-- 칸 나누는 선 -->
+                        <!--
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="40dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/main_color" />
+                        -->
+                        <TextView
+                            android:text="100%"
+                            android:fontFamily="@font/nanum_light"
+                            android:textColor="@color/main_black"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:padding="5dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"/>
+                    </RelativeLayout>
+                    <!--
+                    <View
+                        android:id="@+id/vert"
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="60dp"
+                        android:background="@color/main_color" />
+                    -->
+                    <!-- 월 -->
+                    <RelativeLayout
+                        android:id="@+id/mon_layout"
+                        android:layout_below="@+id/setting2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="월"
+                            android:textColor="@color/main_black"
+                            android:fontFamily="@font/nanum_light"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/list_padding"
+                            />
+                        <ProgressBar
+                            android:id="@+id/mon_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:padding="@dimen/list_padding"
+
+                            android:layout_marginLeft="60dp"
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_alignParentRight="true"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/rounded_corners_progress_bar"/>
+                    </RelativeLayout>
+
+                    <!-- 화 -->
+                    <RelativeLayout
+                        android:id="@+id/tue_layout"
+                        android:layout_below="@+id/mon_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="화"
+                            android:textColor="@color/main_black"
+                            android:fontFamily="@font/nanum_light"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/list_padding"
+                            />
+                        <ProgressBar
+                            android:id="@+id/tue_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:padding="@dimen/list_padding"
+                            android:layout_marginLeft="60dp"
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_alignParentRight="true"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/rounded_corners_progress_bar"/>
+                    </RelativeLayout>
+
+                    <!-- 수 -->
+                    <RelativeLayout
+                        android:id="@+id/wed_layout"
+                        android:layout_below="@+id/tue_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="수"
+                            android:textColor="@color/main_black"
+                            android:fontFamily="@font/nanum_light"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/list_padding"
+                            />
+                        <ProgressBar
+                            android:id="@+id/wed_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:padding="@dimen/list_padding"
+
+                            android:layout_marginLeft="60dp"
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_alignParentRight="true"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/rounded_corners_progress_bar"/>
+                    </RelativeLayout>
+
+                    <!-- 목 -->
+                    <RelativeLayout
+                        android:id="@+id/thur_layout"
+                        android:layout_below="@+id/wed_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="목"
+                            android:textColor="@color/main_black"
+                            android:fontFamily="@font/nanum_light"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/list_padding"
+                            />
+                        <ProgressBar
+                            android:id="@+id/thur_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:padding="@dimen/list_padding"
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_alignParentRight="true"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/rounded_corners_progress_bar"/>
+                    </RelativeLayout>
+
+                    <!-- 금 -->
+                    <RelativeLayout
+                        android:id="@+id/fri_layout"
+                        android:layout_below="@+id/thur_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="금"
+                            android:textColor="@color/main_black"
+                            android:fontFamily="@font/nanum_light"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/list_padding"
+                            />
+                        <ProgressBar
+                            android:id="@+id/fri_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:padding="@dimen/list_padding"
+
+                            android:layout_marginLeft="60dp"
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_alignParentRight="true"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/rounded_corners_progress_bar"/>
+                    </RelativeLayout>
+
+                    <!-- 토 -->
+                    <RelativeLayout
+                        android:id="@+id/sat_layout"
+                        android:layout_below="@+id/fri_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="토"
+                            android:textColor="@color/main_black"
+                            android:fontFamily="@font/nanum_light"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/list_padding"
+                            />
+                        <ProgressBar
+                            android:id="@+id/sat_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:padding="@dimen/list_padding"
+                            android:layout_marginLeft="60dp"
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_alignParentRight="true"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/rounded_corners_progress_bar"/>
+                    </RelativeLayout>
+
+                    <!-- 일 -->
+                    <RelativeLayout
+                        android:id="@+id/sun_layout"
+                        android:layout_below="@+id/sat_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="일"
+                            android:textColor="@color/main_black"
+                            android:fontFamily="@font/nanum_light"
+                            android:textSize="@dimen/weekly_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/list_padding"
+                            />
+                        <ProgressBar
+                            android:id="@+id/sun_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:padding="@dimen/list_padding"
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_alignParentRight="true"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/rounded_corners_progress_bar"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+            <!-- 밑에 텍스트로 기록 표시할 부 -->
+            <FrameLayout
+                android:layout_below="@+id/weekly_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </FrameLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

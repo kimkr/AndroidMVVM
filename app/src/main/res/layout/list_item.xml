@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/example1"
+            android:layout_below="@+id/setting1"
+            android:background="@drawable/textline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/nTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/list_padding"
+                android:layout_marginLeft="15dp"
+                android:text="10:00"
+                android:fontFamily="@font/nanum_regular"
+                android:textColor="@color/main_black"
+                android:textSize="@dimen/list_text_size" />
+
+            <TextView
+                android:id="@+id/nContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/nTime"
+                android:fontFamily="@font/nanum_light"
+                android:textColor="@color/main_black"
+                android:padding="@dimen/list_padding"
+                android:text="오늘 무슨 활동을 하셨나요?"
+                android:textSize="@dimen/list_text_size" />
+
+            <Button
+                android:id="@+id/nButton"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:text="입력"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/dark_gray"
+                android:fontFamily="@font/nanum_light"
+                android:textColor="@color/main_white"
+                android:textSize="10pt"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

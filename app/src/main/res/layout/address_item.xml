@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dumi.svq_ver10.Location.CheckableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/textline"
+    android:id="@+id/item_checkable_layout">
+
+    <!-- 주소 리스트 아이템 -->
+    <TextView
+        android:id="@+id/address_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="주소 아이템"
+        android:fontFamily="@font/nanum_regular"
+        android:maxLines="1"
+        android:textColor="@color/main_black"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/item_check"
+        android:layout_centerVertical="true"
+        android:textSize="9pt"
+        android:singleLine="true"
+        />
+
+    <CheckBox
+        android:id="@+id/item_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:layout_alignParentRight="true"
+        android:paddingRight="15dp"
+        android:focusable="false"
+        android:layout_centerVertical="true"
+        android:buttonTint="@color/main_black"
+        />
+
+</com.dumi.svq_ver10.Location.CheckableRelativeLayout>

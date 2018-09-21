@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/setting1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/light_gray">
+                        <TextView
+                            android:id="@+id/txt_last_month"
+                            android:text="2018.02"
+                            android:textSize="@dimen/list_text_size"
+                            android:layout_marginLeft="10dp"
+                            android:padding="@dimen/side_list_padding"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <!--과제 수행률 레이아웃-->
+                    <RelativeLayout
+                        android:id="@+id/progress_layout1"
+                        android:layout_below="@+id/setting1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/text1"
+                            android:text="과제 수행률"
+                            android:textSize="20dp"
+                            android:layout_marginTop="110dp"
+                            android:layout_marginLeft="40dp"
+                            android:textColor="@color/main_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_toRightOf="@+id/text1"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginLeft="40dp"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/circular_progress_bar"
+                            android:background="@drawable/circle_shape"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="65" />
+                        <TextView
+                            android:text="65%"
+                            android:textSize="50dp"
+                            android:layout_alignTop="@+id/text1"
+                            android:layout_toRightOf="@+id/text1"
+                            android:layout_marginLeft="90dp"
+                            android:textColor="@color/main_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </RelativeLayout>
+
+                    <!--긍정응답 레이아웃-->
+                    <RelativeLayout
+                        android:id="@+id/progress_layout2"
+                        android:layout_below="@+id/progress_layout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/text2"
+                            android:text="긍정 응답률"
+                            android:textSize="20dp"
+                            android:layout_marginTop="110dp"
+                            android:layout_marginLeft="40dp"
+                            android:textColor="@color/main_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <ProgressBar
+                            android:id="@+id/progressBar2"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_toRightOf="@+id/text2"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginLeft="40dp"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/circular_progress_bar"
+                            android:background="@drawable/circle_shape"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:max="100"
+                            android:progress="50" />
+                        <TextView
+                            android:text="50%"
+                            android:textSize="50dp"
+                            android:layout_alignTop="@+id/text2"
+                            android:layout_toRightOf="@+id/text2"
+                            android:layout_marginLeft="90dp"
+                            android:textColor="@color/main_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+        </LinearLayout>
+</FrameLayout>
+
+

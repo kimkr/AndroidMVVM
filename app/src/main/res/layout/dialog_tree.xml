@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="260dip"
+        android:layout_height="200dip"
+        android:background="#f1f1f1"
+        >
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:text="답변이 완료되었습니다."
+            android:paddingTop="40dp"
+            android:fontFamily="@font/nanum_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="9pt" />
+
+        <ImageView
+            android:id="@+id/popup_icon"
+            android:layout_below="@+id/txt_title"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/popup_icon"
+            />
+
+        <LinearLayout
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@color/main_color">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="확인"
+                android:fontFamily="@font/nanum_regular"
+                android:textSize="20sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_centerInParent="true"
+                android:textColor="@color/background"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

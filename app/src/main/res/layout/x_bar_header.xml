@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/background"
+    android:orientation="horizontal">
+
+    <!-- 현재화면표시 텍스트 -->
+    <TextView
+        android:id="@+id/header_title"
+        android:text="SVQ"
+        android:textSize="30dp"
+        android:textColor="@color/main_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center" />
+
+    <!-- 엑스 버튼 -->
+    <ImageButton
+        android:id="@+id/btn_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="17dp"
+        android:background="@drawable/btn_x" />
+
+
+</RelativeLayout>

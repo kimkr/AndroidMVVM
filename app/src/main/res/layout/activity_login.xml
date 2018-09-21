@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/main_white">
+        <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:text="SVQ"
+        android:fontFamily="@font/nanum_light"
+        android:textSize="16pt"
+        android:textColor="@color/main_black" />
+       <TextView
+           android:id="@+id/hi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="안녕하세요,"
+        android:fontFamily="@font/nanum_light"
+        android:textColor="@color/main_black"
+           android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="15pt"
+        />
+        <TextView
+            android:id="@+id/logintext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내담자 코드를 입력해주세요!"
+            android:fontFamily="@font/nanum_light"
+            android:textColor="@color/main_black"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/hi"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            android:textSize="12pt"
+            />
+    </RelativeLayout>
+
+
+
+    <EditText
+        android:id="@+id/edit_user_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:layout_above="@+id/btn_login"
+        android:singleLine="true"
+        android:hint=""
+        android:textColor="@color/main_black"
+        android:textSize="10pt"
+        android:visibility="invisible"
+        android:fontFamily="@font/nanum_light"
+        android:textCursorDrawable="@null"
+        android:backgroundTint="@color/main_white"
+        android:drawableBottom="@drawable/under"
+        />
+    <CheckBox
+        android:id="@+id/auto_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_login"
+        android:layout_marginLeft="50dp"
+        android:buttonTint="@color/main_black"
+        android:text="자동로그인"
+
+        android:visibility="invisible"
+        android:textSize="8pt"
+        android:fontFamily="@font/nanum_light"
+        android:textColor="@color/main_black"/>
+
+    <RelativeLayout
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"
+        android:background="@color/main_white">
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/startcircle"
+            android:layout_marginHorizontal="80dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="5dp"
+            android:text="시작하기"
+            android:fontFamily="@font/nanum_light"
+            android:textColor="@color/main_color"
+            android:textSize="10pt" />
+    </RelativeLayout>
+</LinearLayout>

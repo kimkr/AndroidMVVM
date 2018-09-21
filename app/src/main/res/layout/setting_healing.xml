@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--설정 아이템들 감싸는 레이아웃-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- header bar -->
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/svq_app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/x_bar_header" />
+
+            </android.support.design.widget.AppBarLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/svq_app_bar">
+
+                <LinearLayout
+                    android:id="@+id/setting1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_gray">
+                    <TextView
+                        android:text="치료 설정"
+                        android:fontFamily="@font/nanum_regular"
+                        android:textColor="@color/main_black"
+                        android:textSize="@dimen/list_text_size"
+                        android:layout_marginLeft="10dp"
+                        android:padding="@dimen/side_list_padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/heal_user_code"
+                    android:layout_below="@+id/setting1"
+                    android:background="@drawable/textline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/list_padding"
+                        android:text="치료자 코드"
+                        android:textColor="@color/main_black"
+                        android:fontFamily="@font/nanum_light"
+                        android:textSize="@dimen/list_text_size" />
+                    <TextView
+                        android:id="@+id/healusercode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:padding="@dimen/list_padding"
+                        android:text="치료자 코드"
+                        android:textColor="@color/main_black"
+                        android:fontFamily="@font/nanum_light"
+                        android:textSize="@dimen/list_text_size" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/heal_user_name"
+                    android:layout_below="@+id/heal_user_code"
+                    android:background="@drawable/textline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/list_padding"
+                        android:text="담당자"
+                        android:textColor="@color/main_black"
+                        android:fontFamily="@font/nanum_light"
+                        android:textSize="@dimen/list_text_size" />
+                    <TextView
+                        android:id="@+id/usermanager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:padding="@dimen/list_padding"
+                        android:text="담당자"
+                        android:textColor="@color/main_black"
+                        android:fontFamily="@font/nanum_light"
+                        android:textSize="@dimen/list_text_size" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+<!--
+        <RelativeLayout
+            android:id="@+id/stop_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/main_black"
+            >
+            <TextView
+                android:id="@+id/txt_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="치료중단"
+                android:fontFamily="@font/nanum_light"
+                android:textColor="@color/main_white"
+                android:textSize="25dp"
+                android:padding="10dp"
+                />
+
+        </RelativeLayout>
+        -->
+    </RelativeLayout>
+
+
+</RelativeLayout>

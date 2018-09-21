@@ -1,0 +1,188 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dumi.svq_ver10.MainFragments.SettingFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/setting1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray">
+            <TextView
+                android:text="계정 설정"
+                android:textSize="@dimen/list_text_size"
+                android:layout_marginLeft="10dp"
+                android:padding="@dimen/side_list_padding"
+                android:fontFamily="@font/nanum_regular"
+                android:textColor="@color/main_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- 계정정보 레이아웃 -->
+        <RelativeLayout
+            android:id="@+id/setting_info"
+            android:layout_below="@+id/setting1"
+            android:background="@drawable/textline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/list_padding"
+                android:text="계정 정보"
+                android:textColor="@color/main_black"
+                android:fontFamily="@font/nanum_light"
+                android:textSize="@dimen/list_text_size"
+                />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/btn_next"
+                />
+        </RelativeLayout>
+
+        <!-- 치료설정 레이아웃 -->
+        <RelativeLayout
+            android:id="@+id/setting_healing"
+            android:layout_below="@+id/setting_info"
+            android:background="@drawable/textline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/list_padding"
+                android:textColor="@color/main_black"
+                android:fontFamily="@font/nanum_light"
+                android:text="치료 설정"
+                android:textSize="@dimen/list_text_size" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/btn_next"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/setting2"
+            android:layout_below="@+id/setting_healing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray">
+            <TextView
+                android:text="권한 설정"
+                android:textColor="@color/main_black"
+                android:fontFamily="@font/nanum_regular"
+                android:textSize="@dimen/list_text_size"
+                android:layout_marginLeft="10dp"
+                android:padding="@dimen/side_list_padding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- 푸시알림 레이아웃 -->
+        <RelativeLayout
+            android:id="@+id/setting_push"
+            android:layout_below="@+id/setting2"
+            android:background="@drawable/textline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/list_padding"
+                android:text="푸시 알림"
+                android:textColor="@color/main_black"
+                android:fontFamily="@font/nanum_light"
+                android:textSize="@dimen/list_text_size" />
+
+            <Switch
+                android:id="@+id/setting_push_switch"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/CustomSwitch"
+                />
+
+        </RelativeLayout>
+
+        <!-- 위치정보서비스이용동의 레이아웃 -->
+        <RelativeLayout
+            android:id="@+id/setting_agree_loc"
+            android:layout_below="@+id/setting_push"
+            android:background="@drawable/textline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/list_padding"
+                android:text="위치 정보 서비스 이용 동의"
+                android:textColor="@color/main_black"
+                android:fontFamily="@font/nanum_light"
+                android:textSize="@dimen/list_text_size" />
+
+            <Switch
+                android:id="@+id/setting_agree_switch"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/CustomSwitch"
+                />
+
+        </RelativeLayout>
+
+        <!-- 위치정보수집설정 레이아웃 -->
+        <RelativeLayout
+            android:id="@+id/setting_loc_info"
+            android:layout_below="@+id/setting_agree_loc"
+            android:background="@drawable/textline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/list_padding"
+                android:text="위치 정보 수집 설정"
+                android:textColor="@color/main_black"
+                android:fontFamily="@font/nanum_light"
+                android:textSize="@dimen/list_text_size" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/btn_next"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>
