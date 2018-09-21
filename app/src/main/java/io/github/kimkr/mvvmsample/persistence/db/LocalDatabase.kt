@@ -4,12 +4,15 @@ import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import io.github.kimkr.mvvmsample.persistence.model.Post
 import io.github.kimkr.mvvmsample.persistence.model.User
 
-@Database(entities = arrayOf(User::class), version = 1)
+@Database(entities = arrayOf(User::class, Post::class), version = 1)
 abstract class LocalDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
+
+    abstract fun postDao(): PostDao
 
     companion object {
 

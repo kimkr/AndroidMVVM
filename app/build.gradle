@@ -34,6 +34,7 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:$ver.androidArchRoom"
     implementation "android.arch.lifecycle:viewmodel:$ver.androidArchLifeCycle"
     implementation "android.arch.lifecycle:extensions:$ver.androidArchLifeCycle"
+    implementation "android.arch.paging:runtime:$ver.androidArchPaging"
     // UI
     implementation "com.android.support.constraint:constraint-layout:$ver.uiConstraintLayout"
     // Dagger2
@@ -45,6 +46,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$ver.rx"
     implementation "io.reactivex.rxjava2:rxkotlin:$ver.rx"
     implementation "io.reactivex.rxjava2:rxandroid:$ver.rxAndroid"
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$ver.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$ver.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$ver.retrofit"
     // Test
     testImplementation "junit:junit:$ver.testJunit"
     androidTestImplementation "com.android.support.test:runner:$ver.testRunner"

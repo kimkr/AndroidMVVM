@@ -10,6 +10,7 @@ ext {
             androidTargetSdk    : 28,
             androidArchRoom     : '1.1.0',
             androidArchLifeCycle: '1.1.1',
+            androidArchPaging   : '1.0.0',
             //Test
             testJunit           : '4.12',
             testRunner          : '1.0.2',
@@ -18,6 +19,7 @@ ext {
             dagger2             : '2.13',
             rx                  : '2.2.0',
             rxAndroid           : '2.1.0',
+            retrofit            : '2.4.0',
             //UI
             uiConstraintLayout  : '1.1.3',
     ]

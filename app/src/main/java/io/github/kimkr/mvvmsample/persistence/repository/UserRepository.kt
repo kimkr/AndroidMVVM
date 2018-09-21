@@ -12,7 +12,8 @@ import javax.inject.Singleton
 @Singleton
 class UserRepository @Inject constructor(@Local private val localDataSource: UserDataSource,
                                          @Remote private val remoteDataSource: UserDataSource,
-                                         @Cache private val cacheDataSource: UserDataSource) : UserDataSource {
+                                         @Cache private val cacheDataSource: UserDataSource)
+    : UserDataSource, Repository {
 
     override fun getUserById(id: String): Flowable<User> {
         return localDataSource.getUserById(id)
