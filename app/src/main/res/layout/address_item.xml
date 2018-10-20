@@ -2,7 +2,7 @@
 <com.dumi.svq_ver10.Location.CheckableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@drawable/textline"
+    android:background="@drawable/line_gray_light"
     android:id="@+id/item_checkable_layout">
 
     <!-- 주소 리스트 아이템 -->
@@ -14,7 +14,7 @@
         android:text="주소 아이템"
         android:fontFamily="@font/nanum_regular"
         android:maxLines="1"
-        android:textColor="@color/main_black"
+        android:textColor="@color/black"
         android:layout_marginLeft="10dp"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/item_check"
@@ -32,7 +32,7 @@
         android:paddingRight="15dp"
         android:focusable="false"
         android:layout_centerVertical="true"
-        android:buttonTint="@color/main_black"
+        android:buttonTint="@color/black"
         />
 
 </com.dumi.svq_ver10.Location.CheckableRelativeLayout>

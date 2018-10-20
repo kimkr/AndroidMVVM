@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="six_pt">15sp</dimen>
-    <dimen name="seven_pt">17sp</dimen>
-    <dimen name="five_pt">13sp</dimen>
-    <dimen name="ten_pt">22sp</dimen>
-    <dimen name="eight_pt">20sp</dimen>
-    <dimen name="width_side_menu_shadow">15dp</dimen>
-    <dimen name="list_padding">20dp</dimen>
-    <dimen name="side_list_padding">5dp</dimen>
-    <dimen name="list_text_size">15sp</dimen>
-    <dimen name="big_text_size">25sp</dimen>
-    <dimen name="weekly_text_size">20sp</dimen>
+    <dimen name="text_micro">8sp</dimen>
+    <dimen name="text_small">15sp</dimen>
+    <dimen name="text_medium">17sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+    <dimen name="text_xlarge">22dp</dimen>
+    <dimen name="text_xxlarge">25dp</dimen>
+
+    <dimen name="dist_micro">4dp</dimen>
+    <dimen name="dist_small">8dp</dimen>
+    <dimen name="dist_medium">12dp</dimen>
+    <dimen name="dist_large">16dp</dimen>
+    <dimen name="dist_xlarge">20dp</dimen>
+    <dimen name="dist_xxlarge">32dp</dimen>
+    <dimen name="dist_xxxlarge">48dp</dimen>
+    <dimen name="dist_xxxxlarge">64dp</dimen>
+    <dimen name="dist_100">100dp</dimen>
 </resources>

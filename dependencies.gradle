@@ -4,10 +4,10 @@ ext {
             versionCode         : 1,
             versionName         : '1.0',
             //Android
-            androidCompileSdk   : 28,
-            androidSupport      : '28.0.0-rc02',
+            androidCompileSdk   : 27,
+            androidSupport      : '27.1.1',
             androidMinSdk       : 16,
-            androidTargetSdk    : 28,
+            androidTargetSdk    : 27,
             androidArchRoom     : '1.1.0',
             androidArchLifeCycle: '1.1.1',
             androidArchPaging   : '1.0.0',

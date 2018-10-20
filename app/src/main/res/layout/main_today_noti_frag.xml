@@ -18,13 +18,13 @@
             android:id="@+id/setting1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_gray">
+            android:background="@color/gray_light">
             <TextView
                 android:text="알림 확인"
                 android:layout_marginLeft="10dp"
-                android:padding="@dimen/side_list_padding"
+                android:padding="@dimen/dist_xlarge"
                 android:fontFamily="@font/nanum_regular"
-                android:textColor="@color/main_black"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

@@ -13,14 +13,14 @@
             android:id="@+id/setting1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_gray">
+            android:background="@color/gray_light">
             <TextView
                 android:text="계정 설정"
-                android:textSize="@dimen/list_text_size"
+
                 android:layout_marginLeft="10dp"
-                android:padding="@dimen/side_list_padding"
+                android:padding="@dimen/dist_xlarge"
                 android:fontFamily="@font/nanum_regular"
-                android:textColor="@color/main_black"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -29,18 +29,18 @@
         <RelativeLayout
             android:id="@+id/setting_info"
             android:layout_below="@+id/setting1"
-            android:background="@drawable/textline"
+            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/list_padding"
+                android:padding="@dimen/dist_xlarge"
                 android:text="계정 정보"
-                android:textColor="@color/main_black"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanum_light"
-                android:textSize="@dimen/list_text_size"
+
                 />
 
             <ImageView
@@ -49,7 +49,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/btn_next"
+                android:background="@drawable/ic_arrow_right"
                 />
         </RelativeLayout>
 
@@ -57,18 +57,18 @@
         <RelativeLayout
             android:id="@+id/setting_healing"
             android:layout_below="@+id/setting_info"
-            android:background="@drawable/textline"
+            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/list_padding"
-                android:textColor="@color/main_black"
+                android:padding="@dimen/dist_xlarge"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanum_light"
                 android:text="치료 설정"
-                android:textSize="@dimen/list_text_size" />
+                />
 
             <ImageView
                 android:layout_width="15dp"
@@ -76,7 +76,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/btn_next"
+                android:background="@drawable/ic_arrow_right"
                 />
         </RelativeLayout>
 
@@ -85,14 +85,14 @@
             android:layout_below="@+id/setting_healing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_gray">
+            android:background="@color/gray_light">
             <TextView
                 android:text="권한 설정"
-                android:textColor="@color/main_black"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanum_regular"
-                android:textSize="@dimen/list_text_size"
+
                 android:layout_marginLeft="10dp"
-                android:padding="@dimen/side_list_padding"
+                android:padding="@dimen/dist_xlarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -101,18 +101,18 @@
         <RelativeLayout
             android:id="@+id/setting_push"
             android:layout_below="@+id/setting2"
-            android:background="@drawable/textline"
+            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/list_padding"
+                android:padding="@dimen/dist_xlarge"
                 android:text="푸시 알림"
-                android:textColor="@color/main_black"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanum_light"
-                android:textSize="@dimen/list_text_size" />
+                />
 
             <Switch
                 android:id="@+id/setting_push_switch"
@@ -131,18 +131,18 @@
         <RelativeLayout
             android:id="@+id/setting_agree_loc"
             android:layout_below="@+id/setting_push"
-            android:background="@drawable/textline"
+            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/list_padding"
+                android:padding="@dimen/dist_xlarge"
                 android:text="위치 정보 서비스 이용 동의"
-                android:textColor="@color/main_black"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanum_light"
-                android:textSize="@dimen/list_text_size" />
+                />
 
             <Switch
                 android:id="@+id/setting_agree_switch"
@@ -161,18 +161,18 @@
         <RelativeLayout
             android:id="@+id/setting_loc_info"
             android:layout_below="@+id/setting_agree_loc"
-            android:background="@drawable/textline"
+            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/list_padding"
+                android:padding="@dimen/dist_xlarge"
                 android:text="위치 정보 수집 설정"
-                android:textColor="@color/main_black"
+                android:textColor="@color/black"
                 android:fontFamily="@font/nanum_light"
-                android:textSize="@dimen/list_text_size" />
+                />
 
             <ImageView
                 android:layout_width="15dp"
@@ -180,7 +180,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/btn_next"
+                android:background="@drawable/ic_arrow_right"
                 />
         </RelativeLayout>
     </RelativeLayout>

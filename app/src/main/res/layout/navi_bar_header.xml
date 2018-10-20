@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@color/main_color"
+    android:background="@color/purple"
     android:orientation="horizontal">
 
     <!-- 햄버거 버튼 -->
@@ -13,7 +13,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="17dp"
-        android:background="@drawable/btn_hamburger"
+        android:background="@drawable/ic_hamburger"
         android:scaleType="fitXY" />
 
     <!-- 현재화면표시 텍스트 -->
@@ -21,7 +21,7 @@
         android:id="@+id/header_title"
         android:text="SVQ"
         android:textSize="30dp"
-        android:textColor="@color/main_white"
+        android:textColor="@color/white"
         android:fontFamily="@font/nanum_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

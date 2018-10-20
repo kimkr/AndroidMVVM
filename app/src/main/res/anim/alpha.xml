@@ -11,5 +11,5 @@
         android:duration="2000"
         android:fillAfter="true"
         android:fromXDelta="0"
-        android:toXDelta="-50%" />
+        android:toXDelta="-50%"></translate>
 </set>

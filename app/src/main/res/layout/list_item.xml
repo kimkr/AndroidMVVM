@@ -10,7 +10,7 @@
         <RelativeLayout
             android:id="@+id/example1"
             android:layout_below="@+id/setting1"
-            android:background="@drawable/textline"
+            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -18,12 +18,12 @@
                 android:id="@+id/nTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/list_padding"
+                android:paddingVertical="@dimen/dist_xlarge"
                 android:layout_marginLeft="15dp"
                 android:text="10:00"
                 android:fontFamily="@font/nanum_regular"
-                android:textColor="@color/main_black"
-                android:textSize="@dimen/list_text_size" />
+                android:textColor="@color/black"
+                />
 
             <TextView
                 android:id="@+id/nContent"
@@ -31,10 +31,10 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/nTime"
                 android:fontFamily="@font/nanum_light"
-                android:textColor="@color/main_black"
-                android:padding="@dimen/list_padding"
+                android:textColor="@color/black"
+                android:padding="@dimen/dist_xlarge"
                 android:text="오늘 무슨 활동을 하셨나요?"
-                android:textSize="@dimen/list_text_size" />
+                />
 
             <Button
                 android:id="@+id/nButton"
@@ -43,9 +43,9 @@
                 android:text="입력"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@color/dark_gray"
+                android:background="@color/gray_dark"
                 android:fontFamily="@font/nanum_light"
-                android:textColor="@color/main_white"
+                android:textColor="@color/white"
                 android:textSize="10pt"
                 />
 

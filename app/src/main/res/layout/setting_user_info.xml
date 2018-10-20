@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer">
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!--설정 아이템들 감싸는 레이아웃-->
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <!-- header bar -->
             <android.support.design.widget.AppBarLayout
-                android:id="@+id/svq_app_bar"
+                android:id="@+id/app_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <include layout="@layout/x_bar_header" />
+                <include layout="@layout/layout_app_bar" />
 
             </android.support.design.widget.AppBarLayout>
 
@@ -28,182 +28,177 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/svq_app_bar">
+                android:layout_below="@+id/app_bar">
 
                 <LinearLayout
                     android:id="@+id/setting1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/light_gray">
+                    android:background="@color/gray_light">
+
                     <TextView
-                        android:text="계정 정보"
-                        android:textSize="@dimen/list_text_size"
-                        android:layout_marginLeft="10dp"
-                        android:padding="@dimen/side_list_padding"
-                        android:fontFamily="@font/nanum_regular"
-                        android:textColor="@color/main_black"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nanum_regular"
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="계정 정보"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <RelativeLayout
                     android:id="@+id/user_name"
-                    android:layout_below="@+id/setting1"
-                    android:background="@drawable/textline"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/setting1"
+                    android:background="@drawable/line_gray_light">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/list_padding"
-                        android:text="이름"
-
                         android:fontFamily="@font/nanum_regular"
-                        android:textSize="@dimen/list_text_size" />
+                        android:padding="@dimen/dist_xlarge"
+
+                        android:text="이름" />
+
                     <TextView
                         android:id="@+id/username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:padding="@dimen/list_padding"
-                        android:text="이름"
-
                         android:fontFamily="@font/nanum_light"
-                        android:textSize="@dimen/list_text_size" />
+                        android:gravity="right"
+                        android:padding="@dimen/dist_xlarge"
+
+                        android:text="이름" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/user_email"
-                    android:layout_below="@+id/user_name"
-                    android:background="@drawable/textline"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_name"
+                    android:background="@drawable/line_gray_light">
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/list_padding"
-                        android:text="이메일"
-
                         android:fontFamily="@font/nanum_regular"
-                        android:textSize="@dimen/list_text_size" />
+                        android:padding="@dimen/dist_xlarge"
+
+                        android:text="이메일" />
+
                     <TextView
                         android:id="@+id/useremail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:padding="@dimen/list_padding"
-                        android:text="이름"
                         android:fontFamily="@font/nanum_light"
-                        android:textSize="@dimen/list_text_size" />
+                        android:gravity="right"
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="이름" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/user_phone"
-                    android:layout_below="@+id/user_email"
-                    android:background="@drawable/textline"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_email"
+                    android:background="@drawable/line_gray_light">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/list_padding"
-                        android:text="연락처"
                         android:fontFamily="@font/nanum_regular"
-                        android:textSize="@dimen/list_text_size" />
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="연락처" />
+
                     <TextView
                         android:id="@+id/userphone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:padding="@dimen/list_padding"
-                        android:text="이름"
                         android:fontFamily="@font/nanum_light"
-                        android:textSize="@dimen/list_text_size" />
+                        android:gravity="right"
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="이름" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/user_gender"
-                    android:layout_below="@+id/user_phone"
-                    android:background="@drawable/textline"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_phone"
+                    android:background="@drawable/line_gray_light">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/list_padding"
-                        android:text="성별"
-
                         android:fontFamily="@font/nanum_regular"
-                        android:textSize="@dimen/list_text_size" />
+                        android:padding="@dimen/dist_xlarge"
+
+                        android:text="성별" />
+
                     <TextView
                         android:id="@+id/usergender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:padding="@dimen/list_padding"
-                        android:text="이름"
                         android:fontFamily="@font/nanum_light"
-                        android:textSize="@dimen/list_text_size" />
+                        android:gravity="right"
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="이름" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/user_birth"
-                    android:layout_below="@+id/user_gender"
-                    android:background="@drawable/textline"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_gender"
+                    android:background="@drawable/line_gray_light">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/list_padding"
-                        android:text="생년월일"
                         android:fontFamily="@font/nanum_regular"
-                        android:textSize="@dimen/list_text_size" />
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="생년월일" />
+
                     <TextView
                         android:id="@+id/userbirth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:padding="@dimen/list_padding"
                         android:fontFamily="@font/nanum_light"
-                        android:text="이름"
-                        android:textSize="@dimen/list_text_size" />
+                        android:gravity="right"
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="이름" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/user_loc_layout"
-                    android:layout_below="@+id/user_birth"
-                    android:background="@drawable/textline"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_birth"
+                    android:background="@drawable/line_gray_light">
 
                     <TextView
                         android:id="@+id/txt_user_loc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/list_padding"
                         android:fontFamily="@font/nanum_regular"
-                        android:text="사용자 위치"
-                        android:textSize="@dimen/list_text_size" />
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="사용자 위치" />
 
                     <TextView
                         android:id="@+id/loc_data_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="위치"
                         android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
                         android:layout_toLeftOf="@+id/btn_right"
                         android:fontFamily="@font/nanum_light"
-                        android:layout_marginRight="10dp"
                         android:padding="5dp"
-                        android:textSize="@dimen/list_text_size"
+                        android:text="위치"
+
                         />
 
                     <ImageView
@@ -213,8 +208,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="30dp"
-                        android:background="@drawable/btn_next"
-                        />
+                        android:background="@drawable/ic_arrow_right" />
 
                 </RelativeLayout>
             </RelativeLayout>
@@ -225,17 +219,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/main_black"
-            >
+            android:background="@color/black">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="로그아웃"
-                android:textColor="@color/background"
-                android:textSize="@dimen/big_text_size"
                 android:padding="10dp"
-                />
+                android:text="로그아웃"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_xxlarge" />
 
         </RelativeLayout>
 
@@ -247,6 +240,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/activity_ham_menu" />
+        app:headerLayout="@layout/layout_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

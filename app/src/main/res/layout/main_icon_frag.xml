@@ -10,7 +10,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/main_color">
+                android:background="@color/purple">
 
                 <TextView
                     android:id="@+id/text_rate"
@@ -18,7 +18,7 @@
                     android:text="이번주 과제 달성률"
                     android:textSize="25dp"
                     android:padding="30dp"
-                    android:textColor="@color/main_white"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/nanum_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"/>
@@ -29,15 +29,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:background="@color/main_white">
+                android:background="@color/white">
                 <TextView
                     android:layout_height="25dp"
                     android:layout_width="match_parent"
                     android:text=""
-                    android:background="@color/light_gray"
+                    android:background="@color/gray_light"
                     android:fontFamily="@font/nanum_regular"
                     android:textSize="20dp"
-                    android:textColor="@color/main_black"/>
+                    android:textColor="@color/black"/>
 
                 <FrameLayout
                     android:layout_width="200dp"
@@ -51,7 +51,7 @@
                         android:text="89%"
                         android:textSize="18pt"
                         android:fontFamily="@font/nanum_light"
-                        android:textColor="@color/main_black"
+                        android:textColor="@color/black"
                         android:layout_marginHorizontal="30dp"
                         android:layout_gravity="center"/>
                     <ProgressBar
@@ -62,10 +62,10 @@
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
                         android:layout_gravity="center"
-                        android:background="@drawable/circle"
+                        android:background="@drawable/pb_circle_purple"
                         android:max="100"
                         android:progress="89"
-                        android:progressDrawable="@drawable/circle"
+                        android:progressDrawable="@drawable/pb_circle_purple"
                         android:secondaryProgress="100" />
                 </FrameLayout>
 
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1"
-                    android:background="@color/main_white">
+                    android:background="@color/white">
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                         android:layout_height="30dp"
                         android:layout_alignStart="@+id/line1"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/alram"/>
+                        android:src="@drawable/ic_send"/>
                     <TextView
                         android:id="@+id/text_alram"
                         android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                         android:layout_toRightOf="@+id/alram"
                         android:layout_marginLeft="20dp"
                         android:fontFamily="@font/nanum_light"
-                        android:textColor="@color/main_black"
+                        android:textColor="@color/black"
                         android:textSize="25dp"
                         />
                         <ImageView
@@ -103,11 +103,11 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:layout_marginHorizontal="40dp"
-                            android:src="@drawable/mainline"
+                            android:src="@drawable/ic_line_black"
                             android:layout_marginTop="15dp"
                             android:layout_marginBottom="15dp"
                             android:layout_below="@+id/alram"
-                            android:background="@drawable/mainline"
+                            android:background="@drawable/ic_line_black"
                             />
 
                         <TextView
@@ -119,7 +119,7 @@
                             android:layout_toRightOf="@+id/check"
                             android:layout_below="@+id/line1"
                             android:fontFamily="@font/nanum_light"
-                            android:textColor="@color/main_black"
+                            android:textColor="@color/black"
                             android:textSize="25dp"
                             />
                         <ImageView
@@ -129,18 +129,18 @@
                             android:layout_height="30dp"
                             android:layout_marginLeft="10dp"
                             android:layout_below="@+id/line1"
-                            android:src="@drawable/check"/>
+                            android:src="@drawable/ic_check_circle"/>
 
                         <ImageView
                             android:id="@+id/line2"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:layout_marginHorizontal="40dp"
-                            android:src="@drawable/mainline"
+                            android:src="@drawable/ic_line_black"
                             android:layout_marginTop="15dp"
                             android:layout_marginBottom="15dp"
                             android:layout_below="@+id/check"
-                            android:background="@drawable/mainline"
+                            android:background="@drawable/ic_line_black"
                             />
                         <ImageView
                             android:id="@+id/setting"
@@ -149,17 +149,17 @@
                             android:layout_below="@+id/line2"
                             android:layout_alignStart="@+id/line2"
                             android:layout_marginLeft="10dp"
-                            android:src="@drawable/setting"/>
+                            android:src="@drawable/ic_setting_purple"/>
                         <ImageView
                             android:id="@+id/line3"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
                             android:layout_marginHorizontal="40dp"
-                            android:src="@drawable/mainline"
+                            android:src="@drawable/ic_line_black"
                             android:layout_marginTop="15dp"
                             android:layout_marginBottom="15dp"
                             android:layout_below="@+id/setting"
-                            android:background="@drawable/mainline"
+                            android:background="@drawable/ic_line_black"
                             />
                         <TextView
                             android:id="@+id/text_setting"
@@ -170,7 +170,7 @@
                             android:layout_below="@+id/line2"
                             android:layout_marginLeft="20dp"
                             android:fontFamily="@font/nanum_light"
-                            android:textColor="@color/main_black"
+                            android:textColor="@color/black"
                             android:textSize="25dp"
                             />
                         <ImageView
@@ -181,7 +181,7 @@
                             android:layout_alignStart="@+id/line3"
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
-                            android:src="@drawable/pro"/>
+                            android:src="@drawable/ic_profile"/>
                         <TextView
                             android:id="@+id/text_pro"
                             android:layout_width="match_parent"
@@ -191,7 +191,7 @@
                             android:layout_below="@+id/line3"
                             android:layout_marginLeft="20dp"
                             android:fontFamily="@font/nanum_light"
-                            android:textColor="@color/main_black"
+                            android:textColor="@color/black"
                             android:textSize="25dp"
                             />
                     </RelativeLayout>

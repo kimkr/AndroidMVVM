@@ -1,4 +1,75 @@
 <resources>
-    <string name="app_name">SVQ_ver1.0</string>
+    <string name="app_name">SVQ</string>
     <string name="api_url">https://newsapi.org</string>
+    <string name="always_allow">항상 허용</string>
+    <string name="bad">나쁨</string>
+    <string name="cancel">취소</string>
+    <string name="choose_current">현재 위치로 설정</string>
+    <string name="choose_location">선택한 위치로 설정</string>
+    <string name="complete">완료</string>
+    <string name="complete_setting">설정 완료</string>
+    <string name="confirm">확인</string>
+    <string name="current_location">현재위치</string>
+    <string name="good">좋음</string>
+    <string name="my_profile">내 정보 보기</string>
+    <string name="name_hint">홍길동 님</string>
+    <string name="new_task">새로운 과제</string>
+    <string name="notification_check">알림 확인</string>
+    <string name="question_mark">Q.</string>
+    <string name="question_title">지금 기분이 어떠신가요?</string>
+    <string name="recent_search">최근 검색</string>
+    <string name="search_result">검색 결과</string>
+    <string name="self_check">자가 점검</string>
+    <string name="setting">설정</string>
+    <string name="today_notification">오늘의 알림</string>
+    <string name="weekly_check">일주일 점검</string>
+    <string name="back_button_exit_guide">뒤로 버튼을 한 번 더 누르시면 종료됩니다.</string>
+    <string name="loading">로딩중</string>
+    <string name="loading_login">로그인중입니다.</string>
+
+    <string name="login_app_name">SVQ</string>
+    <string name="login_hello">안녕하세요,</string>
+    <string name="login_enter_code_guide">내담자 코드를 입력해주세요!</string>
+    <string name="login_auto_login">자동로그인</string>
+    <string name="login_start">시작하기</string>
+    <string name="logout_ask_confirm">로그아웃 하시겠습니까?</string>
+    <string name="forgot_code">내담자 코드를 잊으신 경우 담당자에 문의해주세요</string>
+    <string name="done_location">나의 위치가 설정되었습니다.</string>
+    <string name="done_answer">답변이 완료되었습니다.</string>
+    <string name="question_title_hint">오늘 무슨 활동을 하셨나요?</string>
+    <string name="question_enter_answer">입력</string>
+    <string name="question_time_hint">10:00</string>
+
+    <string name="task_weekly_progress_rate">이번주 과제 달성률</string>
+    <string name="task_progress_rate">과제 수행률</string>
+    <string name="task_positive_state">과제 진행 상태</string>
+    <string name="answer_positive_rate">긍정 응답률</string>
+
+    <string name="setting_account">계정 설정</string>
+    <string name="setting_profile">계정 정보</string>
+    <string name="setting_healing">치료 설정</string>
+    <string name="setting_healing_patient">치료자 코드</string>
+    <string name="setting_healing_protector">담당자</string>
+    <string name="setting_permission">권한 설정</string>
+    <string name="setting_notification">푸시 알림</string>
+    <string name="setting_check_location">위치 정보 서비스 이용 동의</string>
+    <string name="setting_location">위치 정보 수집 설정</string>
+    <string name="setting_location_time">수집 시간 설정</string>
+    <string name="setting_location_time_span">위치 수집 시간대</string>
+    <string name="setting_location_time_interval">위치 수집 간격</string>
+    <string name="setting_location_time_unit">분</string>
+
+    <string name="setting_profile_name">이름</string>
+    <string name="setting_profile_email">이메일</string>
+    <string name="setting_profile_contact">연락처</string>
+    <string name="setting_profile_gender">성별</string>
+    <string name="setting_profile_dob">생년월일</string>
+    <string name="setting_profile_user_location">사용자 위치</string>
+    <string name="setting_profile_location">위치</string>
+    <string name="setting_profile_logout">로그아웃</string>
+
+    <string name="location_input_hint">지번, 도로명, 건물명으로 찾기</string>
+    <string name="location_permission_request_title">과제 추적을 위해서는 위치 서비스에 대한 액세스가 필요합니다.</string>
+    <string name="location_permission_request_desc">이 앱에는 위치 권한이 필요합니다.</string>
+    <string name="location_permission_denied">이 앱에는 \'내 위치\'계층을 사용하도록 위치 권한이 필요합니다. 다시 시도하고 위치 사용 권한을 부여하십시오.\n 권한이 영구적으로 거부 된 경우 시스템 설정 &gt; 앱 &gt; \'SVQ_ver1.0\'</string>
 </resources>

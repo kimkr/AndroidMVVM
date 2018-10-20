@@ -1,114 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_layout"
+    android:id="@+id/ll_login_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_white"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/main_white">
+        android:background="@color/white">
+
         <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:text="SVQ"
-        android:fontFamily="@font/nanum_light"
-        android:textSize="16pt"
-        android:textColor="@color/main_black" />
-       <TextView
-           android:id="@+id/hi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="안녕하세요,"
-        android:fontFamily="@font/nanum_light"
-        android:textColor="@color/main_black"
-           android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="15pt"
-        />
-        <TextView
-            android:id="@+id/logintext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="내담자 코드를 입력해주세요!"
-            android:fontFamily="@font/nanum_light"
-            android:textColor="@color/main_black"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/dist_medium"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium" />
+
+        <TextView
+            android:id="@+id/tv_login_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/hi"
-            android:layout_marginTop="10dp"
-            android:visibility="invisible"
-            android:textSize="12pt"
-            />
+            android:layout_centerVertical="true"
+            android:text="@string/login_hello"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_small" />
+
+        <TextView
+            android:id="@+id/tv_login_code_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_login_greeting"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dist_small"
+            android:text="@string/login_enter_code_guide"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium"
+            android:visibility="invisible" />
+
     </RelativeLayout>
 
-
-
     <EditText
-        android:id="@+id/edit_user_id"
+        android:id="@+id/et_login_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="@dimen/dist_xxxlarge"
+        android:layout_marginTop="@dimen/dist_xxxlarge"
+        android:backgroundTint="@color/white"
+        android:drawableBottom="@drawable/ic_line_purple"
         android:gravity="center"
+        android:hint=""
         android:imeOptions="actionDone"
         android:maxLines="1"
-        android:layout_above="@+id/btn_login"
         android:singleLine="true"
-        android:hint=""
-        android:textColor="@color/main_black"
-        android:textSize="10pt"
-        android:visibility="invisible"
-        android:fontFamily="@font/nanum_light"
+        android:textColor="@color/black"
         android:textCursorDrawable="@null"
-        android:backgroundTint="@color/main_white"
-        android:drawableBottom="@drawable/under"
-        />
+        android:textSize="@dimen/text_small"
+        android:visibility="invisible" />
+
     <CheckBox
-        android:id="@+id/auto_login"
+        android:id="@+id/cb_login_auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_login"
-        android:layout_marginLeft="50dp"
-        android:buttonTint="@color/main_black"
-        android:text="자동로그인"
-
-        android:visibility="invisible"
-        android:textSize="8pt"
-        android:fontFamily="@font/nanum_light"
-        android:textColor="@color/main_black"/>
+        android:layout_marginLeft="@dimen/dist_xxxlarge"
+        android:buttonTint="@color/black"
+        android:text="@string/login_auto_login"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_micro"
+        android:visibility="invisible" />
 
     <RelativeLayout
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginVertical="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:visibility="invisible"
-        android:background="@color/main_white">
+        android:layout_marginVertical="@dimen/dist_xxlarge"
+        android:background="@color/white"
+        android:visibility="invisible">
+
         <ImageView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/startcircle"
-            android:layout_marginHorizontal="80dp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dist_xxxxlarge"
+            android:src="@drawable/ic_round_button_purple" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:padding="5dp"
-            android:text="시작하기"
-            android:fontFamily="@font/nanum_light"
-            android:textColor="@color/main_color"
-            android:textSize="10pt" />
+            android:padding="@dimen/dist_micro"
+            android:text="@string/login_start"
+            android:textColor="@color/purple"
+            android:textSize="@dimen/text_medium" />
     </RelativeLayout>
+
 </LinearLayout>

@@ -1,183 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/root_layout"
-    android:background="@color/background"
-    tools:context="com.dumi.svq_ver10.Location.LocationActivity">
+    android:background="@color/white">
 
     <!-- header bar -->
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/svq_app_bar"
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include layout="@layout/x_bar_header" />
+        <include layout="@layout/layout_app_bar" />
 
     </android.support.design.widget.AppBarLayout>
 
     <!-- input layout -->
     <RelativeLayout
-        android:id="@+id/input_layout"
-        android:layout_below="@+id/svq_app_bar"
+        android:id="@+id/rl_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar">
 
         <ImageButton
             android:id="@+id/btn_search"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="6dp"
+            android:layout_width="@dimen/dist_xxlarge"
+            android:layout_height="@dimen/dist_xxlarge"
             android:layout_alignParentRight="true"
-            android:background="@drawable/btn_search"
-            android:layout_marginRight="15dp"
-            />
+            android:layout_marginRight="@dimen/dist_large"
+            android:layout_marginTop="@dimen/dist_small"
+            android:background="@drawable/ic_search" />
 
         <EditText
-            android:id="@+id/edit_address"
+            android:id="@+id/et_address"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/btn_gps"
-            android:background="@drawable/line_edit_bottom"
-            android:layout_marginLeft="10dp"
-            android:ems="10"
             android:layout_centerVertical="true"
-            android:hint="지번, 도로명, 건물명으로 찾기"
-            android:fontFamily="@font/nanum_light"
+            android:layout_marginBottom="@dimen/dist_xlarge"
+            android:layout_marginLeft="@dimen/dist_medium"
+            android:layout_toRightOf="@+id/btn_gps"
+            android:background="@drawable/line_white"
+            android:ems="10"
+            android:hint="@string/location_input_hint"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:paddingLeft="30dp"
-            android:paddingRight="50dp"
+            android:paddingLeft="@dimen/dist_xlarge"
+            android:paddingRight="@dimen/dist_xxlarge"
             android:textColor="#000000"
-            android:layout_marginBottom="25dp"
-            android:textColorHint="@color/main_black"
-            android:textSize="8pt" />
+            android:textColorHint="@color/black"
+            android:textSize="@dimen/text_micro" />
+
         <ImageView
             android:id="@+id/under0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_address"
-            android:src="@drawable/mainline" />
+            android:layout_below="@+id/et_address"
+            android:src="@drawable/ic_line_black" />
 
         <ImageButton
             android:id="@+id/btn_gps"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/btn_map"
+            android:layout_width="@dimen/dist_xxlarge"
+            android:layout_height="@dimen/dist_xxlarge"
             android:layout_alignParentLeft="true"
-            />
+            android:layout_marginLeft="@dimen/dist_medium"
+            android:layout_marginTop="@dimen/dist_micro"
+            android:background="@drawable/ic_current_location" />
     </RelativeLayout>
 
     <!-- 주소 리스트 -->
     <LinearLayout
-        android:id="@+id/view_list"
+        android:id="@+id/ll_address"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/rl_input"
+        android:layout_marginTop="@dimen/dist_micro"
+        android:background="@color/white"
         android:orientation="vertical"
-        android:layout_below="@id/input_layout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:background="#ffffff"
-        android:visibility="visible"
-        android:layout_marginTop="5dp">
+        android:visibility="visible">
+
         <LinearLayout
-            android:id="@+id/result1"
-            android:visibility="invisible"
+            android:id="@+id/ll_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_gray">
+            android:background="@color/gray_light"
+            android:visibility="invisible">
+
             <TextView
-                android:text="검색 결과"
-                android:textSize="@dimen/list_text_size"
-                android:layout_marginLeft="10dp"
-                android:padding="@dimen/side_list_padding"
-                android:fontFamily="@font/nanum_regular"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dist_medium"
+                android:padding="@dimen/dist_xlarge"
+                android:text="검색 결과" />
         </LinearLayout>
+
         <ListView
-            android:id="@+id/list_address_result"
+            android:id="@+id/lv_address_result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/set_loc_layout"
-            android:divider="#dcdcdc"
-            android:dividerHeight="1dp"
             android:layout_weight="1"
-            android:visibility="visible"
-            android:choiceMode="singleChoice"/>
+            android:choiceMode="singleChoice"
+            android:divider="@color/gray_light"
+            android:dividerHeight="1dp"
+            android:visibility="visible" />
 
         <RelativeLayout
-            android:id="@+id/set_loc_layout"
+            android:id="@+id/rl_set_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:layout_alignParentBottom="true"
-            android:background="@color/main_color">
+            android:background="@color/purple"
+            android:visibility="invisible">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:padding="12dp"
                 android:fontFamily="@font/nanum_regular"
+                android:padding="@dimen/dist_medium"
                 android:text="선택한 위치로 설정"
-                android:textColor="@color/background"
-                android:textSize="10pt" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_micro" />
         </RelativeLayout>
 
     </LinearLayout>
 
-
     <!-- 지도 레이아웃 -->
     <RelativeLayout
-        android:id="@+id/view_map"
+        android:id="@+id/rl_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/input_layout"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:background="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_below="@id/rl_input"
+        android:background="@color/white"
         android:visibility="invisible">
 
         <fragment
             android:id="@+id/map_fragment"
+            class="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:layout_alignParentTop="true"
-            class="com.google.android.gms.maps.MapFragment"
-            />
-
+            android:layout_alignParentTop="true" />
 
         <TextView
-            android:id="@+id/text_address"
+            android:id="@+id/tv_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/list_padding"
-            android:text="현재위치"
-            android:textSize="@dimen/list_text_size"
             android:layout_below="@+id/map_fragment"
-            android:background="@drawable/textline"
-            />
+            android:background="@drawable/line_gray_light"
+            android:padding="@dimen/dist_xlarge"
+            android:text="@string/current_location" />
 
         <RelativeLayout
-            android:id="@+id/set_current_loc_layout"
+            android:id="@+id/rl_choose_current"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
             android:layout_alignParentBottom="true"
-            android:background="@color/main_color">
+            android:background="@color/purple"
+            android:visibility="invisible">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:padding="10dp"
                 android:fontFamily="@font/nanum_light"
-                android:text="현재 위치로 설정"
-                android:textColor="@color/background"
-                android:textSize="25sp" />
+                android:padding="@dimen/dist_small"
+                android:text="@string/choose_current"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_xxlarge" />
         </RelativeLayout>
 
     </RelativeLayout>
@@ -189,21 +178,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/view_list"
         android:orientation="vertical"
-        android:visibility="invisible"
-        >
+        android:visibility="invisible">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_gray">
+            android:background="@color/gray_light">
 
             <TextView
-                android:text="최근 검색"
-                android:textSize="@dimen/list_text_size"
-                android:layout_marginLeft="10dp"
-                android:padding="@dimen/side_list_padding"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:padding="@dimen/dist_xlarge"
+                android:text="최근 검색" />
         </LinearLayout>
 
         <TextView
@@ -211,12 +198,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="@dimen/six_pt" />
+            android:textSize="@dimen/text_small" />
 
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/loading_view"
+        android:id="@+id/pb_loading"
         style="@android:style/Widget.Holo.Light.ProgressBar.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
