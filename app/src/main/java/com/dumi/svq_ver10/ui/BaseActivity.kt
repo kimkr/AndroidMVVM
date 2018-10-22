@@ -4,6 +4,8 @@ import android.app.Fragment
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.AnimRes
 import android.support.v7.app.AppCompatActivity
@@ -21,12 +23,19 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private val BACK_PRESS_INTERVAL: Long = 2000
     private var prevBackPressed: Long = 0
+    protected lateinit var binding: ViewDataBinding
 
     abstract fun getLayout(): Int
 
+    abstract fun useDataBinding(): Boolean
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayout())
+        if (!useDataBinding()) {
+            setContentView(getLayout())
+        } else {
+            binding = DataBindingUtil.setContentView<ViewDataBinding>(this, getLayout())
+        }
     }
 
     override fun onBackPressed() {
@@ -69,11 +78,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun navigateTo(target: Class<out Any>) {
         val intent = Intent(this, target)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()
     }
 
-    protected fun hideKeyboard(et: EditText) : Boolean {
+    protected fun hideKeyboard(et: EditText): Boolean {
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(et.windowToken, 0)
         return true
@@ -81,10 +91,10 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun onEnterHideKeyboard(et: EditText) {
         et.setOnEditorActionListener { _, action, _ ->
-                when (action) {
-                    EditorInfo.IME_ACTION_DONE -> hideKeyboard(et)
-                    else -> false
-                }
+            when (action) {
+                EditorInfo.IME_ACTION_DONE -> hideKeyboard(et)
+                else -> false
+            }
         }
     }
 

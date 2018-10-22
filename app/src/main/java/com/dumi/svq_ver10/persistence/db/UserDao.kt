@@ -18,4 +18,7 @@ interface UserDao : UserDataSource {
 
     @Query("DELETE FROM Users")
     override fun deleteAllUsers()
+
+    @Query("SELECT * FROM Users LIMIT 1")
+    override fun getUser(): Maybe<User>
 }

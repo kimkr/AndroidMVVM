@@ -1,7 +1,5 @@
 package com.dumi.svq_ver10.persistence.db
 
-import dagger.Binds
-import dagger.Module
 import com.dumi.svq_ver10.di.qualifier.Cache
 import com.dumi.svq_ver10.di.qualifier.Local
 import com.dumi.svq_ver10.di.qualifier.Remote
@@ -11,6 +9,8 @@ import com.dumi.svq_ver10.persistence.cache.UserCache
 import com.dumi.svq_ver10.persistence.cache.UserService
 import com.dumi.svq_ver10.persistence.sources.PostDataSource
 import com.dumi.svq_ver10.persistence.sources.UserDataSource
+import dagger.Binds
+import dagger.Module
 
 @Module
 abstract class RepositoryModule {
@@ -38,4 +38,12 @@ abstract class RepositoryModule {
     @Binds
     @Remote
     abstract fun provideRemotePostDatabase(postService: PostService): PostDataSource
+
+//    @Binds
+//    @Local
+//    abstract fun provideLocalLocationDatabase(locationPreferences: LocationPreferences): LocationDataSource
+//
+//    @Binds
+//    @Local
+//    abstract fun provideRemoteLocationDatabase(locationService: LocationService): LocationDataSource
 }

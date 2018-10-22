@@ -1,13 +1,13 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/purple</item>
         <item name="colorPrimaryDark">@color/purple_dark</item>
         <item name="colorAccent">@color/yellow</item>
-        <item name="android:textColor">@color/text</item>
-        <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:fontFamily">@font/nanum_light</item>
-        <item name="fontFamily">@font/nanum_light</item>
+        <item name="android:textViewStyle">@style/AppTextStyle</item>
+        <item name="editTextStyle">@style/AppEditTextStyle</item>
     </style>
 
     <style name="CustomSwitch" parent="Theme.AppCompat.Light">
@@ -18,9 +18,19 @@
         <item name="android:fontFamily">@font/nanum_light</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="AppTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_xxlarge</item>
+        <item name="android:fontFamily">@font/nanum_light</item>
+        <item name="fontFamily">@font/nanum_light</item>
+    </style>
+
+    <style name="AppEditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_xxlarge</item>
+        <item name="android:fontFamily">@font/nanum_light</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="fontFamily">@font/nanum_light</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

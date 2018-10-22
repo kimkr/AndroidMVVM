@@ -8,6 +8,9 @@ import javax.inject.Singleton
 
 @Singleton
 class UserCache @Inject constructor() : UserDataSource {
+    override fun getUser(): Maybe<User> {
+        return Maybe.empty()
+    }
 
     override fun getUserById(id: String): Maybe<User> {
         return Maybe.empty()

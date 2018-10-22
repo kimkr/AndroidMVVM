@@ -18,6 +18,10 @@ class SplashActivity : BaseActivity() {
         return R.layout.activity_splash
     }
 
+    override fun useDataBinding(): Boolean {
+        return false
+    }
+
     override fun onResume() {
         super.onResume()
         if (permissionDenied) {

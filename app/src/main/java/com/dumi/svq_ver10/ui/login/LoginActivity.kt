@@ -19,6 +19,10 @@ class LoginActivity : BaseActivity() {
         return R.layout.activity_login
     }
 
+    override fun useDataBinding(): Boolean {
+      return false
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)

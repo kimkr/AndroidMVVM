@@ -2,6 +2,7 @@ package com.dumi.svq_ver10.persistence.di
 
 import android.content.Context
 import com.dumi.svq_ver10.R
+import com.dumi.svq_ver10.persistence.cache.LocationService
 import com.dumi.svq_ver10.persistence.cache.PostService
 import com.dumi.svq_ver10.persistence.cache.UserService
 import com.dumi.svq_ver10.util.location.GoogleMapService
@@ -45,6 +46,12 @@ class APIModule(val context: Context) {
     @Singleton
     fun providePostAPI(retrofit: Retrofit): PostService.PostAPI {
         return retrofit.create(PostService.PostAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLocationAPI(retrofit: Retrofit): LocationService.LocationAPI {
+        return retrofit.create(LocationService.LocationAPI::class.java)
     }
 
     @Provides

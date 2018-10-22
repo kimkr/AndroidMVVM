@@ -11,6 +11,7 @@ ext {
             androidArchRoom        : '1.1.0',
             androidArchLifeCycle   : '1.1.1',
             androidArchPaging      : '1.0.0',
+            gradlePlugin           : '3.1.4',
             //Test
             testJunit              : '4.12',
             testRunner             : '1.0.2',
