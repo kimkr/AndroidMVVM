@@ -50,6 +50,13 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$ver.retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$ver.retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$ver.retrofit"
+    // Google Map
+    implementation "com.google.android.gms:play-services-maps:$ver.googleMap"
+    implementation "com.google.android.gms:play-services-location:$ver.googleMap"
+    implementation "noman.placesapi:placesAPI:$ver.googleMapAndroidWrapper"
+    // Debug
+    implementation "com.facebook.stetho:stetho:$ver.stetho"
+    implementation "com.facebook.stetho:stetho-okhttp3:$ver.stetho"
     // Test
     testImplementation "junit:junit:$ver.testJunit"
     androidTestImplementation "com.android.support.test:runner:$ver.testRunner"

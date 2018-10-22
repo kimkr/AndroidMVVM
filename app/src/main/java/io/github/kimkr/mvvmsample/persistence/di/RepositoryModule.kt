@@ -7,8 +7,8 @@ import io.github.kimkr.mvvmsample.di.qualifier.Local
 import io.github.kimkr.mvvmsample.di.qualifier.Remote
 import io.github.kimkr.mvvmsample.persistence.cache.PostCache
 import io.github.kimkr.mvvmsample.persistence.cache.PostService
-import io.github.kimkr.mvvmsample.persistence.cache.UserAPI
 import io.github.kimkr.mvvmsample.persistence.cache.UserCache
+import io.github.kimkr.mvvmsample.persistence.cache.UserService
 import io.github.kimkr.mvvmsample.persistence.sources.PostDataSource
 import io.github.kimkr.mvvmsample.persistence.sources.UserDataSource
 
@@ -25,7 +25,7 @@ abstract class RepositoryModule {
 
     @Binds
     @Remote
-    abstract fun provideRemoteUserDatabase(userAPI: UserAPI): UserDataSource
+    abstract fun provideRemoteUserDatabase(userService: UserService): UserDataSource
 
     @Binds
     @Local

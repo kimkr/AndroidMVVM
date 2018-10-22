@@ -3,11 +3,17 @@ package io.github.kimkr.mvvmsample.ui.login
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import dagger.android.AndroidInjection
 import io.github.kimkr.mvvmsample.R
+import io.github.kimkr.mvvmsample.persistence.repository.UserRepository
 import io.github.kimkr.mvvmsample.ui.BaseActivity
+import io.github.kimkr.mvvmsample.ui.location.LocationActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import javax.inject.Inject
 
 class LoginActivity : BaseActivity() {
+    @field:[Inject]
+    lateinit var userRepository: UserRepository
 
     override fun getLayout(): Int {
         return R.layout.activity_login
@@ -15,6 +21,7 @@ class LoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
         btn_login.setOnClickListener { _ -> onClickSend() }
         ll_login_root.setOnClickListener { _ -> hideKeyboard(et_login_code) }
         onEnterHideKeyboard(et_login_code)
@@ -28,7 +35,17 @@ class LoginActivity : BaseActivity() {
             return
         }
         val dialog = showLoading(R.string.loading, R.string.loading_login)
-        Log.d(TAG, userId)
+        userRepository.getUserById(userId)
+                .subscribe(
+                        { user ->
+                            Log.d(TAG, user.toString())
+                            dialog.cancel()
+                            navigateTo(LocationActivity::class.java)
+                        },
+                        { error ->
+                            dialog.cancel()
+                            Log.e(TAG, "error $error")
+                        })
     }
 
     override fun onResume() {

@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import io.github.kimkr.mvvmsample.R
 import io.github.kimkr.mvvmsample.persistence.cache.PostService
-import io.github.kimkr.mvvmsample.persistence.cache.UserAPI
+import io.github.kimkr.mvvmsample.persistence.cache.UserService
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -36,8 +36,8 @@ class APIModule(val context: Context) {
 
     @Provides
     @Singleton
-    fun provideUserAPI(retrofit: Retrofit): UserAPI {
-        return retrofit.create(UserAPI::class.java)
+    fun provideUserAPI(retrofit: Retrofit): UserService.UserAPI {
+        return retrofit.create(UserService.UserAPI::class.java)
     }
 
     @Provides

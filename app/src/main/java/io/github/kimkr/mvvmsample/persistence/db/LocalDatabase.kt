@@ -3,15 +3,18 @@ package io.github.kimkr.mvvmsample.persistence.db
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.TypeConverters
 import android.content.Context
+import io.github.kimkr.mvvmsample.persistence.converter.DateConverter
+import io.github.kimkr.mvvmsample.persistence.converter.GenderConverter
 import io.github.kimkr.mvvmsample.persistence.model.Post
 import io.github.kimkr.mvvmsample.persistence.model.User
 
 @Database(entities = arrayOf(User::class, Post::class), version = 1)
+@TypeConverters(DateConverter::class, GenderConverter::class)
 abstract class LocalDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
-
     abstract fun postDao(): PostDao
 
     companion object {

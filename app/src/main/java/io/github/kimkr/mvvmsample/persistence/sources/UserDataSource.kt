@@ -1,11 +1,11 @@
 package io.github.kimkr.mvvmsample.persistence.sources
 
 import io.github.kimkr.mvvmsample.persistence.model.User
-import io.reactivex.Flowable
+import io.reactivex.Maybe
 
 interface UserDataSource {
 
-    fun getUserById(id: String): Flowable<User>
+    fun getUserById(id: String): Maybe<User>
 
     fun insertUser(user: User)
 

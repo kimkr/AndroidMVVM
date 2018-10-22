@@ -5,7 +5,10 @@ import io.github.kimkr.mvvmsample.di.qualifier.Local
 import io.github.kimkr.mvvmsample.di.qualifier.Remote
 import io.github.kimkr.mvvmsample.persistence.model.User
 import io.github.kimkr.mvvmsample.persistence.sources.UserDataSource
-import io.reactivex.Flowable
+import io.reactivex.Completable
+import io.reactivex.Maybe
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -13,17 +16,23 @@ import javax.inject.Singleton
 class UserRepository @Inject constructor(@Local private val localDataSource: UserDataSource,
                                          @Remote private val remoteDataSource: UserDataSource,
                                          @Cache private val cacheDataSource: UserDataSource)
-    : UserDataSource, Repository {
+    : Repository {
 
-    override fun getUserById(id: String): Flowable<User> {
-        return localDataSource.getUserById(id)
+    fun getUserById(id: String): Maybe<User> {
+        return remoteDataSource.getUserById(id)
+                .flatMap { user ->
+                    localDataSource.insertUser(user)
+                    Maybe.just(user)
+                }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 
-    override fun insertUser(user: User) {
-        localDataSource.insertUser(user)
+    fun insertUser(user: User): Completable {
+        return Completable.fromAction { localDataSource.insertUser(user) }
     }
 
-    override fun deleteAllUsers() {
-        deleteAllUsers()
+    fun deleteAllUsers(): Completable {
+        return Completable.fromAction { deleteAllUsers() }
     }
 }

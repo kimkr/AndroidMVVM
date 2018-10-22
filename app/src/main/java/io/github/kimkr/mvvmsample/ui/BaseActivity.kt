@@ -1,5 +1,6 @@
 package io.github.kimkr.mvvmsample.ui
 
+import android.app.Fragment
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
@@ -40,6 +41,11 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    protected fun findFragment(id: Int): Fragment {
+        return fragmentManager.findFragmentById(R.id.map_fragment)
+    }
+
+
     protected fun toast(str: Int) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
     }
@@ -74,7 +80,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun onEnterHideKeyboard(et: EditText) {
-        et.setOnEditorActionListener { tv, action, event ->
+        et.setOnEditorActionListener { _, action, _ ->
                 when (action) {
                     EditorInfo.IME_ACTION_DONE -> hideKeyboard(et)
                     else -> false
@@ -97,6 +103,7 @@ abstract class BaseActivity : AppCompatActivity() {
         animationSet.startOffset = startOffset.toLong()
         animationSet.duration = duration.toLong()
         animationSet.restrictDuration(duration.toLong())
+        animationSet.fillAfter = true
         animationSet.setAnimationListener(AnimationEndListener(onComplete))
         view.startAnimation(animationSet)
     }

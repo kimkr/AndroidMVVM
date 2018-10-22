@@ -135,7 +135,7 @@
         android:visibility="invisible">
 
         <fragment
-            android:id="@+id/map_fragment"
+            android:id="@+id/fragment_map"
             class="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
             android:layout_height="400dp"
@@ -145,7 +145,7 @@
             android:id="@+id/tv_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/map_fragment"
+            android:layout_below="@+id/fragment_map"
             android:background="@drawable/line_gray_light"
             android:padding="@dimen/dist_xlarge"
             android:text="@string/current_location" />
