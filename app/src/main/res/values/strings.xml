@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SVQ</string>
     <string name="api_url">http://104.155.197.54:8080</string>
+    <string name="places_api_url">https://maps.googleapis.com/maps/api/place/</string>
+    <string name="geocoder_api_url">https://maps.google.co.kr/maps/api/geocode/</string>
     <string name="always_allow">항상 허용</string>
     <string name="bad">나쁨</string>
     <string name="cancel">취소</string>
@@ -72,4 +74,5 @@
     <string name="location_permission_request_title">과제 추적을 위해서는 위치 서비스에 대한 액세스가 필요합니다.</string>
     <string name="location_permission_request_desc">이 앱에는 위치 권한이 필요합니다.</string>
     <string name="location_permission_denied">이 앱에는 \'내 위치\'계층을 사용하도록 위치 권한이 필요합니다. 다시 시도하고 위치 사용 권한을 부여하십시오.\n 권한이 영구적으로 거부 된 경우 시스템 설정 &gt; 앱 &gt; \'SVQ_ver1.0\'</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

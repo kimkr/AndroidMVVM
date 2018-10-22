@@ -76,7 +76,7 @@
         android:layout_marginTop="@dimen/dist_micro"
         android:background="@color/white"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="invisible">
 
         <LinearLayout
             android:id="@+id/ll_result"
@@ -131,15 +131,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
         android:layout_below="@id/rl_input"
-        android:background="@color/white"
-        android:visibility="invisible">
+        android:background="@color/white">
 
-        <fragment
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/fragment_map"
-            class="com.google.android.gms.maps.MapFragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_alignParentTop="true" />
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/tv_address"

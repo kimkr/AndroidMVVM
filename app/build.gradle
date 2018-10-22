@@ -9,7 +9,7 @@ android {
 
     compileSdkVersion ver.androidCompileSdk
     defaultConfig {
-        applicationId "io.github.kimkr.mvvmsample"
+        applicationId "com.dumi.svq_ver10"
         minSdkVersion ver.androidMinSdk
         targetSdkVersion ver.androidTargetSdk
         versionCode ver.versionCode
@@ -31,6 +31,8 @@ dependencies {
     implementation "com.android.support:design:$ver.androidSupport"
     implementation "android.arch.persistence.room:runtime:$ver.androidArchRoom"
     implementation "android.arch.persistence.room:rxjava2:$ver.androidArchRoom"
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
     kapt "android.arch.persistence.room:compiler:$ver.androidArchRoom"
     implementation "android.arch.lifecycle:viewmodel:$ver.androidArchLifeCycle"
     implementation "android.arch.lifecycle:extensions:$ver.androidArchLifeCycle"
