@@ -7,6 +7,8 @@ import com.dumi.svq_ver10.ui.login.LoginModule
 import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.ui.main.MainModule
 import com.dumi.svq_ver10.ui.main.home.HomeFragmentModule
+import com.dumi.svq_ver10.ui.main.setting.SettingFragmentModule
+import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyFragmentModule
 import com.dumi.svq_ver10.ui.post.PostActivity
 import com.dumi.svq_ver10.ui.post.PostModule
 import com.dumi.svq_ver10.ui.user.UserActivity
@@ -36,6 +38,7 @@ abstract class ActivityModule {
     abstract fun contributeLocationActivity(): LocationActivity
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = [MainModule::class, HomeFragmentModule::class])
+    @ContributesAndroidInjector(modules = [MainModule::class, HomeFragmentModule::class,
+        WeeklyFragmentModule::class, SettingFragmentModule::class])
     abstract fun contributeMainActivity(): MainActivity
 }

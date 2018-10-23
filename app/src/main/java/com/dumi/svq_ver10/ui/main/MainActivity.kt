@@ -6,8 +6,10 @@ import android.util.Log
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.R.id.fl_main_container
 import com.dumi.svq_ver10.ui.BaseActivity
-import com.dumi.svq_ver10.ui.main.Screen.HOME
+import com.dumi.svq_ver10.ui.main.Screen.*
 import com.dumi.svq_ver10.ui.main.home.HomeFragment
+import com.dumi.svq_ver10.ui.main.setting.SettingFragment
+import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -21,6 +23,8 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
     lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     private lateinit var homeFragment: HomeFragment
+    private lateinit var weeklyFragment: WeeklyFragment
+    private lateinit var settingFragment: SettingFragment
 
     override fun getLayout(): Int {
         return R.layout.activity_main
@@ -36,17 +40,32 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
         homeFragment = HomeFragment()
-        replaceFragment(HOME)
+        weeklyFragment = WeeklyFragment()
+        settingFragment = SettingFragment()
+        goTo(HOME)
     }
 
-    fun replaceFragment(screen: Screen) {
-        Log.d(TAG, "replaceFragment $screen")
-        replaceFragment(fl_main_container, getFragment(screen))
+    fun goTo(screen: Screen) {
+        if (screen.activity) {
+            startActivity(screen)
+        } else {
+            replaceFragment(fl_main_container, getFragment(screen))
+        }
+    }
+
+    private fun startActivity(screen: Screen) {
+        when (screen) {
+            SETTING_ACCOUNT -> Log.d(TAG, "startActivity $screen")
+            SETTING_HEALING -> Log.d(TAG, "startActivity $screen")
+            SETTING_LOCATION -> Log.d(TAG, "startActivity $screen")
+        }
     }
 
     private fun getFragment(screen: Screen): Fragment {
         return when (screen) {
             HOME -> homeFragment
+            WEEKLY_STAT -> weeklyFragment
+            SETTING -> settingFragment
             else -> homeFragment
         }
     }

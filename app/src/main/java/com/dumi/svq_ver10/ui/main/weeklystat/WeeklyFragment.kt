@@ -1,4 +1,4 @@
-package com.dumi.svq_ver10.ui.main.home
+package com.dumi.svq_ver10.ui.main.weeklystat
 
 import android.os.Bundle
 import android.view.View
@@ -12,16 +12,16 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Named
 
-class HomeFragment : BaseFragment(), View.OnClickListener {
+class WeeklyFragment : BaseFragment(), View.OnClickListener {
 
-    @field:[Inject Named("HomeViewModel")]
-    lateinit var viewModel: HomeViewModel
+    @field:[Inject Named("WeeklyViewModel")]
+    lateinit var viewModel: WeeklyViewModel
 
     private val disposable = CompositeDisposable()
 
     override fun useDataBinding() = true
 
-    override fun getLayout() = R.layout.fragment_home
+    override fun getLayout() = R.layout.fragment_weekly_stat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +47,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
     }
 
     companion object {
-        val TAG = HomeFragment::class.java.simpleName
+        val TAG = WeeklyFragment::class.java.simpleName
     }
 }

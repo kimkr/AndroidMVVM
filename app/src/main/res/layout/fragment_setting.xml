@@ -1,47 +1,55 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.dumi.svq_ver10.MainFragments.SettingFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dumi.svq_ver10.ui.main.setting.SettingViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/setting1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/gray_light">
-            <TextView
-                android:text="계정 설정"
 
-                android:layout_marginLeft="10dp"
-                android:padding="@dimen/dist_xlarge"
-                android:fontFamily="@font/nanum_regular"
-                android:textColor="@color/black"
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nanum_regular"
+                android:padding="@dimen/dist_xlarge"
+                android:text="계정 설정"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <!-- 계정정보 레이아웃 -->
         <RelativeLayout
             android:id="@+id/setting_info"
-            android:layout_below="@+id/setting1"
-            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background_white_to_gray"
+            android:clickable="true"
+            android:onClickListener="@{onClickListener}"
+            android:tag="@{Screen.SETTING_ACCOUNT}">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dist_xlarge"
                 android:text="계정 정보"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_light"
-
-                />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="15dp"
@@ -49,26 +57,25 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/ic_arrow_right"
-                />
+                android:background="@drawable/ic_arrow_right" />
         </RelativeLayout>
 
         <!-- 치료설정 레이아웃 -->
         <RelativeLayout
             android:id="@+id/setting_healing"
-            android:layout_below="@+id/setting_info"
-            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background_white_to_gray"
+            android:clickable="true"
+            android:onClickListener="@{onClickListener}"
+            android:tag="@{Screen.SETTING_HEALING}">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dist_xlarge"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_light"
                 android:text="치료 설정"
-                />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="15dp"
@@ -76,103 +83,96 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/ic_arrow_right"
-                />
+                android:background="@drawable/ic_arrow_right" />
         </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/setting2"
-            android:layout_below="@+id/setting_healing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/gray_light">
-            <TextView
-                android:text="권한 설정"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_regular"
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:padding="@dimen/dist_xlarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:text="권한 설정"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <!-- 푸시알림 레이아웃 -->
         <RelativeLayout
             android:id="@+id/setting_push"
-            android:layout_below="@+id/setting2"
-            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/line_gray_light">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dist_xlarge"
                 android:text="푸시 알림"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_light"
-                />
+                android:textColor="@color/black" />
 
             <Switch
                 android:id="@+id/setting_push_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClickListener="@{onClickListener}"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
                 android:padding="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/CustomSwitch"
-                />
+                android:theme="@style/CustomSwitch" />
 
         </RelativeLayout>
 
         <!-- 위치정보서비스이용동의 레이아웃 -->
         <RelativeLayout
             android:id="@+id/setting_agree_loc"
-            android:layout_below="@+id/setting_push"
-            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/line_gray_light">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum_light"
                 android:padding="@dimen/dist_xlarge"
                 android:text="위치 정보 서비스 이용 동의"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_light"
-                />
+                android:textColor="@color/black" />
 
             <Switch
                 android:id="@+id/setting_agree_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClickListener="@{onClickListener}"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
                 android:padding="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/CustomSwitch"
-                />
+                android:theme="@style/CustomSwitch" />
 
         </RelativeLayout>
 
         <!-- 위치정보수집설정 레이아웃 -->
         <RelativeLayout
             android:id="@+id/setting_loc_info"
-            android:layout_below="@+id/setting_agree_loc"
-            android:background="@drawable/line_gray_light"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background_white_to_gray"
+            android:clickable="true"
+            android:onClickListener="@{onClickListener}"
+            android:tag="@{Screen.SETTING_LOCATION}">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum_light"
                 android:padding="@dimen/dist_xlarge"
                 android:text="위치 정보 수집 설정"
-                android:textColor="@color/black"
-                android:fontFamily="@font/nanum_light"
-                />
+                android:textColor="@color/black" />
 
             <ImageView
                 android:layout_width="15dp"
@@ -180,9 +180,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/ic_arrow_right"
-                />
+                android:background="@drawable/ic_arrow_right" />
         </RelativeLayout>
-    </RelativeLayout>
+    </LinearLayout>
 
-</FrameLayout>
+</layout>

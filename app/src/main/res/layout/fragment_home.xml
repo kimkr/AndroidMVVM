@@ -97,8 +97,8 @@
                     layout="@layout/item_home_button"
                     app:icon="@{@drawable/ic_send}"
                     app:onClickListener="@{onClickListener}"
-                    app:tag="@{Screen.WEEKLY_STAT}"
-                    app:title="@{@string/weekly_check}" />
+                    app:tag="@{Screen.NOTIFICATION}"
+                    app:title="@{@string/new_task}" />
 
                 <View
                     android:layout_width="match_parent"
@@ -109,8 +109,8 @@
                     layout="@layout/item_home_button"
                     app:icon="@{@drawable/ic_check_circle}"
                     app:onClickListener="@{onClickListener}"
-                    app:tag="@{Screen.SELF_CHECK}"
-                    app:title="@{@string/self_check}" />
+                    app:tag="@{Screen.WEEKLY_STAT}"
+                    app:title="@{@string/weekly_check}" />
 
                 <View
                     android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.dumi.svq_ver10.ui.main.home
+package com.dumi.svq_ver10.ui.main.setting
 
 import android.os.Bundle
 import android.view.View
@@ -12,16 +12,16 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Named
 
-class HomeFragment : BaseFragment(), View.OnClickListener {
+class SettingFragment : BaseFragment(), View.OnClickListener {
 
-    @field:[Inject Named("HomeViewModel")]
-    lateinit var viewModel: HomeViewModel
+    @field:[Inject Named("SettingViewModel")]
+    lateinit var viewModel: SettingViewModel
 
     private val disposable = CompositeDisposable()
 
     override fun useDataBinding() = true
 
-    override fun getLayout() = R.layout.fragment_home
+    override fun getLayout() = R.layout.fragment_setting
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
         super.onStart()
         binding.setVariable(BR.viewmodel, viewModel)
         binding.setVariable(BR.onClickListener, this)
-        disposable.add(viewModel.updateProgress())
     }
 
     override fun onDestroy() {
@@ -47,6 +46,6 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
     }
 
     companion object {
-        val TAG = HomeFragment::class.java.simpleName
+        val TAG = SettingFragment::class.java.simpleName
     }
 }
