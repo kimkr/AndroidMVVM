@@ -51,9 +51,26 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun findFragment(id: Int): Fragment {
-        return fragmentManager.findFragmentById(R.id.map_fragment)
+        return fragmentManager.findFragmentById(id)
     }
 
+    protected fun findSupportFragment(id: Int): android.support.v4.app.Fragment {
+        return supportFragmentManager.findFragmentById(id)
+    }
+
+    protected fun replaceFragment(layout: Int, fragment: Fragment) {
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(layout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    protected fun replaceFragment(layout: Int, fragment: android.support.v4.app.Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(layout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
 
     protected fun toast(str: Int) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()

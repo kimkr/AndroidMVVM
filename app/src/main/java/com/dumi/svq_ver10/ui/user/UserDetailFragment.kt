@@ -29,7 +29,8 @@ class UserDetailFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        disposable.add(viewModel.userName()
+        disposable.add(
+                viewModel.userName()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ this.user_name.text = it },

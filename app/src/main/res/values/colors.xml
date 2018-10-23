@@ -10,4 +10,6 @@
     <color name="purple_dark">#581D83</color>
     <color name="text">#591D8c</color>
     <color name="background">#48248a</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="transparent_gray">#b3626262</color>
 </resources>

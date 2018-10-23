@@ -28,6 +28,7 @@
     <string name="back_button_exit_guide">뒤로 버튼을 한 번 더 누르시면 종료됩니다.</string>
     <string name="loading">로딩중</string>
     <string name="loading_login">로그인중입니다.</string>
+    <string name="percent_format">%1$d\%%</string>
 
     <string name="login_app_name">SVQ</string>
     <string name="login_hello">안녕하세요,</string>
