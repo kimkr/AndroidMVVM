@@ -2,14 +2,17 @@ package com.dumi.svq_ver10.ui.main
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.R.id.fl_main_container
 import com.dumi.svq_ver10.ui.BaseActivity
 import com.dumi.svq_ver10.ui.main.Screen.*
 import com.dumi.svq_ver10.ui.main.home.HomeFragment
+import com.dumi.svq_ver10.ui.main.profile.ProfileFragment
 import com.dumi.svq_ver10.ui.main.selfcheck.SelfCheckFragment
 import com.dumi.svq_ver10.ui.main.setting.SettingFragment
+import com.dumi.svq_ver10.ui.main.setting.healing.HealingFragment
+import com.dumi.svq_ver10.ui.main.setting.interval.IntervalFragment
+import com.dumi.svq_ver10.ui.main.setting.location.LocationFragment
 import com.dumi.svq_ver10.ui.main.taskcomplete.CompleteTaskFragment
 import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskFragment
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyFragment
@@ -31,6 +34,10 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
     private lateinit var selfCheckFragment: SelfCheckFragment
     private lateinit var completeTaskFragment: CompleteTaskFragment
     private lateinit var incompleteTaskFragment: IncompleteTaskFragment
+    private lateinit var settingHealingFragment: HealingFragment
+    private lateinit var settingIntervalFragment: IntervalFragment
+    private lateinit var settingLocationFragment: LocationFragment
+    private lateinit var profileFragment: ProfileFragment
     private lateinit var screen: Screen
 
     override fun getLayout(): Int {
@@ -52,6 +59,10 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
         selfCheckFragment = SelfCheckFragment()
         completeTaskFragment = CompleteTaskFragment()
         incompleteTaskFragment = IncompleteTaskFragment()
+        settingHealingFragment = HealingFragment()
+        settingIntervalFragment = IntervalFragment()
+        settingLocationFragment = LocationFragment()
+        profileFragment = ProfileFragment()
         goTo(HOME)
     }
 
@@ -63,7 +74,9 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
             finish()
         } else {
             if (screen != HOME) {
-                goTo(HOME)
+                if (!supportFragmentManager.popBackStackImmediate()) {
+                    goTo(HOME)
+                }
             } else {
                 prevBackPressed = curTime
                 toast(R.string.back_button_exit_guide)
@@ -95,9 +108,6 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
 
     private fun startActivity(screen: Screen) {
         when (screen) {
-            SETTING_ACCOUNT -> Log.d(TAG, "startActivity $screen")
-            SETTING_HEALING -> Log.d(TAG, "startActivity $screen")
-            SETTING_LOCATION -> Log.d(TAG, "startActivity $screen")
         }
     }
 
@@ -109,6 +119,10 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
             SELF_CHECK -> selfCheckFragment
             TASK_COMPLETE -> completeTaskFragment
             TASK_INCOMPLETE -> incompleteTaskFragment
+            SETTING_INTERVAL -> settingIntervalFragment
+            SETTING_HEALING -> settingHealingFragment
+            SETTING_LOCATION -> settingLocationFragment
+            PROFILE -> profileFragment
             else -> homeFragment
         }
     }

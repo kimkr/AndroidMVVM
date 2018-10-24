@@ -5,7 +5,7 @@ import android.widget.ListView
 import com.dumi.svq_ver10.persistence.model.Task
 
 object IncompleteTaskBinding {
-    @BindingAdapter("app:items")
+    @BindingAdapter("app:incompleteTasks")
     @JvmStatic
     fun setItems(listView: ListView, items: List<Task>) {
         with(listView.adapter as IncompleteTaskAdapter) {

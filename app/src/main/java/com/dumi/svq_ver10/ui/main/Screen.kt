@@ -7,9 +7,9 @@ enum class Screen(val code: String, val activity: Boolean) {
     SETTING("SettingFragment", false),
     WEEKLY_STAT("WeeklyStat", false),
     PROFILE("Profile", false),
-    SETTING_ACCOUNT("SettingAccount", true),
-    SETTING_HEALING("SettingHealing", true),
-    SETTING_LOCATION("SettingLocation", true),
+    SETTING_INTERVAL("SettingInterval", false),
+    SETTING_HEALING("SettingHealing", false),
+    SETTING_LOCATION("SettingLocation", false),
     TASK_INCOMPLETE("TaskIncomplete", false),
     TASK_COMPLETE("TaskComplete", false),
     ;

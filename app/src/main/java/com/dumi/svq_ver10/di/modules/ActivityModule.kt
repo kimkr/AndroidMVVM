@@ -7,8 +7,12 @@ import com.dumi.svq_ver10.ui.login.LoginModule
 import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.ui.main.MainModule
 import com.dumi.svq_ver10.ui.main.home.HomeFragmentModule
+import com.dumi.svq_ver10.ui.main.profile.ProfileFragmentModule
 import com.dumi.svq_ver10.ui.main.selfcheck.SelfCheckFragmentModule
 import com.dumi.svq_ver10.ui.main.setting.SettingFragmentModule
+import com.dumi.svq_ver10.ui.main.setting.healing.HealingFragmentModule
+import com.dumi.svq_ver10.ui.main.setting.interval.IntervalFragmentModule
+import com.dumi.svq_ver10.ui.main.setting.location.LocationFragmentModule
 import com.dumi.svq_ver10.ui.main.taskcomplete.CompleteTaskFragmentModule
 import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskFragmentModule
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyFragmentModule
@@ -43,6 +47,7 @@ abstract class ActivityModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [MainModule::class, HomeFragmentModule::class,
         WeeklyFragmentModule::class, SettingFragmentModule::class, SelfCheckFragmentModule::class,
-        CompleteTaskFragmentModule::class, IncompleteTaskFragmentModule::class])
+        CompleteTaskFragmentModule::class, IncompleteTaskFragmentModule::class, ProfileFragmentModule::class,
+        LocationFragmentModule::class, IntervalFragmentModule::class, HealingFragmentModule::class])
     abstract fun contributeMainActivity(): MainActivity
 }

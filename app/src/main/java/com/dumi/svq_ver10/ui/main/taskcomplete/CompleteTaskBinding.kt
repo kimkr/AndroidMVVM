@@ -4,7 +4,7 @@ import android.databinding.BindingAdapter
 import android.widget.ListView
 
 object CompleteTaskBinding {
-    @BindingAdapter("app:items")
+    @BindingAdapter("app:completeTasks")
     @JvmStatic
     fun setItems(listView: ListView, items: List<Any>) {
         with(listView.adapter as CompleteTaskAdapter) {

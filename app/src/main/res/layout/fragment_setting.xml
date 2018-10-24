@@ -42,7 +42,7 @@
             android:background="@drawable/btn_background_white_to_gray"
             android:clickable="true"
             android:onClickListener="@{onClickListener}"
-            android:tag="@{Screen.SETTING_ACCOUNT}">
+            android:tag="@{Screen.SETTING_INTERVAL}">
 
             <TextView
                 android:layout_width="match_parent"
