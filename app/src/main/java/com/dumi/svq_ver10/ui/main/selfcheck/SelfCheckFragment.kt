@@ -1,4 +1,4 @@
-package com.dumi.svq_ver10.ui.main.weeklystat
+package com.dumi.svq_ver10.ui.main.selfcheck
 
 import android.os.Bundle
 import android.view.View
@@ -12,16 +12,16 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Named
 
-class WeeklyFragment : BaseFragment(), View.OnClickListener {
+class SelfCheckFragment : BaseFragment(), View.OnClickListener {
 
-    @field:[Inject Named("WeeklyViewModel")]
-    lateinit var viewModel: WeeklyViewModel
+    @field:[Inject Named("SelfCheckViewModel")]
+    lateinit var viewModel: SelfCheckViewModel
 
     private val disposable = CompositeDisposable()
 
     override fun useDataBinding() = true
 
-    override fun getLayout() = R.layout.fragment_weekly_stat
+    override fun getLayout() = R.layout.fragment_self_check
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +41,14 @@ class WeeklyFragment : BaseFragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        (activity as MainActivity).addScreen(Screen.TASK_INCOMPLETE, view.tag as String)
+        when (view.id) {
+            R.id.btn_check_back -> viewModel.updateProgress(-1)
+            R.id.btn_check_next -> viewModel.updateProgress(1)
+            R.id.ll_check_vew_complete -> (activity as MainActivity).goTo(Screen.TASK_COMPLETE)
+        }
     }
 
     companion object {
-        val TAG = WeeklyFragment::class.java.simpleName
+        val TAG = SelfCheckFragment::class.java.simpleName
     }
 }

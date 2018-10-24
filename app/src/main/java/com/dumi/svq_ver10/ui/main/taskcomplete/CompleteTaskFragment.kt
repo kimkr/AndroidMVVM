@@ -1,10 +1,10 @@
-package com.dumi.svq_ver10.ui.main.weeklystat
+package com.dumi.svq_ver10.ui.main.taskcomplete
 
 import android.os.Bundle
 import android.view.View
 import com.dumi.svq_ver10.BR
-import com.dumi.svq_ver10.ui.BaseFragment
 import com.dumi.svq_ver10.R
+import com.dumi.svq_ver10.ui.BaseFragment
 import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.ui.main.Screen
 import dagger.android.support.AndroidSupportInjection
@@ -12,16 +12,16 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Named
 
-class WeeklyFragment : BaseFragment(), View.OnClickListener {
+class CompleteTaskFragment : BaseFragment(), View.OnClickListener {
 
-    @field:[Inject Named("WeeklyViewModel")]
-    lateinit var viewModel: WeeklyViewModel
+    @field:[Inject Named("CompleteTaskViewModel")]
+    lateinit var viewModel: CompleteTaskViewModel
 
     private val disposable = CompositeDisposable()
 
     override fun useDataBinding() = true
 
-    override fun getLayout() = R.layout.fragment_weekly_stat
+    override fun getLayout() = R.layout.fragment_task_complete
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +41,16 @@ class WeeklyFragment : BaseFragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        (activity as MainActivity).addScreen(Screen.TASK_INCOMPLETE, view.tag as String)
+        if (view.tag is Screen) {
+            (activity as MainActivity).goTo(view.tag as Screen)
+        }
+        when (view.id) {
+            R.id.btn_check_back -> viewModel.updateProgress(-1)
+            R.id.btn_check_next -> viewModel.updateProgress(1)
+        }
     }
 
     companion object {
-        val TAG = WeeklyFragment::class.java.simpleName
+        val TAG = CompleteTaskFragment::class.java.simpleName
     }
 }

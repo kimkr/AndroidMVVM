@@ -21,8 +21,8 @@ import com.dumi.svq_ver10.R
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    private val BACK_PRESS_INTERVAL: Long = 2000
-    private var prevBackPressed: Long = 0
+    protected val BACK_PRESS_INTERVAL: Long = 2000
+    protected var prevBackPressed: Long = 0
     protected lateinit var binding: ViewDataBinding
 
     abstract fun getLayout(): Int
@@ -68,6 +68,20 @@ abstract class BaseActivity : AppCompatActivity() {
     protected fun replaceFragment(layout: Int, fragment: android.support.v4.app.Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(layout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    protected fun addFragment(layout: Int, fragment: Fragment) {
+        val transaction = fragmentManager.beginTransaction()
+        transaction.add(layout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    protected fun addFragment(layout: Int, fragment: android.support.v4.app.Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(layout, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }

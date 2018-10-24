@@ -8,14 +8,16 @@ import android.content.Context
 import com.dumi.svq_ver10.persistence.converter.DateConverter
 import com.dumi.svq_ver10.persistence.converter.GenderConverter
 import com.dumi.svq_ver10.persistence.model.Post
+import com.dumi.svq_ver10.persistence.model.Task
 import com.dumi.svq_ver10.persistence.model.User
 
-@Database(entities = arrayOf(User::class, Post::class), version = 1)
+@Database(entities = arrayOf(User::class, Post::class, Task::class), version = 1)
 @TypeConverters(DateConverter::class, GenderConverter::class)
 abstract class LocalDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
     abstract fun postDao(): PostDao
+    abstract fun taskDao(): TaskDao
 
     companion object {
 

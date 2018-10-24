@@ -9,7 +9,10 @@ enum class Screen(val code: String, val activity: Boolean) {
     PROFILE("Profile", false),
     SETTING_ACCOUNT("SettingAccount", true),
     SETTING_HEALING("SettingHealing", true),
-    SETTING_LOCATION("SettingLocation", true);
+    SETTING_LOCATION("SettingLocation", true),
+    TASK_INCOMPLETE("TaskIncomplete", false),
+    TASK_COMPLETE("TaskComplete", false),
+    ;
 
     companion object {
         fun from(code: String): Screen? {

@@ -12,6 +12,7 @@
     <string name="complete_setting">설정 완료</string>
     <string name="confirm">확인</string>
     <string name="current_location">현재위치</string>
+    <string name="enter_input">입력</string>
     <string name="good">좋음</string>
     <string name="my_profile">내 정보 보기</string>
     <string name="name_hint">홍길동 님</string>
@@ -29,7 +30,10 @@
     <string name="loading">로딩중</string>
     <string name="loading_login">로그인중입니다.</string>
     <string name="percent_format">%1$d\%%</string>
-
+    <string name="calendar_format">%1$d.%2$d</string>
+    <string name="setting_view_complete_task">완료 과제 열람</string>
+    <string name="complete_task">완료한 과제</string>
+    <string name="incomplete_task">미완료 과제</string>
     <string name="login_app_name">SVQ</string>
     <string name="login_hello">안녕하세요,</string>
     <string name="login_enter_code_guide">내담자 코드를 입력해주세요!</string>

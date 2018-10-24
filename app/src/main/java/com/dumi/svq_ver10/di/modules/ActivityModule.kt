@@ -7,7 +7,10 @@ import com.dumi.svq_ver10.ui.login.LoginModule
 import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.ui.main.MainModule
 import com.dumi.svq_ver10.ui.main.home.HomeFragmentModule
+import com.dumi.svq_ver10.ui.main.selfcheck.SelfCheckFragmentModule
 import com.dumi.svq_ver10.ui.main.setting.SettingFragmentModule
+import com.dumi.svq_ver10.ui.main.taskcomplete.CompleteTaskFragmentModule
+import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskFragmentModule
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyFragmentModule
 import com.dumi.svq_ver10.ui.post.PostActivity
 import com.dumi.svq_ver10.ui.post.PostModule
@@ -39,6 +42,7 @@ abstract class ActivityModule {
 
     @ActivityScope
     @ContributesAndroidInjector(modules = [MainModule::class, HomeFragmentModule::class,
-        WeeklyFragmentModule::class, SettingFragmentModule::class])
+        WeeklyFragmentModule::class, SettingFragmentModule::class, SelfCheckFragmentModule::class,
+        CompleteTaskFragmentModule::class, IncompleteTaskFragmentModule::class])
     abstract fun contributeMainActivity(): MainActivity
 }

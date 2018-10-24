@@ -3,7 +3,7 @@ package com.dumi.svq_ver10.ui.main.setting
 import android.os.Bundle
 import android.view.View
 import com.dumi.svq_ver10.BR
-import com.dumi.svq_ver10.BaseFragment
+import com.dumi.svq_ver10.ui.BaseFragment
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.ui.main.Screen

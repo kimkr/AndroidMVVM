@@ -61,7 +61,7 @@
             android:layout_weight="1"
             app:onClickListener="@{onClickListener}"
             app:progress="@{viewmodel.mon}"
-            app:tag="@{Screen.NOTIFICATION}"
+            app:tag="@{@string/mon}"
             app:title="@{@string/mon}" />
 
         <include
@@ -71,7 +71,7 @@
             android:layout_weight="1"
             app:onClickListener="@{onClickListener}"
             app:progress="@{viewmodel.tue}"
-            app:tag="@{Screen.NOTIFICATION}"
+            app:tag="@{@string/tue}"
             app:title="@{@string/tue}" />
 
         <include
@@ -81,7 +81,7 @@
             android:layout_weight="1"
             app:onClickListener="@{onClickListener}"
             app:progress="@{viewmodel.wed}"
-            app:tag="@{Screen.NOTIFICATION}"
+            app:tag="@{@string/wed}"
             app:title="@{@string/wed}" />
 
         <include
@@ -91,7 +91,7 @@
             android:layout_weight="1"
             app:onClickListener="@{onClickListener}"
             app:progress="@{viewmodel.thu}"
-            app:tag="@{Screen.NOTIFICATION}"
+            app:tag="@{@string/thu}"
             app:title="@{@string/thu}" />
 
         <include
@@ -101,7 +101,7 @@
             android:layout_weight="1"
             app:onClickListener="@{onClickListener}"
             app:progress="@{viewmodel.fri}"
-            app:tag="@{Screen.NOTIFICATION}"
+            app:tag="@{@string/fri}"
             app:title="@{@string/fri}" />
 
         <include
@@ -111,7 +111,7 @@
             android:layout_weight="1"
             app:onClickListener="@{onClickListener}"
             app:progress="@{viewmodel.sat}"
-            app:tag="@{Screen.NOTIFICATION}"
+            app:tag="@{@string/sat}"
             app:title="@{@string/sat}" />
 
         <include
@@ -121,7 +121,7 @@
             android:layout_weight="1"
             app:onClickListener="@{onClickListener}"
             app:progress="@{viewmodel.sun}"
-            app:tag="@{Screen.NOTIFICATION}"
+            app:tag="@{@string/sun}"
             app:title="@{@string/sun}" />
 
     </LinearLayout>

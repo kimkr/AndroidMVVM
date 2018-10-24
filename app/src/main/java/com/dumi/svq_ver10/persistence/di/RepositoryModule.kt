@@ -8,6 +8,7 @@ import com.dumi.svq_ver10.persistence.cache.PostService
 import com.dumi.svq_ver10.persistence.cache.UserCache
 import com.dumi.svq_ver10.persistence.cache.UserService
 import com.dumi.svq_ver10.persistence.sources.PostDataSource
+import com.dumi.svq_ver10.persistence.sources.TaskDataSource
 import com.dumi.svq_ver10.persistence.sources.UserDataSource
 import dagger.Binds
 import dagger.Module
@@ -39,11 +40,7 @@ abstract class RepositoryModule {
     @Remote
     abstract fun provideRemotePostDatabase(postService: PostService): PostDataSource
 
-//    @Binds
-//    @Local
-//    abstract fun provideLocalLocationDatabase(locationPreferences: LocationPreferences): LocationDataSource
-//
-//    @Binds
-//    @Local
-//    abstract fun provideRemoteLocationDatabase(locationService: LocationService): LocationDataSource
+    @Binds
+    @Local
+    abstract fun provideLocalTaskDatabase(taskDao: TaskDao): TaskDataSource
 }

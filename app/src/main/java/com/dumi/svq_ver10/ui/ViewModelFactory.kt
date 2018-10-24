@@ -6,7 +6,10 @@ import com.dumi.svq_ver10.persistence.repository.SettingRepository
 import com.dumi.svq_ver10.persistence.repository.TaskRepository
 import com.dumi.svq_ver10.persistence.repository.UserRepository
 import com.dumi.svq_ver10.ui.main.home.HomeViewModel
+import com.dumi.svq_ver10.ui.main.selfcheck.SelfCheckViewModel
 import com.dumi.svq_ver10.ui.main.setting.SettingViewModel
+import com.dumi.svq_ver10.ui.main.taskcomplete.CompleteTaskViewModel
+import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskViewModel
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyViewModel
 import com.dumi.svq_ver10.ui.user.UserViewModel
 
@@ -24,6 +27,12 @@ class ViewModelFactory(private val userRepository: UserRepository,
             return WeeklyViewModel(taskRepository) as T
         } else if (modelClass.isAssignableFrom(SettingViewModel::class.java)) {
             return SettingViewModel(settingRepository) as T
+        } else if (modelClass.isAssignableFrom(SelfCheckViewModel::class.java)) {
+            return SelfCheckViewModel(taskRepository) as T
+        } else if (modelClass.isAssignableFrom(IncompleteTaskViewModel::class.java)) {
+            return IncompleteTaskViewModel(taskRepository) as T
+        } else if (modelClass.isAssignableFrom(CompleteTaskViewModel::class.java)) {
+            return CompleteTaskViewModel(taskRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

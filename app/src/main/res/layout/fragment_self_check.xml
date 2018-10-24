@@ -1,0 +1,135 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dumi.svq_ver10.ui.main.selfcheck.SelfCheckViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:padding="@dimen/dist_small"
+            android:paddingLeft="10dp"
+            android:text="@string/self_check"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white">
+
+            <ImageButton
+                android:id="@+id/btn_check_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/btn_background_transparent_to_gray"
+                android:onClickListener="@{onClickListener}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:padding="@dimen/dist_small"
+                android:text="@{@string/calendar_format(viewmodel.year, viewmodel.month)}"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:id="@+id/btn_check_next"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_background_transparent_to_gray"
+                android:onClickListener="@{onClickListener}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_next" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/tv_home_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="30dp"
+                android:text="@{@string/percent_format(viewmodel.progress)}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium" />
+
+            <ProgressBar
+                android:id="@+id/pb_home"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:background="@drawable/pb_circle_purple"
+                android:max="100"
+                android:progress="@{viewmodel.progress}"
+                android:progressDrawable="@drawable/pb_circle_purple"
+                android:secondaryProgress="100" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_check_vew_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_background_transparent_to_gray"
+            android:onClickListener="@{onClickListener}"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_check_circle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:padding="@dimen/dist_small"
+                android:text="@string/setting_view_complete_task"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

@@ -1,4 +1,4 @@
-package com.dumi.svq_ver10
+package com.dumi.svq_ver10.ui
 
 import android.databinding.BindingAdapter
 import android.graphics.drawable.Drawable
