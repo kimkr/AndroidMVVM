@@ -58,7 +58,10 @@ dependencies {
     // Google Map
     implementation "com.google.android.gms:play-services-maps:$ver.googleMap"
     implementation "com.google.android.gms:play-services-location:$ver.googleMap"
-    implementation "noman.placesapi:placesAPI:$ver.googleMapAndroidWrapper"
+    // Firebase
+    implementation "com.google.firebase:firebase-core:$ver.firebase"
+    implementation "com.google.firebase:firebase-analytics:$ver.firebaseAnalytics"
+    implementation "com.google.firebase:firebase-messaging:$ver.firebaseMessaging"
     // Debug
     implementation "com.facebook.stetho:stetho:$ver.stetho"
     implementation "com.facebook.stetho:stetho-okhttp3:$ver.stetho"
@@ -67,3 +70,5 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$ver.testRunner"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$ver.testEspresso"
 }
+
+apply plugin: "com.google.gms.google-services"

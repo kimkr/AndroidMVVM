@@ -46,6 +46,7 @@
     <string name="question_title_hint">오늘 무슨 활동을 하셨나요?</string>
     <string name="question_enter_answer">입력</string>
     <string name="question_time_hint">10:00</string>
+    s<string name="new_message_title">새로운 알림이 도착했습니다.</string>
 
     <string name="task_weekly_progress_rate">이번주 과제 달성률</string>
     <string name="task_progress_rate">과제 수행률</string>
