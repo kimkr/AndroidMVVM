@@ -6,4 +6,6 @@ import io.reactivex.Single
 interface TaskDataSource {
 
     fun getAllIncompleteTasks(): Single<List<Task>>
+
+    fun getCompleteTaskBetween(start: Long, end: Long): Single<List<Task>>
 }

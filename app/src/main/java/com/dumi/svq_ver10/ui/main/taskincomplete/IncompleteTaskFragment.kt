@@ -35,11 +35,11 @@ class IncompleteTaskFragment : BaseFragment(), View.OnClickListener {
         super.onStart()
         binding.setVariable(BR.viewmodel, viewModel)
         binding.setVariable(BR.onClickListener, this)
+        lv_task_incomplete.adapter = adapter
         lv_task_incomplete.setOnItemClickListener { _, _, i, l ->
             var task = adapter.getItem(i)
-            Log.d(TAG, "onClick task ${task}")
+            Log.d(TAG, "onClick task $task")
         }
-        lv_task_incomplete.adapter = adapter
         Log.d(TAG, "onStart argument ${getArgument(MainActivity.BUNDLE_ARG)}")
         disposable.add(viewModel.loadTasks())
     }

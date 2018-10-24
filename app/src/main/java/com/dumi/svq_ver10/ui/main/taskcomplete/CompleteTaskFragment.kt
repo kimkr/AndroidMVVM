@@ -9,6 +9,7 @@ import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.ui.main.Screen
 import dagger.android.support.AndroidSupportInjection
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.fragment_task_complete.*
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -16,6 +17,8 @@ class CompleteTaskFragment : BaseFragment(), View.OnClickListener {
 
     @field:[Inject Named("CompleteTaskViewModel")]
     lateinit var viewModel: CompleteTaskViewModel
+    @field:[Inject]
+    lateinit var adapter: CompleteTaskAdapter
 
     private val disposable = CompositeDisposable()
 
@@ -32,7 +35,8 @@ class CompleteTaskFragment : BaseFragment(), View.OnClickListener {
         super.onStart()
         binding.setVariable(BR.viewmodel, viewModel)
         binding.setVariable(BR.onClickListener, this)
-        disposable.add(viewModel.updateProgress())
+        lv_task_complete.adapter = adapter
+        disposable.add(viewModel.loadMontlyCompleteTasks())
     }
 
     override fun onDestroy() {
@@ -45,8 +49,8 @@ class CompleteTaskFragment : BaseFragment(), View.OnClickListener {
             (activity as MainActivity).goTo(view.tag as Screen)
         }
         when (view.id) {
-            R.id.btn_check_back -> viewModel.updateProgress(-1)
-            R.id.btn_check_next -> viewModel.updateProgress(1)
+            R.id.btn_check_back -> viewModel.loadMontlyCompleteTasks(-1)
+            R.id.btn_check_next -> viewModel.loadMontlyCompleteTasks(1)
         }
     }
 

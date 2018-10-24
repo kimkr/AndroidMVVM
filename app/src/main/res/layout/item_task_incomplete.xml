@@ -3,8 +3,7 @@
     android:id="@+id/root_item_task_incomplete"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@drawable/btn_background_white_to_gray"
-    android:clickable="true"
+    android:background="@drawable/btn_background_transparent_to_gray"
     android:orientation="horizontal">
 
     <TextView
@@ -25,8 +24,8 @@
         android:layout_width="72dp"
         android:layout_height="match_parent"
         android:background="@color/gray_light"
-        android:maxLines="1"
         android:gravity="center"
+        android:maxLines="1"
         android:singleLine="true"
         android:text="@string/enter_input"
         android:textColor="@color/black"

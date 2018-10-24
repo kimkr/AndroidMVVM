@@ -1,32 +1,47 @@
 package com.dumi.svq_ver10.ui.main.taskcomplete
 
 import android.arch.lifecycle.ViewModel
+import android.databinding.ObservableArrayList
 import android.databinding.ObservableInt
+import android.util.Log
+import com.dumi.svq_ver10.persistence.model.Task
 import com.dumi.svq_ver10.persistence.repository.TaskRepository
+import com.dumi.svq_ver10.util.TimeUtil
 import io.reactivex.disposables.Disposable
 import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class CompleteTaskViewModel(private val taskRepository: TaskRepository) : ViewModel() {
     val year = ObservableInt(Calendar.getInstance().get(Calendar.YEAR))
     val month = ObservableInt(Calendar.getInstance().get(Calendar.MONTH) + 1)
+    val tasks = ObservableArrayList<Any>()
 
-    fun updateProgress(): Disposable = taskRepository.getWeeklyStat()
-            .subscribe { progress ->
+    fun loadMontlyCompleteTasks(): Disposable = taskRepository.getMonthlyCompleteTasks(year.get(), month.get())
+            .subscribe { tasks ->
+                var taskMap = tasks.fold(HashMap<String, ArrayList<Task>>()) { taskMap, task ->
+                    var day = TimeUtil.formatToDay(task.answeredAt!!)
+                    if (!taskMap.containsKey(day)) {
+                        taskMap[day] = ArrayList()
+                    }
+                    taskMap[day]!!.add(task)
+                    taskMap
+                }
+                var list = ArrayList<Any>()
+                for (key in taskMap.keys) {
+                    list.add(key)
+                    list.addAll(taskMap[key]!!)
+                }
+                this.tasks.clear()
+                this.tasks.addAll(list)
+                Log.d(TAG, "loadMontlyCompleteTasks ${this.tasks}")
             }
 
-    fun updateProgress(diff: Int): Disposable {
-        var nextMonth = month.get() + diff
-        var nextYear = year.get()
-        if (nextMonth > 12) {
-            nextMonth = 1
-            nextYear += 1
-        } else if (nextMonth < 1) {
-            nextMonth = 12
-            nextYear -= 1
-        }
-        year.set(nextYear)
-        month.set(nextMonth)
-        return updateProgress()
+    fun loadMontlyCompleteTasks(diff: Int): Disposable {
+        var nextMonth = TimeUtil.getNextMonth(year.get(), month.get(), diff)
+        year.set(nextMonth.first)
+        month.set(nextMonth.second)
+        return loadMontlyCompleteTasks()
     }
 
     companion object {

@@ -11,4 +11,7 @@ interface TaskDao : TaskDataSource {
 
     @Query("SELECT * FROM Tasks WHERE answer IS NULL")
     override fun getAllIncompleteTasks(): Single<List<Task>>
+
+    @Query("SELECT * FROM Tasks WHERE (answered_at IS NOT NULL) AND (answered_at BETWEEN :start AND :end) ORDER BY answered_at")
+    override fun getCompleteTaskBetween(start: Long, end: Long): Single<List<Task>>
 }
