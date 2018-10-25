@@ -26,7 +26,7 @@ interface QuestionDao : QuestionDataSource {
     @Query("DELETE FROM Questions")
     override fun removeAll()
 
-    @Query("UPDATE Questions SET answer = :answer, updated = strftime('%s', 'now') WHERE id = :id")
+    @Query("UPDATE Questions SET answer = :answer, updated = strftime('%s000', 'now') WHERE id = :id")
     override fun updateAnswer(id: String, answer: String): Long
 
     @Query("SELECT COUNT(*) FROM Questions WHERE task = :task AND answer IS NULL")

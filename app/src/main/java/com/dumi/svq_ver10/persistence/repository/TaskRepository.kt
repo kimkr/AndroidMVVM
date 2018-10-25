@@ -10,39 +10,44 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.util.*
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.math.roundToInt
 
 @Singleton
 class TaskRepository @Inject constructor(@Local private val localTaskDataSource: TaskDataSource)
     : Repository {
 
     fun getWeeklyTaskProgress(): Maybe<Int> {
-        return localTaskDataSource.getTaskProgressBetween(TimeUtil.getTimeStampOf(-7),
-                System.currentTimeMillis())
+        var current = System.currentTimeMillis()
+        var monday = TimeUtil.getTimeOfDayOfWeek(Calendar.MONDAY)
+        Log.d("TaskRepository", "getWeeklyTaskProgress current : $current, monday: $monday")
+        return localTaskDataSource.getTaskProgressBetween(monday, current)
+                .onErrorReturn { 0 }
                 .switchIfEmpty(Maybe.just(0))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun getWeeklyStat(): Single<List<Int>> {
-        return Single.just(Arrays.asList(11, 22, 33, 44, 55, 66, 77))
-                .delay(2000, TimeUnit.MILLISECONDS)
+    fun getDailyProgress(start: Long): Single<Int> {
+        Log.d("TaskRepository", "getDailyProgress start: $start, end: ${start + TimeUtil.DAY_TO_MILLISECONDS}")
+        return localTaskDataSource.getTaskProgressBetween(start, start + TimeUtil.DAY_TO_MILLISECONDS)
+                .onErrorReturn { 0 }
+                .defaultIfEmpty(0)
+                .toSingle()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun getMonthlyTaskProgress(year: Int, month: Int): Single<Int> {
-        return Single.just((Math.random() * 100).roundToInt())
-                .delay(2000, TimeUnit.MILLISECONDS)
+        var start = TimeUtil.getTimeStampOf(year, month)
+        var end = TimeUtil.getTimeStampOf(TimeUtil.getNextMonth(year, month, 1))
+        return localTaskDataSource.getTaskProgressBetween(start, end)
+                .onErrorReturn { 0 }
+                .defaultIfEmpty(0)
+                .toSingle()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
-
-    fun getMonthlyCompleteTasks(pair: Pair<Int, Int>) =
-            getMonthlyCompleteTasks(pair.first, pair.second)
 
     fun getMonthlyCompleteTasks(year: Int, month: Int): Single<List<Task>> {
         var start = TimeUtil.getTimeStampOf(year, month)

@@ -15,7 +15,7 @@ interface TaskDao : TaskDataSource {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     override fun insertTask(task: Task)
 
-    @Query("UPDATE Tasks SET answer = :answer, answered_at = strftime('%s', 'now') WHERE id = :id")
+    @Query("UPDATE Tasks SET answer = :answer, answered_at = strftime('%s000', 'now') WHERE id = :id")
     override fun updateAnswer(id: String, answer: String): Long
 
     @Query("SELECT * FROM Tasks WHERE answer IS NULL")
@@ -24,6 +24,6 @@ interface TaskDao : TaskDataSource {
     @Query("SELECT * FROM Tasks WHERE (answered_at IS NOT NULL) AND (answered_at BETWEEN :start AND :end) ORDER BY answered_at")
     override fun getCompleteTaskBetween(start: Long, end: Long): Single<List<Task>>
 
-    @Query("SELECT (100 * a / b) as progress from (SELECT count(*) as a FROM Tasks WHERE (answer IS NOT NULL) AND (answered_at BETWEEN :start AND :end)) JOIN (SELECT count(*) as b FROM Tasks WHERE answered_at BETWEEN :start AND :end) ON 1 = 1")
+    @Query("SELECT (100 * a / b) as progress from (SELECT count(*) as a FROM Tasks WHERE (answer IS NOT NULL) AND (assigned_at BETWEEN :start AND :end)) JOIN (SELECT MAX(count(*), 1) as b FROM Tasks WHERE assigned_at BETWEEN :start AND :end) ON 1 = 1")
     override fun getTaskProgressBetween(start: Long, end: Long): Maybe<Int>
 }

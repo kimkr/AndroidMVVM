@@ -37,8 +37,24 @@ class TimeUtil {
             return System.currentTimeMillis() + dayDiff * 24 * 60 * 60 * 1000
         }
 
+        fun getDayOfWeek(): Int {
+            val calendar = Calendar.getInstance()
+            return calendar.get(Calendar.DAY_OF_WEEK)
+        }
+
+        fun getTimeOfDayOfWeek(dayOfWeek: Int): Long {
+            val calendar = Calendar.getInstance()
+            calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek)
+            calendar.set(Calendar.HOUR_OF_DAY, 0)
+            calendar.set(Calendar.MINUTE, 0)
+            calendar.set(Calendar.SECOND, 0)
+            return calendar.timeInMillis
+        }
+
         fun formatToDay(date: Date) = DateFormat.format("MM.dd", date) as String
         fun formatToTime(date: Date) = DateFormat.format("hh:mm aa", date) as String
         fun formatToMilli(date: Date) = DateFormat.format("yyyy-MM-dd hh:mm:ss", date) as String
+
+        const val DAY_TO_MILLISECONDS = 24 * 60 * 60 * 1000
     }
 }

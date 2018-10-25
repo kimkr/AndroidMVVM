@@ -1,9 +1,10 @@
 package com.dumi.svq_ver10.ui.main
 
 import android.os.Bundle
+import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
+import android.view.Gravity
 import com.dumi.svq_ver10.R
-import com.dumi.svq_ver10.R.id.fl_main_container
 import com.dumi.svq_ver10.persistence.repository.AuthRepository
 import com.dumi.svq_ver10.ui.BaseActivity
 import com.dumi.svq_ver10.ui.login.LoginActivity
@@ -23,6 +24,9 @@ import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_drawer.view.*
+import kotlinx.android.synthetic.main.view_app_header.*
 import javax.inject.Inject
 
 
@@ -68,7 +72,27 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
         settingIntervalFragment = IntervalFragment()
         settingLocationFragment = LocationFragment()
         profileFragment = ProfileFragment()
+        initClickListener()
         goTo(HOME)
+    }
+
+    private fun initClickListener() {
+        btn_ham.setOnClickListener { _ -> dl_main.openDrawer(Gravity.LEFT) }
+        btn_logo.setOnClickListener { _ -> goTo(HOME) }
+        val navigationView = (svq_ham_menu) as NavigationView
+        val headerView = navigationView.getHeaderView(0)
+        headerView.btn_setting.setOnClickListener { _ ->
+            dl_main.closeDrawer(Gravity.LEFT)
+            goTo(SETTING)
+        }
+        headerView.btn_noti_check.setOnClickListener { _ ->
+            dl_main.closeDrawer(Gravity.LEFT)
+            goTo(TASK_INCOMPLETE)
+        }
+        headerView.btn_self_check.setOnClickListener { _ ->
+            dl_main.closeDrawer(Gravity.LEFT)
+            goTo(SELF_CHECK)
+        }
     }
 
     override fun onBackPressed() {
@@ -94,7 +118,7 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
         if (screen.activity) {
             startActivity(screen, null)
         } else {
-            replaceFragment(fl_main_container, getFragment(screen))
+            replaceFragment(R.id.fl_main_container, getFragment(screen))
         }
     }
 
@@ -107,7 +131,7 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
             var bundle = Bundle()
             bundle.putString(BUNDLE_ARG, arg)
             fragment.arguments = bundle
-            addFragment(fl_main_container, getFragment(screen))
+            addFragment(R.id.fl_main_container, getFragment(screen))
         }
     }
 

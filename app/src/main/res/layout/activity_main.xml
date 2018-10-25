@@ -17,7 +17,8 @@
             android:layout_alignParentTop="true"
             app:elevation="0dp">
 
-            <include layout="@layout/view_app_header" />
+            <include
+                layout="@layout/view_app_header" />
 
         </android.support.design.widget.AppBarLayout>
 

@@ -17,14 +17,14 @@
         android:src="@drawable/ic_hamburger" />
 
     <Button
-        android:id="@+id/tv_title"
+        android:id="@+id/btn_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:paddingRight="20dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/btn_background_transparent_to_gray"
         android:gravity="right|center_vertical"
+        android:paddingRight="20dp"
         android:text="SVQ" />
 
 </RelativeLayout>
