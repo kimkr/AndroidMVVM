@@ -119,7 +119,6 @@ abstract class BaseActivity : AppCompatActivity() {
         val intent = Intent(this, target)
         intent.putExtra(key, value)
         startActivityForResult(intent, REQUEST_CODE)
-        finish()
     }
 
     protected fun hideKeyboard(et: EditText): Boolean {

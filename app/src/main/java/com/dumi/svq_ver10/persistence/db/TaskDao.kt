@@ -15,6 +15,9 @@ interface TaskDao : TaskDataSource {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     override fun insertTask(task: Task)
 
+    @Query("UPDATE Tasks SET answer = :answer, answered_at = CURRENT_TIMESTAMP WHERE id = :id")
+    override fun updateAnswer(id: String, answer: String): Long
+
     @Query("SELECT * FROM Tasks WHERE answer IS NULL")
     override fun getAllIncompleteTasks(): Single<List<Task>>
 

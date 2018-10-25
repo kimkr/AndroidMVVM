@@ -14,4 +14,8 @@ interface QuestionDataSource {
     fun removeQuestion(id: String)
 
     fun removeAll()
+
+    fun updateAnswer(id: String, answer: String): Long
+
+    fun countNotAnsweredOf(task: String): Int
 }

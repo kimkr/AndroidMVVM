@@ -18,8 +18,11 @@ class TextFragment : BaseFragment(), View.OnClickListener {
 
     @field:[Inject Named("TextViewModel")]
     lateinit var viewModel: TextViewModel
+    lateinit var taskId: String
+    lateinit var questionId: String
 
     private val disposable = CompositeDisposable()
+
 
     override fun useDataBinding() = true
 
@@ -34,7 +37,9 @@ class TextFragment : BaseFragment(), View.OnClickListener {
         super.onStart()
         binding.setVariable(BR.viewmodel, viewModel)
         binding.setVariable(BR.onClickListener, this)
-        disposable.add(viewModel.loadQuestions(getArgument(BUNDLE_ARG)!!))
+        taskId = getArgument(QuestionActivity.BUNDLE_TASK_ID)!!
+        questionId = getArgument(QuestionActivity.BUNDLE_QUESTION_ID)!!
+        disposable.add(viewModel.loadQuestion(questionId))
     }
 
     override fun onDestroy() {
@@ -46,10 +51,11 @@ class TextFragment : BaseFragment(), View.OnClickListener {
         when (view.id) {
             R.id.btn_complete -> {
                 viewModel.sendAnswer(et_question_text.text.toString())
-                        .subscribe { ret ->
-                            Log.d(TAG, "ret : $ret")
-                            (activity as QuestionActivity).onBackPressed()
-                        }
+                        .subscribe({
+                            (activity as QuestionActivity).nextQuestionOrFinish(questionId)
+                        }, { e ->
+                            Log.e(TAG, e.message)
+                        })
             }
         }
     }

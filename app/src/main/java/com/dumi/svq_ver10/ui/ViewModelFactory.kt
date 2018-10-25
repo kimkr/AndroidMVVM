@@ -47,7 +47,7 @@ class ViewModelFactory(private val userRepository: UserRepository,
         } else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
             return ProfileViewModel(userRepository, locationRepository) as T
         } else if (modelClass.isAssignableFrom(TextViewModel::class.java)) {
-            return TextViewModel(questionRepository) as T
+            return TextViewModel(questionRepository, taskRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

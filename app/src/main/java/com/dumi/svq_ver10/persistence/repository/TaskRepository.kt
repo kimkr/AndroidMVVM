@@ -61,4 +61,7 @@ class TaskRepository @Inject constructor(@Local private val localTaskDataSource:
 
     fun insertTask(id: String, userId: String, question: String) =
             insertTask(Task(id, null, userId, question, null, null, Date(), null))
+
+    fun updateAsAnswered(id: String, answer: String): Single<Long> =
+            Single.fromCallable { localTaskDataSource.updateAnswer(id, answer) }
 }

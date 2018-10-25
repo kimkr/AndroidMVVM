@@ -1,11 +1,13 @@
 package com.dumi.svq_ver10.persistence.remote
 
+import android.util.Log
 import com.dumi.svq_ver10.persistence.model.Question
+import com.dumi.svq_ver10.persistence.model.QuestionType
+import com.dumi.svq_ver10.persistence.model.QuestionType.*
 import com.dumi.svq_ver10.util.TimeUtil
 import com.google.gson.Gson
 import io.reactivex.Maybe
 import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import retrofit2.http.POST
 import retrofit2.http.Query
@@ -31,13 +33,14 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
     }
 
     fun answerQuestion(userId: String, token: String, taskId: String,
-                       answer: String, type: Type): Maybe<Boolean> {
+                       answer: String, type: QuestionType): Maybe<Boolean> {
         var date = TimeUtil.formatToMilli(Date())
-        return questionAPI.answerQuestion(userId, token, taskId, answer,
-                type.code, date)
-                .map { response -> response.msg == "0" }
+        return questionAPI.answerQuestion(userId, token, taskId, answer, type.code, date)
+                .map { res ->
+                    Log.d("QuestionService", "res : $res")
+                    res.msg == "0"
+                }
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
     }
 
     private fun transform(response: ListResponse): List<Question> {
@@ -53,28 +56,28 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
         var treeId = "0"
         for (i in 0 until tasknum) {
             val settings = settingVal[i].split(",")
-            val type = Type.from(method[i])
+            val type = QuestionType.from(method[i])
             var values = ArrayList<String>()
             when (type) {
-                Type.RADIO -> {
+                RADIO -> {
                     num = settings[0]
                     for (j in 1..num.toInt()) {
                         values.add(settings[j])
                     }
                 }
-                Type.SLIDE -> {
+                SLIDE -> {
                     num = settings[1]
                     values.add(settings[3])
                     if (settings[2].toInt() >= 2)
                         values.add(settings[2 + settings[2].toInt()])
                 }
-                Type.CHECKBOX -> {
+                CHECKBOX -> {
                     num = settings[0]
                     for (j in 1..num.toInt()) {
                         values.add(settings[j])
                     }
                 }
-                Type.TREE -> {
+                TREE -> {
                     treeId = settings[0]
                     num = settings[1]
                     for (j in 2..num.toInt() + 1) {
@@ -82,8 +85,8 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
                     }
                 }
             }
-            val question = Question(taskname[i], treeId, method[i], "0", msg[i],
-                    num, "", "", values, taskname[i])
+            val question = Question(taskname[i], treeId, type!!, "0", msg[i],
+                    num, "", "", values, taskname[i], null, Date(), null)
             ret.add(question)
         }
         return ret
@@ -111,26 +114,6 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
                             val ctk_queMethod: String)
 
     data class AnswerResponse(val msg: String)
-
-    enum class Type(val code: String) {
-        RADIO("radio"),
-        SLIDE("slide"),
-        CHECKBOX("checkbox"),
-        TEXT("simple"),
-        TREE("tree");
-
-
-        companion object {
-            fun from(code: String): Type? {
-                for (type in Type.values()) {
-                    if (type.code == code) {
-                        return type
-                    }
-                }
-                return null
-            }
-        }
-    }
 
     companion object {
         var RESPONSE_DELIM = ";"

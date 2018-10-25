@@ -8,6 +8,8 @@ interface TaskDataSource {
 
     fun insertTask(task: Task)
 
+    fun updateAnswer(id: String, answer: String): Long
+
     fun getAllIncompleteTasks(): Single<List<Task>>
 
     fun getCompleteTaskBetween(start: Long, end: Long): Single<List<Task>>
