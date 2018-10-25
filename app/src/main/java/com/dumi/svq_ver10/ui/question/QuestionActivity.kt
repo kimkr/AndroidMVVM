@@ -7,6 +7,7 @@ import com.dumi.svq_ver10.persistence.model.QuestionType
 import com.dumi.svq_ver10.persistence.model.QuestionType.*
 import com.dumi.svq_ver10.persistence.repository.QuestionRepository
 import com.dumi.svq_ver10.ui.BaseActivity
+import com.dumi.svq_ver10.ui.question.slide.SlideFragment
 import com.dumi.svq_ver10.ui.question.text.TextFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
@@ -22,10 +23,11 @@ class QuestionActivity : BaseActivity(), HasSupportFragmentInjector {
     lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
     @field:[Inject]
     lateinit var questionRepository: QuestionRepository
+    lateinit var task: String
 
-    private lateinit var textFragment: TextFragment
-    private lateinit var task: String
     private var questions = ArrayList<String>()
+    private var textFragment: TextFragment? = null
+    private var slideFragment: SlideFragment? = null
 
     override fun getLayout() = R.layout.activity_question
     override fun useDataBinding() = false
@@ -35,7 +37,6 @@ class QuestionActivity : BaseActivity(), HasSupportFragmentInjector {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
         task = intent.getStringExtra(BaseActivity.BUNDLE_ARG)
-        textFragment = TextFragment()
     }
 
     override fun onStart() {
@@ -72,15 +73,24 @@ class QuestionActivity : BaseActivity(), HasSupportFragmentInjector {
         var bundle = Bundle()
         bundle.putString(BUNDLE_TASK_ID, task)
         bundle.putString(BUNDLE_QUESTION_ID, questionId)
-        textFragment.arguments = bundle
-        replaceFragment(R.id.fl_question_container, getFragment(type))
+        var fragment = getFragment(type)!!
+        fragment.arguments = bundle
+        replaceFragment(R.id.fl_question_container, fragment)
     }
 
-    private fun getFragment(type: QuestionType): Fragment {
+    private fun getFragment(type: QuestionType): Fragment? {
         return when (type) {
-            TEXT -> textFragment
+            TEXT -> {
+                if (textFragment == null)
+                    textFragment = TextFragment()
+                textFragment
+            }
+            SLIDE -> {
+                if (slideFragment == null)
+                    slideFragment = SlideFragment()
+                slideFragment
+            }
             RADIO -> textFragment
-            SLIDE -> textFragment
             CHECKBOX -> textFragment
             TREE -> textFragment
         }

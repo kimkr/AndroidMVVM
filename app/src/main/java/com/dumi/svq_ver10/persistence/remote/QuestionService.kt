@@ -54,6 +54,8 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
         var method = response.ctk_queMethod.split(RESPONSE_DELIM)
         var num = ""
         var treeId = "0"
+        var left = ""
+        var right = ""
         for (i in 0 until tasknum) {
             val settings = settingVal[i].split(",")
             val type = QuestionType.from(method[i])
@@ -66,10 +68,16 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
                     }
                 }
                 SLIDE -> {
-                    num = settings[1]
-                    values.add(settings[3])
-                    if (settings[2].toInt() >= 2)
-                        values.add(settings[2 + settings[2].toInt()])
+                    left = settings[0]
+                    right = settings[1]
+                    if (settings.size > 2) {
+                        var size = settings[2].toInt()
+                        num = size.toString()
+                        for (i in 3..(2 + size))
+                            if (i < settings.size) {
+                                values.add(settings[i])
+                            }
+                    }
                 }
                 CHECKBOX -> {
                     num = settings[0]
@@ -85,8 +93,8 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
                     }
                 }
             }
-            val question = Question(taskname[i], treeId, type!!, "0", msg[i],
-                    num, "", "", values, taskname[i], null, Date(), null)
+            val question = Question(taskname[i] + i, treeId, type!!, "0", msg[i],
+                    num, left, right, values, taskname[i], null, Date(), null)
             ret.add(question)
         }
         return ret

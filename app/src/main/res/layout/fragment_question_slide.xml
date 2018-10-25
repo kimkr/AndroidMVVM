@@ -1,18 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dumi.svq_ver10.ui.question.slide.SlideViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="16dp">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,46 +59,46 @@
             android:layout_weight="1.5">
 
             <SeekBar
-                android:id="@+id/seekbar1"
-                android:layout_marginHorizontal="20dp"
+                android:id="@+id/seekbar"
                 style="@style/Widget.AppCompat.SeekBar.Discrete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="10"
                 android:layout_centerVertical="true"
+                android:layout_marginHorizontal="20dp"
+                android:max="@{viewmodel.max}"
                 android:progress="5" />
 
             <TextView
-                android:id="@+id/value1"
+                android:id="@+id/tv_slide_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"
-                android:fontFamily="@font/nanum_light"
-                android:textSize="25pt"
+                android:layout_above="@+id/seekbar"
                 android:layout_centerHorizontal="true"
-                android:layout_above="@+id/seekbar1"
                 android:layout_marginBottom="50dp"
-                android:textColor="@color/black"/>
+                android:fontFamily="@font/nanum_light"
+                android:text="5"
+                android:textColor="@color/black"
+                android:textSize="25pt" />
+
             <TextView
                 android:id="@+id/left1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="나쁨"
-                android:fontFamily="@font/nanum_light"
-                android:textSize="10pt"
-                android:layout_alignLeft="@+id/seekbar1"
-                android:layout_below="@+id/seekbar1"
-                android:textColor="@color/black"/>
+                android:layout_alignLeft="@+id/seekbar"
+                android:layout_below="@+id/seekbar"
+                android:text="@{viewmodel.left}"
+                android:textColor="@color/black"
+                android:textSize="10pt" />
+
             <TextView
                 android:id="@+id/right1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="좋음"
-                android:layout_alignEnd="@+id/seekbar1"
-                android:fontFamily="@font/nanum_light"
-                android:textSize="10pt"
-                android:layout_below="@+id/seekbar1"
-                android:textColor="@color/black"/>
+                android:layout_alignRight="@+id/seekbar"
+                android:layout_below="@+id/seekbar"
+                android:text="@{viewmodel.right}"
+                android:textColor="@color/black"
+                android:textSize="10pt" />
 
         </RelativeLayout>
 
@@ -102,12 +106,13 @@
             android:id="@+id/btn_complete"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:clickable="true"
+            android:onClickListener="@{onClickListener}"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:background="@color/gray_dark">
 
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -119,4 +124,5 @@
         </RelativeLayout>
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+
+</layout>

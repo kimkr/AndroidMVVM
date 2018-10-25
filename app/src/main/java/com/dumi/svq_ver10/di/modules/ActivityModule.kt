@@ -20,6 +20,7 @@ import com.dumi.svq_ver10.ui.post.PostActivity
 import com.dumi.svq_ver10.ui.post.PostModule
 import com.dumi.svq_ver10.ui.question.QuestionActivity
 import com.dumi.svq_ver10.ui.question.QuestionModule
+import com.dumi.svq_ver10.ui.question.slide.SlideFragmentModule
 import com.dumi.svq_ver10.ui.question.text.TextFragmentModule
 import com.dumi.svq_ver10.ui.splash.SplashActivity
 import com.dumi.svq_ver10.ui.splash.SplashModule
@@ -61,6 +62,7 @@ abstract class ActivityModule {
     abstract fun contributeMainActivity(): MainActivity
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = [QuestionModule::class, TextFragmentModule::class])
+    @ContributesAndroidInjector(modules = [QuestionModule::class, TextFragmentModule::class,
+        SlideFragmentModule::class])
     abstract fun contributeQuestionActivity(): QuestionActivity
 }
