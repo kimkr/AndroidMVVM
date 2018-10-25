@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import com.dumi.svq_ver10.R
+import com.dumi.svq_ver10.persistence.repository.AuthRepository
 import com.dumi.svq_ver10.persistence.repository.UserRepository
 import com.dumi.svq_ver10.ui.BaseActivity
 import com.dumi.svq_ver10.ui.location.LocationActivity
@@ -14,6 +15,9 @@ import javax.inject.Inject
 class LoginActivity : BaseActivity() {
     @field:[Inject]
     lateinit var userRepository: UserRepository
+    @field:[Inject]
+    lateinit var authRepository: AuthRepository
+
 
     override fun getLayout(): Int {
         return R.layout.activity_login
@@ -44,6 +48,7 @@ class LoginActivity : BaseActivity() {
                         { user ->
                             Log.d(TAG, user.toString())
                             dialog.cancel()
+                            authRepository.setLogin()
                             navigateTo(LocationActivity::class.java)
                         },
                         { error ->

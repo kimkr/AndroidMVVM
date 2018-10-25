@@ -12,6 +12,7 @@ enum class Screen(val code: String, val activity: Boolean) {
     SETTING_LOCATION("SettingLocation", false),
     TASK_INCOMPLETE("TaskIncomplete", false),
     TASK_COMPLETE("TaskComplete", false),
+    LOGIN("LoginActivity", true),
     ;
 
     companion object {

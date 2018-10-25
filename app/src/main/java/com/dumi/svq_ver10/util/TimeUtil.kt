@@ -33,6 +33,10 @@ class TimeUtil {
             return Pair(nextYear, nextMonth)
         }
 
+        fun getTimeStampOf(dayDiff: Int): Long {
+            return System.currentTimeMillis() + dayDiff * 24 * 60 * 60 * 1000
+        }
+
         fun formatToDay(date: Date) = DateFormat.format("MM.dd", date) as String
         fun formatToTime(date: Date) = DateFormat.format("hh:mm aa", date) as String
     }

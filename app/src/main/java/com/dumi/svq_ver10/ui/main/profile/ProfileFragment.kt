@@ -5,6 +5,8 @@ import android.view.View
 import com.dumi.svq_ver10.BR
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.ui.BaseFragment
+import com.dumi.svq_ver10.ui.main.MainActivity
+import com.dumi.svq_ver10.ui.main.Screen
 import dagger.android.support.AndroidSupportInjection
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
@@ -30,7 +32,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
         super.onStart()
         binding.setVariable(BR.viewmodel, viewModel)
         binding.setVariable(BR.onClickListener, this)
-//        disposable.add()
+        disposable.add(viewModel.loadUserProfile())
     }
 
     override fun onDestroy() {
@@ -39,7 +41,9 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-//        (activity as MainActivity).addScreen(Screen.TASK_INCOMPLETE, view.tag as String)
+        when (view.id) {
+            R.id.btn_profile_logout -> (activity as MainActivity).addScreen(Screen.LOGIN, "Logout")
+        }
     }
 
     companion object {

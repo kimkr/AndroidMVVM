@@ -7,4 +7,10 @@ interface AuthDataSource {
     fun setToken(token: String)
 
     fun deleteToken()
+
+    fun setLogin()
+
+    fun setLogout()
+
+    fun isLogin(): Boolean
 }

@@ -18,6 +18,8 @@ import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskFragmentModule
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyFragmentModule
 import com.dumi.svq_ver10.ui.post.PostActivity
 import com.dumi.svq_ver10.ui.post.PostModule
+import com.dumi.svq_ver10.ui.splash.SplashActivity
+import com.dumi.svq_ver10.ui.splash.SplashModule
 import com.dumi.svq_ver10.ui.user.UserActivity
 import com.dumi.svq_ver10.ui.user.UserDetailFragmentModule
 import com.dumi.svq_ver10.ui.user.UserModule
@@ -27,6 +29,10 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class ActivityModule {
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [SplashModule::class])
+    abstract fun contributeSplashActivity(): SplashActivity
 
     @ActivityScope
     @ContributesAndroidInjector(modules = [UserModule::class, UserDetailFragmentModule::class])

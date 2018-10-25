@@ -22,4 +22,6 @@ data class User(@PrimaryKey
                 @ColumnInfo(name = "manager")
                 val manager: String,
                 @ColumnInfo(name = "autologin")
-                val autoLogin: Boolean)
+                val autoLogin: Boolean,
+                @ColumnInfo(name = "created")
+                val created: Date = Date())

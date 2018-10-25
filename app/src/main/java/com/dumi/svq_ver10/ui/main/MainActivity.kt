@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.R.id.fl_main_container
+import com.dumi.svq_ver10.persistence.repository.AuthRepository
 import com.dumi.svq_ver10.ui.BaseActivity
+import com.dumi.svq_ver10.ui.login.LoginActivity
 import com.dumi.svq_ver10.ui.main.Screen.*
 import com.dumi.svq_ver10.ui.main.home.HomeFragment
 import com.dumi.svq_ver10.ui.main.profile.ProfileFragment
@@ -27,6 +29,8 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
 
     @Inject
     lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
+    @field:[Inject]
+    lateinit var authRepository: AuthRepository
 
     private lateinit var homeFragment: HomeFragment
     private lateinit var weeklyFragment: WeeklyFragment
@@ -108,6 +112,10 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
 
     private fun startActivity(screen: Screen) {
         when (screen) {
+            LOGIN -> {
+                authRepository.setLogout()
+                navigateTo(LoginActivity::class.java)
+            }
         }
     }
 

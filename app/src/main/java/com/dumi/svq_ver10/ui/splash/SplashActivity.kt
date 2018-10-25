@@ -2,15 +2,23 @@ package com.dumi.svq_ver10.ui.splash
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.pm.PackageManager
+import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import com.dumi.svq_ver10.R
+import com.dumi.svq_ver10.persistence.repository.AuthRepository
 import com.dumi.svq_ver10.ui.BaseActivity
 import com.dumi.svq_ver10.ui.location.LocationActivity
 import com.dumi.svq_ver10.ui.login.LoginActivity
+import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.util.PermissionUtil
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_splash.*
+import javax.inject.Inject
 
 class SplashActivity : BaseActivity() {
+
+    @Inject
+    lateinit var authRepository: AuthRepository
 
     private var permissionDenied = false
 
@@ -20,6 +28,11 @@ class SplashActivity : BaseActivity() {
 
     override fun useDataBinding(): Boolean {
         return false
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
     }
 
     override fun onResume() {
@@ -34,7 +47,11 @@ class SplashActivity : BaseActivity() {
 
     private fun onCompleteAnim() {
         if (isLocationPermitted()) {
-            navigateTo(LocationActivity::class.java)
+            if (!authRepository.isLogin()) {
+                navigateTo(LocationActivity::class.java)
+            } else {
+                navigateTo(MainActivity::class.java)
+            }
         } else {
             requestLocationPermission()
         }

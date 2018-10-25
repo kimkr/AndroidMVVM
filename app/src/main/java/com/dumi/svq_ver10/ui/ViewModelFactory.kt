@@ -2,6 +2,7 @@ package com.dumi.svq_ver10.ui
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import com.dumi.svq_ver10.persistence.repository.LocationRepository
 import com.dumi.svq_ver10.persistence.repository.SettingRepository
 import com.dumi.svq_ver10.persistence.repository.TaskRepository
 import com.dumi.svq_ver10.persistence.repository.UserRepository
@@ -19,7 +20,8 @@ import com.dumi.svq_ver10.ui.user.UserViewModel
 
 class ViewModelFactory(private val userRepository: UserRepository,
                        private val taskRepository: TaskRepository,
-                       private val settingRepository: SettingRepository)
+                       private val settingRepository: SettingRepository,
+                       private val locationRepository: LocationRepository)
     : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -43,8 +45,8 @@ class ViewModelFactory(private val userRepository: UserRepository,
             return IntervalViewModel(settingRepository) as T
         } else if (modelClass.isAssignableFrom(HealingViewModel::class.java)) {
             return HealingViewModel(settingRepository) as T
-        }else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
-            return ProfileViewModel(settingRepository) as T
+        } else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
+            return ProfileViewModel(userRepository, locationRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

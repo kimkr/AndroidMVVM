@@ -5,6 +5,7 @@ import com.dumi.svq_ver10.di.qualifier.Local
 import com.dumi.svq_ver10.persistence.model.Task
 import com.dumi.svq_ver10.persistence.sources.TaskDataSource
 import com.dumi.svq_ver10.util.TimeUtil
+import io.reactivex.Maybe
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -18,9 +19,10 @@ import kotlin.math.roundToInt
 class TaskRepository @Inject constructor(@Local private val localTaskDataSource: TaskDataSource)
     : Repository {
 
-    fun getWeeklyTaskProgress(): Single<Int> {
-        return Single.just((Math.random() * 100).roundToInt())
-                .delay(2000, TimeUnit.MILLISECONDS)
+    fun getWeeklyTaskProgress(): Maybe<Int> {
+        return localTaskDataSource.getTaskProgressBetween(TimeUtil.getTimeStampOf(-7),
+                System.currentTimeMillis())
+                .switchIfEmpty(Maybe.just(0))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }

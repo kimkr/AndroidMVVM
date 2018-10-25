@@ -9,15 +9,16 @@ import javax.inject.Singleton
 class AuthRepository @Inject constructor(private val localDataSource: AuthPreferences)
     : AuthDataSource, Repository {
 
-    override fun getToken(): String? {
-        return localDataSource.getToken()
-    }
+    override fun getToken() = localDataSource.getToken()
 
-    override fun setToken(token: String) {
-       localDataSource.setToken(token)
-    }
+    override fun setToken(token: String) =
+            localDataSource.setToken(token)
 
-    override fun deleteToken() {
-       localDataSource.deleteToken()
-    }
+    override fun deleteToken() = localDataSource.deleteToken()
+
+    override fun isLogin() = localDataSource.isLogin()
+
+    override fun setLogin() = localDataSource.setLogin()
+
+    override fun setLogout() = localDataSource.setLogout()
 }

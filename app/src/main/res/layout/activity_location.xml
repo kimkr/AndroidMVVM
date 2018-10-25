@@ -188,8 +188,8 @@
                 android:layout_width="@dimen/dist_xxlarge"
                 android:layout_height="@dimen/dist_xxlarge"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dist_large"
-                android:layout_marginTop="@dimen/dist_small"
                 android:background="@drawable/ic_search" />
 
             <EditText
@@ -197,17 +197,18 @@
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dist_medium"
+                android:layout_toLeftOf="@+id/btn_search"
                 android:layout_toRightOf="@+id/btn_gps"
                 android:background="@drawable/line_white"
                 android:ems="10"
                 android:hint="@string/location_input_hint"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
-                android:paddingLeft="@dimen/dist_xlarge"
-                android:paddingRight="@dimen/dist_xxlarge"
+                android:paddingLeft="@dimen/dist_small"
+                android:paddingRight="@dimen/dist_small"
                 android:textColor="#000000"
-                android:textColorHint="@color/black" />
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/text_large" />
 
             <ImageView
                 android:id="@+id/under0"
@@ -221,8 +222,8 @@
                 android:layout_width="@dimen/dist_xxlarge"
                 android:layout_height="@dimen/dist_xxlarge"
                 android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dist_medium"
-                android:layout_marginTop="@dimen/dist_micro"
                 android:background="@drawable/ic_current_location" />
         </RelativeLayout>
 

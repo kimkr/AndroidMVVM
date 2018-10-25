@@ -2,6 +2,9 @@
 
     <data>
 
+        <import type="android.databinding.ObservableField" />
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+
         <variable
             name="viewmodel"
             type="com.dumi.svq_ver10.ui.main.profile.ProfileViewModel" />
@@ -10,7 +13,6 @@
             name="onClickListener"
             type="android.view.View.OnClickListener" />
 
-        <import type="com.dumi.svq_ver10.ui.main.Screen" />
     </data>
 
     <LinearLayout
@@ -32,7 +34,6 @@
 
                 <TextView
                     android:layout_width="match_parent"
-
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:fontFamily="@font/nanum_regular"
@@ -53,18 +54,15 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanum_regular"
                     android:padding="@dimen/dist_xlarge"
-
                     android:text="이름" />
 
                 <TextView
-                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanum_light"
                     android:gravity="right"
                     android:padding="@dimen/dist_xlarge"
-
-                    android:text="이름" />
+                    android:text="@{viewmodel.name}" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -75,22 +73,19 @@
                 android:background="@drawable/line_gray_light">
 
                 <TextView
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanum_regular"
                     android:padding="@dimen/dist_xlarge"
-
                     android:text="이메일" />
 
                 <TextView
-                    android:id="@+id/useremail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanum_light"
                     android:gravity="right"
                     android:padding="@dimen/dist_xlarge"
-                    android:text="이름" />
+                    android:text="@{viewmodel.email}" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -108,13 +103,12 @@
                     android:text="연락처" />
 
                 <TextView
-                    android:id="@+id/userphone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanum_light"
                     android:gravity="right"
                     android:padding="@dimen/dist_xlarge"
-                    android:text="이름" />
+                    android:text="@{viewmodel.phone}" />
 
             </RelativeLayout>
 
@@ -130,7 +124,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanum_regular"
                     android:padding="@dimen/dist_xlarge"
-
                     android:text="성별" />
 
                 <TextView
@@ -140,7 +133,7 @@
                     android:fontFamily="@font/nanum_light"
                     android:gravity="right"
                     android:padding="@dimen/dist_xlarge"
-                    android:text="이름" />
+                    android:text="@{viewmodel.gender}" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -164,7 +157,7 @@
                     android:fontFamily="@font/nanum_light"
                     android:gravity="right"
                     android:padding="@dimen/dist_xlarge"
-                    android:text="이름" />
+                    android:text="@{viewmodel.dob}" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -191,12 +184,9 @@
                     android:layout_toLeftOf="@+id/btn_right"
                     android:fontFamily="@font/nanum_light"
                     android:padding="5dp"
-                    android:text="위치"
-
-                    />
+                    android:text="@{viewmodel.location}" />
 
                 <ImageView
-                    android:id="@+id/btn_right"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_alignParentRight="true"
@@ -208,11 +198,13 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/logout_layout"
+            android:id="@+id/btn_profile_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/black">
+            android:background="@drawable/btn_background_black_to_gray"
+            android:clickable="true"
+            android:onClickListener="@{onClickListener}">
 
             <TextView
                 android:layout_width="wrap_content"
