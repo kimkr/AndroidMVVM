@@ -9,6 +9,7 @@ import android.support.v4.app.NotificationCompat
 import android.util.Log
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.persistence.repository.AuthRepository
+import com.dumi.svq_ver10.persistence.repository.QuestionRepository
 import com.dumi.svq_ver10.persistence.repository.TaskRepository
 import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.ui.popup.PopupActivity
@@ -24,6 +25,8 @@ class FirebaseMsgService : FirebaseMessagingService() {
     lateinit var taskRepository: TaskRepository
     @field:[Inject]
     lateinit var authRepository: AuthRepository
+    @field:[Inject]
+    lateinit var questionRepository: QuestionRepository
 
     override fun onCreate() {
         AndroidInjection.inject(this)
@@ -38,9 +41,12 @@ class FirebaseMsgService : FirebaseMessagingService() {
     override fun onMessageReceived(message: RemoteMessage?) {
         var title = message!!.notification!!.title
         var content = message!!.data["ctk_queMsg"]
-        Log.d("FirebaseMsgService", "onMessageReceived $title $content")
+        var taskName = message!!.data["ctk_taskName"]
+        Log.d(TAG, "onMessageReceived ${message.data} $content")
         showPopup()
         sendNotification(title, content)
+        taskRepository.insertTask(taskName!!, authRepository.getUserId(), content!!)
+        questionRepository.loadQuestionList(authRepository.getUserId())
     }
 
     private fun showPopup() {
@@ -63,5 +69,9 @@ class FirebaseMsgService : FirebaseMessagingService() {
                 .setContentIntent(contentIntent)
         notificationManager.notify(0, builder.build())
         notificationManager.cancel(0)
+    }
+
+    companion object {
+        const val TAG = "FirebaseMsgService"
     }
 }

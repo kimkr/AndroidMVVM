@@ -4,6 +4,7 @@ import android.content.Context
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.persistence.remote.LocationService
 import com.dumi.svq_ver10.persistence.remote.PostService
+import com.dumi.svq_ver10.persistence.remote.QuestionService
 import com.dumi.svq_ver10.persistence.remote.UserService
 import com.dumi.svq_ver10.util.location.GoogleMapService
 import dagger.Module
@@ -46,6 +47,12 @@ class APIModule(val context: Context) {
     @Singleton
     fun providePostAPI(retrofit: Retrofit): PostService.PostAPI {
         return retrofit.create(PostService.PostAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTaskAPI(retrofit: Retrofit): QuestionService.QuestionAPI {
+        return retrofit.create(QuestionService.QuestionAPI::class.java)
     }
 
     @Provides

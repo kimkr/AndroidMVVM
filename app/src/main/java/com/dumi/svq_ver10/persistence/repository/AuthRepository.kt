@@ -18,7 +18,9 @@ class AuthRepository @Inject constructor(private val localDataSource: AuthPrefer
 
     override fun isLogin() = localDataSource.isLogin()
 
-    override fun setLogin() = localDataSource.setLogin()
+    override fun setLogin(userId: String) = localDataSource.setLogin(userId)
+
+    override fun getUserId() = localDataSource.getUserId()
 
     override fun setLogout() = localDataSource.setLogout()
 }

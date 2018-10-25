@@ -48,7 +48,7 @@ class LoginActivity : BaseActivity() {
                         { user ->
                             Log.d(TAG, user.toString())
                             dialog.cancel()
-                            authRepository.setLogin()
+                            authRepository.setLogin(user.id)
                             navigateTo(LocationActivity::class.java)
                         },
                         { error ->

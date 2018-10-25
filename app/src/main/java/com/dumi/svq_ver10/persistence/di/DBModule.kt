@@ -1,10 +1,7 @@
 package com.dumi.svq_ver10.persistence.di
 
 import android.content.Context
-import com.dumi.svq_ver10.persistence.db.LocalDatabase
-import com.dumi.svq_ver10.persistence.db.PostDao
-import com.dumi.svq_ver10.persistence.db.TaskDao
-import com.dumi.svq_ver10.persistence.db.UserDao
+import com.dumi.svq_ver10.persistence.db.*
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -34,5 +31,11 @@ class DBModule(val context: Context) {
     @Singleton
     fun provideTaskDataSource(database: LocalDatabase): TaskDao {
         return database.taskDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideQuestionDataSource(database: LocalDatabase): QuestionDao {
+        return database.questionDao()
     }
 }

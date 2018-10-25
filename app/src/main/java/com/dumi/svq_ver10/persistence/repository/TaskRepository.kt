@@ -56,4 +56,9 @@ class TaskRepository @Inject constructor(@Local private val localTaskDataSource:
     fun getAllIncompleteTasks() = localTaskDataSource.getAllIncompleteTasks()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+
+    fun insertTask(task: Task) = localTaskDataSource.insertTask(task)
+
+    fun insertTask(id: String, userId: String, question: String) =
+            insertTask(Task(id, null, userId, question, null, null, Date(), null))
 }

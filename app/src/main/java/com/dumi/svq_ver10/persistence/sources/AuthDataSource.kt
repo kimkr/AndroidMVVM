@@ -8,9 +8,11 @@ interface AuthDataSource {
 
     fun deleteToken()
 
-    fun setLogin()
+    fun setLogin(userId: String)
 
     fun setLogout()
 
     fun isLogin(): Boolean
+
+    fun getUserId(): String
 }

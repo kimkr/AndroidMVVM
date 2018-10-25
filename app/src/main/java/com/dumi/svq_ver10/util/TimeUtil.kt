@@ -39,5 +39,6 @@ class TimeUtil {
 
         fun formatToDay(date: Date) = DateFormat.format("MM.dd", date) as String
         fun formatToTime(date: Date) = DateFormat.format("hh:mm aa", date) as String
+        fun formatToMilli(date: Date) = DateFormat.format("yyyy-MM-dd hh:mm:ss", date) as String
     }
 }

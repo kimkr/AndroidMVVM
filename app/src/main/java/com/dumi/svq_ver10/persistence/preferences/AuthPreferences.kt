@@ -13,11 +13,13 @@ class AuthPreferences @Inject constructor(private val manager: PreferenceManager
 
     override fun deleteToken() = manager.delete(TOKEN_KEY)
 
-    override fun setLogin() = manager.put(LOGIN_FLAG, true)
+    override fun setLogin(userId: String) = manager.put(LOGIN_FLAG, userId)
 
-    override fun setLogout() = manager.put(LOGIN_FLAG, true)
+    override fun setLogout() = manager.put(LOGIN_FLAG, "")
 
-    override fun isLogin() = manager.pref.getBoolean(LOGIN_FLAG, false)
+    override fun isLogin() = !manager.pref.getString(LOGIN_FLAG, "").isNullOrEmpty()
+
+    override fun getUserId() = manager.pref.getString(LOGIN_FLAG, "")
 
     companion object {
         val TOKEN_KEY = "AUTH_TOKEN"

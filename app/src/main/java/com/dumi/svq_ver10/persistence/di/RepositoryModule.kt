@@ -8,6 +8,7 @@ import com.dumi.svq_ver10.persistence.cache.UserCache
 import com.dumi.svq_ver10.persistence.remote.PostService
 import com.dumi.svq_ver10.persistence.remote.UserService
 import com.dumi.svq_ver10.persistence.sources.PostDataSource
+import com.dumi.svq_ver10.persistence.sources.QuestionDataSource
 import com.dumi.svq_ver10.persistence.sources.TaskDataSource
 import com.dumi.svq_ver10.persistence.sources.UserDataSource
 import dagger.Binds
@@ -43,4 +44,8 @@ abstract class RepositoryModule {
     @Binds
     @Local
     abstract fun provideLocalTaskDatabase(taskDao: TaskDao): TaskDataSource
+
+    @Binds
+    @Local
+    abstract fun provideLocalQuestionDatabase(questionDao: QuestionDao): QuestionDataSource
 }
