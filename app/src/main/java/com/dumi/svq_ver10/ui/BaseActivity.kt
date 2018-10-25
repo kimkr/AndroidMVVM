@@ -22,6 +22,7 @@ import com.dumi.svq_ver10.R
 abstract class BaseActivity : AppCompatActivity() {
 
     protected val BACK_PRESS_INTERVAL: Long = 2000
+    protected val REQUEST_CODE = 1111
     protected var prevBackPressed: Long = 0
     protected lateinit var binding: ViewDataBinding
 
@@ -114,6 +115,13 @@ abstract class BaseActivity : AppCompatActivity() {
         finish()
     }
 
+    protected fun navigateTo(target: Class<out Any>, key: String, value: String) {
+        val intent = Intent(this, target)
+        intent.putExtra(key, value)
+        startActivityForResult(intent, REQUEST_CODE)
+        finish()
+    }
+
     protected fun hideKeyboard(et: EditText): Boolean {
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(et.windowToken, 0)
@@ -160,5 +168,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
         override fun onAnimationRepeat(animation: Animation) {
         }
+    }
+
+    companion object {
+        const val BUNDLE_ARG = "BUNDLE_ARG"
     }
 }

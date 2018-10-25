@@ -2,10 +2,7 @@ package com.dumi.svq_ver10.ui
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.dumi.svq_ver10.persistence.repository.LocationRepository
-import com.dumi.svq_ver10.persistence.repository.SettingRepository
-import com.dumi.svq_ver10.persistence.repository.TaskRepository
-import com.dumi.svq_ver10.persistence.repository.UserRepository
+import com.dumi.svq_ver10.persistence.repository.*
 import com.dumi.svq_ver10.ui.main.home.HomeViewModel
 import com.dumi.svq_ver10.ui.main.profile.ProfileViewModel
 import com.dumi.svq_ver10.ui.main.selfcheck.SelfCheckViewModel
@@ -16,12 +13,14 @@ import com.dumi.svq_ver10.ui.main.setting.location.LocationViewModel
 import com.dumi.svq_ver10.ui.main.taskcomplete.CompleteTaskViewModel
 import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskViewModel
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyViewModel
+import com.dumi.svq_ver10.ui.question.text.TextViewModel
 import com.dumi.svq_ver10.ui.user.UserViewModel
 
 class ViewModelFactory(private val userRepository: UserRepository,
                        private val taskRepository: TaskRepository,
                        private val settingRepository: SettingRepository,
-                       private val locationRepository: LocationRepository)
+                       private val locationRepository: LocationRepository,
+                       private val questionRepository: QuestionRepository)
     : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -47,6 +46,8 @@ class ViewModelFactory(private val userRepository: UserRepository,
             return HealingViewModel(settingRepository) as T
         } else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
             return ProfileViewModel(userRepository, locationRepository) as T
+        } else if (modelClass.isAssignableFrom(TextViewModel::class.java)) {
+            return TextViewModel(questionRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

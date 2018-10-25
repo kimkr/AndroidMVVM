@@ -23,4 +23,6 @@ data class Question(@PrimaryKey
                     @ColumnInfo(name = "right")
                     var right: String,
                     @ColumnInfo(name = "values")
-                    var values: List<String>)
+                    var values: List<String>,
+                    @ColumnInfo(name = "task")
+                    var task: String)

@@ -18,6 +18,9 @@ import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskFragmentModule
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyFragmentModule
 import com.dumi.svq_ver10.ui.post.PostActivity
 import com.dumi.svq_ver10.ui.post.PostModule
+import com.dumi.svq_ver10.ui.question.QuestionActivity
+import com.dumi.svq_ver10.ui.question.QuestionModule
+import com.dumi.svq_ver10.ui.question.text.TextFragmentModule
 import com.dumi.svq_ver10.ui.splash.SplashActivity
 import com.dumi.svq_ver10.ui.splash.SplashModule
 import com.dumi.svq_ver10.ui.user.UserActivity
@@ -56,4 +59,8 @@ abstract class ActivityModule {
         CompleteTaskFragmentModule::class, IncompleteTaskFragmentModule::class, ProfileFragmentModule::class,
         LocationFragmentModule::class, IntervalFragmentModule::class, HealingFragmentModule::class])
     abstract fun contributeMainActivity(): MainActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [QuestionModule::class, TextFragmentModule::class])
+    abstract fun contributeQuestionActivity(): QuestionActivity
 }

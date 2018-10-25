@@ -14,6 +14,9 @@ interface QuestionDao : QuestionDataSource {
     @Query("SELECT * FROM Questions WHERE id = :id")
     override fun getQuestionById(id: String): Maybe<Question>
 
+    @Query("SELECT * FROM Questions WHERE task = :task")
+    override fun getQuestionsByTask(task: String): Maybe<List<Question>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     override fun insertQuestion(question: Question)
 

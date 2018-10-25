@@ -30,4 +30,8 @@ abstract class BaseFragment : Fragment() {
             binding.root
         }
     }
+
+    companion object {
+        const val BUNDLE_ARG = "BUNDLE_ARG"
+    }
 }

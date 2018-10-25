@@ -7,6 +7,7 @@ import com.dumi.svq_ver10.BR
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.ui.BaseFragment
 import com.dumi.svq_ver10.ui.main.MainActivity
+import com.dumi.svq_ver10.ui.main.Screen
 import dagger.android.support.AndroidSupportInjection
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_task_incomplete.*
@@ -39,8 +40,9 @@ class IncompleteTaskFragment : BaseFragment(), View.OnClickListener {
         lv_task_incomplete.setOnItemClickListener { _, _, i, l ->
             var task = adapter.getItem(i)
             Log.d(TAG, "onClick task $task")
+            (activity as MainActivity).addScreen(Screen.QUESTION, task.id)
         }
-        Log.d(TAG, "onStart argument ${getArgument(MainActivity.BUNDLE_ARG)}")
+        Log.d(TAG, "onStart argument ${getArgument(BUNDLE_ARG)}")
         disposable.add(viewModel.loadTasks())
     }
 

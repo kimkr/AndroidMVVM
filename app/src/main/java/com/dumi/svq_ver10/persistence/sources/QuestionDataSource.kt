@@ -7,6 +7,8 @@ interface QuestionDataSource {
 
     fun getQuestionById(id: String): Maybe<Question>
 
+    fun getQuestionsByTask(id: String): Maybe<List<Question>>
+
     fun insertQuestion(question: Question)
 
     fun removeQuestion(id: String)

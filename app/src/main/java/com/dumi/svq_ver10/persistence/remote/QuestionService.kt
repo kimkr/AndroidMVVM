@@ -2,7 +2,9 @@ package com.dumi.svq_ver10.persistence.remote
 
 import com.dumi.svq_ver10.persistence.model.Question
 import com.dumi.svq_ver10.util.TimeUtil
+import com.google.gson.Gson
 import io.reactivex.Maybe
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import retrofit2.http.POST
@@ -21,6 +23,13 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
                 }
     }
 
+    fun parseQuestion(str: String): Single<List<Question>> {
+        var gson = Gson()
+        return Single.just(str)
+                .map { responseStr -> gson.fromJson(responseStr, ListResponse::class.java) }
+                .map { response -> transform(response) }
+    }
+
     fun answerQuestion(userId: String, token: String, taskId: String,
                        answer: String, type: Type): Maybe<Boolean> {
         var date = TimeUtil.formatToMilli(Date())
@@ -33,9 +42,11 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
 
     private fun transform(response: ListResponse): List<Question> {
         var ret = ArrayList<Question>()
-        var tasknum = response.listNum.toInt()
+        var tasknum = if (response.listNum == null) 1 else response.listNum.toInt()
         var msg = response.ctk_queMsg.split(RESPONSE_DELIM)
-        var settingVal = response.ctk_queSettingVal.split(RESPONSE_DELIM)
+        var settingVal =
+                if (response.ctk_queSettingVal == null) ArrayList()
+                else response.ctk_queSettingVal.split(RESPONSE_DELIM)
         var taskname = response.ctk_taskName.split(RESPONSE_DELIM)
         var method = response.ctk_queMethod.split(RESPONSE_DELIM)
         var num = ""
@@ -71,7 +82,8 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
                     }
                 }
             }
-            val question = Question(taskname[i], treeId, method[i], "0", msg[i], num, "", "", values)
+            val question = Question(taskname[i], treeId, method[i], "0", msg[i],
+                    num, "", "", values, taskname[i])
             ret.add(question)
         }
         return ret
@@ -91,10 +103,11 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
                 @Query("ctk_answerDate") date: String): Maybe<AnswerResponse>
     }
 
-    data class ListResponse(val listNum: String,
+    data class ListResponse(val listNum: String?,
+                            val ctk_queId: String,
                             val ctk_taskName: String,
                             val ctk_queMsg: String,
-                            val ctk_queSettingVal: String,
+                            val ctk_queSettingVal: String?,
                             val ctk_queMethod: String)
 
     data class AnswerResponse(val msg: String)
@@ -103,7 +116,9 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
         RADIO("radio"),
         SLIDE("slide"),
         CHECKBOX("checkbox"),
+        TEXT("simple"),
         TREE("tree");
+
 
         companion object {
             fun from(code: String): Type? {

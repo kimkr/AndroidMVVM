@@ -18,6 +18,7 @@ import com.dumi.svq_ver10.ui.main.setting.location.LocationFragment
 import com.dumi.svq_ver10.ui.main.taskcomplete.CompleteTaskFragment
 import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskFragment
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyFragment
+import com.dumi.svq_ver10.ui.question.QuestionActivity
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -91,7 +92,7 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
     fun goTo(screen: Screen) {
         this.screen = screen
         if (screen.activity) {
-            startActivity(screen)
+            startActivity(screen, null)
         } else {
             replaceFragment(fl_main_container, getFragment(screen))
         }
@@ -100,7 +101,7 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
     fun addScreen(screen: Screen, arg: String) {
         this.screen = screen
         if (screen.activity) {
-            startActivity(screen)
+            startActivity(screen, arg)
         } else {
             var fragment = getFragment(screen)
             var bundle = Bundle()
@@ -110,11 +111,14 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
         }
     }
 
-    private fun startActivity(screen: Screen) {
+    private fun startActivity(screen: Screen, arg: String?) {
         when (screen) {
             LOGIN -> {
                 authRepository.setLogout()
                 navigateTo(LoginActivity::class.java)
+            }
+            QUESTION -> {
+                navigateTo(QuestionActivity::class.java, BUNDLE_ARG, arg!!)
             }
         }
     }
@@ -137,6 +141,6 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
 
     companion object {
         private val TAG = MainActivity::class.java.simpleName
-        val BUNDLE_ARG = "BUNDLE_ARG"
+//        val BUNDLE_ARG = "BUNDLE_ARG"
     }
 }

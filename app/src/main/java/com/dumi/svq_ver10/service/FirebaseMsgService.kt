@@ -16,6 +16,7 @@ import com.dumi.svq_ver10.ui.popup.PopupActivity
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.google.gson.Gson
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -46,7 +47,7 @@ class FirebaseMsgService : FirebaseMessagingService() {
         showPopup()
         sendNotification(title, content)
         taskRepository.insertTask(taskName!!, authRepository.getUserId(), content!!)
-        questionRepository.loadQuestionList(authRepository.getUserId())
+        questionRepository.saveQuestion(Gson().toJson(message!!.data))
     }
 
     private fun showPopup() {
