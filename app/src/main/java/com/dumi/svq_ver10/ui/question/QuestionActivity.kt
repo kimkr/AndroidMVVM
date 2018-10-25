@@ -7,6 +7,7 @@ import com.dumi.svq_ver10.persistence.model.QuestionType
 import com.dumi.svq_ver10.persistence.model.QuestionType.*
 import com.dumi.svq_ver10.persistence.repository.QuestionRepository
 import com.dumi.svq_ver10.ui.BaseActivity
+import com.dumi.svq_ver10.ui.question.checkbox.CheckBoxFragment
 import com.dumi.svq_ver10.ui.question.slide.SlideFragment
 import com.dumi.svq_ver10.ui.question.text.TextFragment
 import dagger.android.AndroidInjection
@@ -28,6 +29,7 @@ class QuestionActivity : BaseActivity(), HasSupportFragmentInjector {
     private var questions = ArrayList<String>()
     private var textFragment: TextFragment? = null
     private var slideFragment: SlideFragment? = null
+    private var checkBoxFragment: CheckBoxFragment? = null
 
     override fun getLayout() = R.layout.activity_question
     override fun useDataBinding() = false
@@ -90,9 +92,11 @@ class QuestionActivity : BaseActivity(), HasSupportFragmentInjector {
                     slideFragment = SlideFragment()
                 slideFragment
             }
-            RADIO -> textFragment
-            CHECKBOX -> textFragment
-            TREE -> textFragment
+            RADIO, CHECKBOX, TREE -> {
+                if (checkBoxFragment == null)
+                    checkBoxFragment = CheckBoxFragment()
+                checkBoxFragment
+            }
         }
     }
 

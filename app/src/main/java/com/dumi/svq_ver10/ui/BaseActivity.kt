@@ -87,11 +87,11 @@ abstract class BaseActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    protected fun toast(str: Int) {
+    fun toast(str: Int) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
     }
 
-    protected fun toast(str: String) {
+    fun toast(str: String) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
     }
 

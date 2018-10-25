@@ -61,7 +61,7 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
             val type = QuestionType.from(method[i])
             var values = ArrayList<String>()
             when (type) {
-                RADIO -> {
+                RADIO, CHECKBOX -> {
                     num = settings[0]
                     for (j in 1..num.toInt()) {
                         values.add(settings[j])
@@ -77,12 +77,6 @@ class QuestionService @Inject constructor(private val questionAPI: QuestionAPI) 
                             if (i < settings.size) {
                                 values.add(settings[i])
                             }
-                    }
-                }
-                CHECKBOX -> {
-                    num = settings[0]
-                    for (j in 1..num.toInt()) {
-                        values.add(settings[j])
                     }
                 }
                 TREE -> {

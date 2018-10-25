@@ -13,6 +13,7 @@ import com.dumi.svq_ver10.ui.main.setting.location.LocationViewModel
 import com.dumi.svq_ver10.ui.main.taskcomplete.CompleteTaskViewModel
 import com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskViewModel
 import com.dumi.svq_ver10.ui.main.weeklystat.WeeklyViewModel
+import com.dumi.svq_ver10.ui.question.checkbox.CheckBoxViewModel
 import com.dumi.svq_ver10.ui.question.slide.SlideViewModel
 import com.dumi.svq_ver10.ui.question.text.TextViewModel
 import com.dumi.svq_ver10.ui.user.UserViewModel
@@ -51,6 +52,8 @@ class ViewModelFactory(private val userRepository: UserRepository,
             return TextViewModel(questionRepository, taskRepository) as T
         } else if (modelClass.isAssignableFrom(SlideViewModel::class.java)) {
             return SlideViewModel(questionRepository, taskRepository) as T
+        } else if (modelClass.isAssignableFrom(CheckBoxViewModel::class.java)) {
+            return CheckBoxViewModel(questionRepository, taskRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
