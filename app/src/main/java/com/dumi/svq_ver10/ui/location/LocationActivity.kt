@@ -138,6 +138,7 @@ class LocationActivity : BaseActivity() {
 
     private fun setCurrentLocation() {
         repository.updateLocation(markerPosition.latitude, markerPosition.longitude)
+                .andThen(repository.updateAddress(viewModel.currentAddress.get()!!))
                 .subscribe {
                     val dialog = SingleDialog(this,
                             "나의 위치가 설정되었습니다.",

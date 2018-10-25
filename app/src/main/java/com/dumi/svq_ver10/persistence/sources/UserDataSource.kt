@@ -9,6 +9,8 @@ interface UserDataSource {
 
     fun insertUser(user: User)
 
+    fun updateUser(user: User)
+
     fun deleteAllUsers()
 
     fun getUser(): Maybe<User>

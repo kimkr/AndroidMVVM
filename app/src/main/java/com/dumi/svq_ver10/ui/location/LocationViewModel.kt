@@ -9,6 +9,7 @@ import android.databinding.ObservableList
 import android.location.Location
 import android.util.Log
 import com.dumi.svq_ver10.di.scopes.ActivityScope
+import com.dumi.svq_ver10.persistence.repository.UserRepository
 import com.dumi.svq_ver10.util.location.GoogleMapService
 import io.reactivex.Maybe
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -23,6 +24,7 @@ class LocationViewModel @Inject constructor(private val context: Application,
                                             private val singleLocationUpdate: Maybe<Location>,
                                             @Named("lastknown_location")
                                             private val getLastKnownLocation: () -> DoubleArray,
+                                            private val userRepository: UserRepository,
                                             private var googleMapService: GoogleMapService)
     : AndroidViewModel(context) {
 
@@ -33,7 +35,7 @@ class LocationViewModel @Inject constructor(private val context: Application,
     var chooseCurrentButtonVisible = ObservableBoolean(false)
     var loading = ObservableBoolean(false)
     var currentLocation = ObservableArrayList<Double>()
-    var currentAddress = ObservableField<String>()
+    var currentAddress = ObservableField<String>("")
     val searchResults: ObservableList<GoogleMapService.Result> = ObservableArrayList()
 
     fun updateViewState(viewAction: ViewAction) {

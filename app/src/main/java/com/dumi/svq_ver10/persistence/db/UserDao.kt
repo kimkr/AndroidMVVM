@@ -16,6 +16,9 @@ interface UserDao : UserDataSource {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     override fun insertUser(user: User)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    override fun updateUser(user: User)
+
     @Query("DELETE FROM Users")
     override fun deleteAllUsers()
 

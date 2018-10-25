@@ -27,10 +27,7 @@ class ProfileViewModel(private val userRepository: UserRepository,
                 phone.set(user.phone)
                 dob.set(user.dob)
                 gender.set(user.gender.code)
-                var location = locationRepository.getLocation()
-                if (location != null) {
-                    this.location.set("${location.latitude} - ${location.longitude}")
-                }
+                location.set(locationRepository.getAddress())
             }
 
     companion object {

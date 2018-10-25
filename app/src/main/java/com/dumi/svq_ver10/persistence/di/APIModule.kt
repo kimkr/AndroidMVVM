@@ -2,9 +2,9 @@ package com.dumi.svq_ver10.persistence.di
 
 import android.content.Context
 import com.dumi.svq_ver10.R
-import com.dumi.svq_ver10.persistence.cache.LocationService
-import com.dumi.svq_ver10.persistence.cache.PostService
-import com.dumi.svq_ver10.persistence.cache.UserService
+import com.dumi.svq_ver10.persistence.remote.LocationService
+import com.dumi.svq_ver10.persistence.remote.PostService
+import com.dumi.svq_ver10.persistence.remote.UserService
 import com.dumi.svq_ver10.util.location.GoogleMapService
 import dagger.Module
 import dagger.Provides

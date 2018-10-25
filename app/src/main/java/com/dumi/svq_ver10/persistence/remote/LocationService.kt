@@ -1,4 +1,4 @@
-package com.dumi.svq_ver10.persistence.cache
+package com.dumi.svq_ver10.persistence.remote
 
 import com.dumi.svq_ver10.persistence.repository.AuthRepository
 import com.dumi.svq_ver10.persistence.repository.UserRepository
@@ -15,14 +15,19 @@ import javax.inject.Singleton
 class LocationService @Inject constructor(private val locationAPI: LocationAPI,
                                           private val authRepository: AuthRepository,
                                           private val userRepository: UserRepository) : LocationDataSource {
+    override fun getAddress(): String? {
+        return null
+    }
+
+    override fun updateAddress(address: String): Completable {
+        return Completable.fromCallable { }
+    }
+
     override fun getLocation(): LatLng? {
         return null
     }
 
-    private val testToken = "cmQR4Bbg5qU:APA91bHkQNz-oXGmdhFwN4t4MflmjTP7xohrhoXSd1Tv6jl9U4dEDtnJVl375KwmITpdgpuo2MbClZ6JckckldBZKXrFqqB6cuwJWx2sz3M6x_XUM__bAWlBea9iwQPmJcrUyozRPJm9"
-
     override fun updateLocation(lat: Double, lng: Double): Completable {
-        val token = authRepository.getToken() ?: testToken
         return userRepository.getUser()
                 .flatMap { user ->
                     locationAPI.updateLocation(user.id, transform(lat, lng))

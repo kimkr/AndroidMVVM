@@ -4,9 +4,9 @@ import com.dumi.svq_ver10.di.qualifier.Cache
 import com.dumi.svq_ver10.di.qualifier.Local
 import com.dumi.svq_ver10.di.qualifier.Remote
 import com.dumi.svq_ver10.persistence.cache.PostCache
-import com.dumi.svq_ver10.persistence.cache.PostService
 import com.dumi.svq_ver10.persistence.cache.UserCache
-import com.dumi.svq_ver10.persistence.cache.UserService
+import com.dumi.svq_ver10.persistence.remote.PostService
+import com.dumi.svq_ver10.persistence.remote.UserService
 import com.dumi.svq_ver10.persistence.sources.PostDataSource
 import com.dumi.svq_ver10.persistence.sources.TaskDataSource
 import com.dumi.svq_ver10.persistence.sources.UserDataSource

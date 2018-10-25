@@ -1,4 +1,4 @@
-package com.dumi.svq_ver10.persistence.cache
+package com.dumi.svq_ver10.persistence.remote
 
 import com.dumi.svq_ver10.persistence.model.Post
 import com.dumi.svq_ver10.persistence.sources.PostDataSource

@@ -12,7 +12,7 @@ class PopupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         var dialog = TreeDialog(this,
                 this.getString(R.string.new_message_title),
-                View.OnClickListener {
+                View.OnClickListener { _ ->
                     finish()
                 })
         dialog.show()

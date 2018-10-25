@@ -8,4 +8,8 @@ interface LocationDataSource {
     fun updateLocation(lat: Double, lng: Double): Completable
 
     fun getLocation(): LatLng?
+
+    fun updateAddress(address: String): Completable
+
+    fun getAddress(): String?
 }

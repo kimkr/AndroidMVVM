@@ -3,7 +3,6 @@ package com.dumi.svq_ver10.persistence.remote
 import com.dumi.svq_ver10.persistence.model.Gender
 import com.dumi.svq_ver10.persistence.model.User
 import com.dumi.svq_ver10.persistence.repository.AuthRepository
-import com.dumi.svq_ver10.persistence.sources.UserDataSource
 import io.reactivex.Maybe
 import retrofit2.http.POST
 import retrofit2.http.Query
@@ -11,14 +10,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class UserService @Inject constructor(private val userAPI: UserAPI,
-                                      private val authRepository: AuthRepository) : UserDataSource {
-    override fun updateUser(user: User) {
-    }
-
-    override fun getUser() = Maybe.empty<User>()
-
-    override fun getUserById(id: String): Maybe<User> {
+class TaskService @Inject constructor(private val userAPI: TaskAPI,
+                                      private val authRepository: AuthRepository) {
+    fun getUserById(id: String): Maybe<User> {
         val token = authRepository.getToken()
         return userAPI.getUserById(id, token)
                 .flatMap { res ->
@@ -40,13 +34,7 @@ class UserService @Inject constructor(private val userAPI: UserAPI,
         return User(id, name, email, phone, date, gender, manager, autoLogin)
     }
 
-    override fun insertUser(user: User) {
-    }
-
-    override fun deleteAllUsers() {
-    }
-
-    interface UserAPI {
+    interface TaskAPI {
         @POST("getAndroidLogin.do")
         fun getUserById(@Query("cuser_id") userId: String,
                         @Query("cuser_token") token: String): Maybe<LoginResponse>
