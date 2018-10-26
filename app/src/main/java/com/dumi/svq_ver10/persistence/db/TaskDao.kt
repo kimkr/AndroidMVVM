@@ -26,4 +26,7 @@ interface TaskDao : TaskDataSource {
 
     @Query("SELECT (100 * a / b) as progress from (SELECT count(*) as a FROM Tasks WHERE (answer IS NOT NULL) AND (assigned_at BETWEEN :start AND :end)) JOIN (SELECT MAX(count(*), 1) as b FROM Tasks WHERE assigned_at BETWEEN :start AND :end) ON 1 = 1")
     override fun getTaskProgressBetween(start: Long, end: Long): Maybe<Int>
+
+    @Query("DELETE FROM Tasks")
+    override fun clearAll()
 }

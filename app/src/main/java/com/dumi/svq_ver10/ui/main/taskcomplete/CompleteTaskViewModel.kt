@@ -2,6 +2,7 @@ package com.dumi.svq_ver10.ui.main.taskcomplete
 
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableArrayList
+import android.databinding.ObservableBoolean
 import android.databinding.ObservableInt
 import android.util.Log
 import com.dumi.svq_ver10.persistence.model.Task
@@ -16,6 +17,7 @@ class CompleteTaskViewModel(private val taskRepository: TaskRepository) : ViewMo
     val year = ObservableInt(Calendar.getInstance().get(Calendar.YEAR))
     val month = ObservableInt(Calendar.getInstance().get(Calendar.MONTH) + 1)
     val tasks = ObservableArrayList<Any>()
+    val empty = ObservableBoolean(false)
 
     fun loadMontlyCompleteTasks(): Disposable = taskRepository.getMonthlyCompleteTasks(year.get(), month.get())
             .subscribe { tasks ->
@@ -32,6 +34,7 @@ class CompleteTaskViewModel(private val taskRepository: TaskRepository) : ViewMo
                     list.add(key)
                     list.addAll(taskMap[key]!!)
                 }
+                empty.set(list.isEmpty())
                 this.tasks.clear()
                 this.tasks.addAll(list)
                 Log.d(TAG, "loadMontlyCompleteTasks ${this.tasks}")

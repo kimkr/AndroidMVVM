@@ -5,6 +5,7 @@ import com.dumi.svq_ver10.persistence.model.Question
 import com.dumi.svq_ver10.persistence.model.QuestionType
 import com.dumi.svq_ver10.persistence.remote.QuestionService
 import com.dumi.svq_ver10.persistence.sources.QuestionDataSource
+import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -29,7 +30,7 @@ class QuestionRepository @Inject constructor(@Local private val localQuestionDat
 
     fun removeQuestion(id: String) = localQuestionDataSource.removeQuestion(id)
 
-    fun removeAll() = localQuestionDataSource.removeAll()
+    fun removeAll(): Completable = Completable.fromAction { localQuestionDataSource.removeAll() }
 
     fun loadQuestionList(userId: String) {
         questionService.getList(userId)

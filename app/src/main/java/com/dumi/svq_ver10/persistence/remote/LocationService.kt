@@ -17,6 +17,9 @@ import javax.inject.Singleton
 class LocationService @Inject constructor(private val locationAPI: LocationAPI,
                                           private val authRepository: AuthRepository,
                                           private val userRepository: UserRepository) : LocationDataSource {
+    override fun clearAll() {
+    }
+
     override fun updateGps(latitude: Double, longitude: Double): Completable {
         var userId = authRepository.getUserId()
         return locationAPI.updateGps(userId, TimeUtil.formatToGpsTime(Date()), "$latitude-$longitude")

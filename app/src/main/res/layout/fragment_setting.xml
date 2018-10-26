@@ -1,4 +1,5 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -33,32 +34,6 @@
                 android:text="계정 설정"
                 android:textColor="@color/black" />
         </LinearLayout>
-
-        <!-- 계정정보 레이아웃 -->
-        <RelativeLayout
-            android:id="@+id/setting_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_background_white_to_gray"
-            android:clickable="true"
-            android:onClickListener="@{onClickListener}"
-            android:tag="@{Screen.SETTING_INTERVAL}">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/dist_xlarge"
-                android:text="계정 정보"
-                android:textColor="@color/black" />
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/ic_arrow_right" />
-        </RelativeLayout>
 
         <!-- 치료설정 레이아웃 -->
         <RelativeLayout
@@ -116,15 +91,16 @@
                 android:textColor="@color/black" />
 
             <Switch
-                android:id="@+id/setting_push_switch"
+                android:id="@+id/switch_setting_push"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClickListener="@{onClickListener}"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
+                android:onClickListener="@{onClickListener}"
                 android:padding="10dp"
-                android:theme="@style/CustomSwitch" />
+                android:theme="@style/CustomSwitch"
+                app:checked="@{viewmodel.pushAllowed}" />
 
         </RelativeLayout>
 
@@ -144,15 +120,16 @@
                 android:textColor="@color/black" />
 
             <Switch
-                android:id="@+id/setting_agree_switch"
+                android:id="@+id/switch_setting_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClickListener="@{onClickListener}"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
+                android:onClickListener="@{onClickListener}"
                 android:padding="10dp"
-                android:theme="@style/CustomSwitch" />
+                android:theme="@style/CustomSwitch"
+                app:checked="@{viewmodel.locationAllowed}" />
 
         </RelativeLayout>
 
@@ -182,6 +159,33 @@
                 android:layout_marginRight="40dp"
                 android:background="@drawable/ic_arrow_right" />
         </RelativeLayout>
+
+        <!-- 수집시간 설정 레이아웃 -->
+        <RelativeLayout
+            android:id="@+id/setting_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_background_white_to_gray"
+            android:clickable="true"
+            android:onClickListener="@{onClickListener}"
+            android:tag="@{Screen.SETTING_INTERVAL}">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dist_xlarge"
+                android:text="수집 시간 설정"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/ic_arrow_right" />
+        </RelativeLayout>
+
     </LinearLayout>
 
 </layout>

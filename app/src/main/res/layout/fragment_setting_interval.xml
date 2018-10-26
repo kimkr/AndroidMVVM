@@ -19,7 +19,6 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:clickable="true"
-        android:onClickListener="@{onClickListener}"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -136,9 +135,7 @@
                     android:textSize="20dp"
                     android:visibility="invisible" />
 
-
             </RelativeLayout>
-
 
             <!-- 위치 수집 간격 영역 -->
             <RelativeLayout
@@ -167,27 +164,27 @@
                 <EditText
                     android:id="@+id/complete_time_txt"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_below="@+id/setting3"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="50dp"
                     android:focusable="false"
-                    android:fontFamily="@font/nanum_light"
+                    android:gravity="bottom"
                     android:inputType="number|phone"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_below="@+id/setting3"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginTop="50dp"
                     android:layout_toRightOf="@+id/complete_time_txt"
-                    android:fontFamily="@font/nanum_light"
+                    android:gravity="center_vertical"
                     android:text="분"
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
                 <!-- 칸 나누는 선
                 <View

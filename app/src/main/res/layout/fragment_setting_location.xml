@@ -71,39 +71,39 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/part_agree"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/all_agree"
-                android:background="@drawable/line_gray_light">
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/part_agree"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/all_agree"-->
+                <!--android:background="@drawable/line_gray_light">-->
 
-                <TextView
-                    android:id="@+id/text4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanum_light"
-                    android:padding="@dimen/dist_xlarge"
-                    android:text="수집 시간 설정"
-                    android:textColor="@color/black" />
+                <!--<TextView-->
+                    <!--android:id="@+id/text4"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:fontFamily="@font/nanum_light"-->
+                    <!--android:padding="@dimen/dist_xlarge"-->
+                    <!--android:text="수집 시간 설정"-->
+                    <!--android:textColor="@color/black" />-->
 
-                <TextView
-                    android:id="@+id/loc_data_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/text4"
-                    android:fontFamily="@font/nanum_light"
-                    android:paddingVertical="@dimen/dist_xlarge"
-                    android:textColor="@color/black" />
+                <!--<TextView-->
+                    <!--android:id="@+id/loc_data_txt"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_toRightOf="@+id/text4"-->
+                    <!--android:fontFamily="@font/nanum_light"-->
+                    <!--android:paddingVertical="@dimen/dist_xlarge"-->
+                    <!--android:textColor="@color/black" />-->
 
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/ic_arrow_right" />
-            </RelativeLayout>
+                <!--<ImageView-->
+                    <!--android:layout_width="15dp"-->
+                    <!--android:layout_height="15dp"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginRight="15dp"-->
+                    <!--android:background="@drawable/ic_arrow_right" />-->
+            <!--</RelativeLayout>-->
 
         </RelativeLayout>
 

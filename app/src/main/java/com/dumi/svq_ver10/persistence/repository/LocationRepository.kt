@@ -31,4 +31,8 @@ class LocationRepository @Inject constructor(private val localDataSource: Locati
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
     }
+
+    override fun clearAll() {
+        localDataSource.clearAll()
+    }
 }

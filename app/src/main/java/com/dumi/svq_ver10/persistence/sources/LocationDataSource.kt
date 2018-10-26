@@ -14,4 +14,6 @@ interface LocationDataSource {
     fun getAddress(): String?
 
     fun updateGps(latitude: Double, longitude: Double): Completable
+
+    fun clearAll()
 }

@@ -33,7 +33,7 @@ class UserRepository @Inject constructor(@Local private val localDataSource: Use
     }
 
     fun deleteAllUsers(): Completable {
-        return Completable.fromAction { deleteAllUsers() }
+        return Completable.fromAction { localDataSource.deleteAllUsers() }
     }
 
     fun getUser(): Maybe<User> {

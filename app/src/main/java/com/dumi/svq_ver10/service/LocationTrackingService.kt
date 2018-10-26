@@ -39,16 +39,17 @@ class LocationTrackingService : Service() {
                 singleLocationUpdateRequest(locationManager, provider)
                         .subscribe { gps ->
                             var now = TimeUtil.getHour()
-                            var allowedTime = settingRepository.getGpsTrakingTime()
+                            var allowedTime = settingRepository.getGpsTrackingTime()
                             if (now >= allowedTime.first && now < allowedTime.second) {
                                 locationRepository.updateGps(gps.latitude, gps.longitude)
                             }
                         }
             }
+            var interval = Math.max(settingRepository.getGpsInterval() * 60 * 1000, LOCATION_UPDATE_INTERVAL)
             if (settingRepository.isGpsAllowed()) {
-                this.sendEmptyMessageDelayed(0, LOCATION_UPDATE_INTERVAL.toLong())
+                this.sendEmptyMessageDelayed(0, interval.toLong())
             } else {
-                this.sendEmptyMessageDelayed(0, (LOCATION_UPDATE_INTERVAL * 60).toLong())
+                this.sendEmptyMessageDelayed(0, (interval * 60).toLong())
             }
 
         }

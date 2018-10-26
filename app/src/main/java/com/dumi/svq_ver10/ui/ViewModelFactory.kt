@@ -47,7 +47,8 @@ class ViewModelFactory(private val userRepository: UserRepository,
         } else if (modelClass.isAssignableFrom(HealingViewModel::class.java)) {
             return HealingViewModel(settingRepository) as T
         } else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
-            return ProfileViewModel(userRepository, locationRepository) as T
+            return ProfileViewModel(userRepository, locationRepository,
+                    taskRepository, questionRepository, settingRepository) as T
         } else if (modelClass.isAssignableFrom(TextViewModel::class.java)) {
             return TextViewModel(questionRepository, taskRepository) as T
         } else if (modelClass.isAssignableFrom(SlideViewModel::class.java)) {

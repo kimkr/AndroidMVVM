@@ -5,6 +5,7 @@ import com.dumi.svq_ver10.di.qualifier.Local
 import com.dumi.svq_ver10.persistence.model.Task
 import com.dumi.svq_ver10.persistence.sources.TaskDataSource
 import com.dumi.svq_ver10.util.TimeUtil
+import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -69,4 +70,6 @@ class TaskRepository @Inject constructor(@Local private val localTaskDataSource:
 
     fun updateAsAnswered(id: String, answer: String): Single<Long> =
             Single.fromCallable { localTaskDataSource.updateAnswer(id, answer) }
+
+    fun clearAll() = Completable.fromAction { localTaskDataSource.clearAll() }
 }

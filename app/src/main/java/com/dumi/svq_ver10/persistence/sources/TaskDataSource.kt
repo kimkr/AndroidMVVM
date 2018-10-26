@@ -15,4 +15,6 @@ interface TaskDataSource {
     fun getCompleteTaskBetween(start: Long, end: Long): Single<List<Task>>
 
     fun getTaskProgressBetween(start: Long, end: Long): Maybe<Int>
+
+    fun clearAll()
 }

@@ -9,6 +9,7 @@ import com.dumi.svq_ver10.ui.main.MainActivity
 import com.dumi.svq_ver10.ui.main.Screen
 import dagger.android.support.AndroidSupportInjection
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.fragment_setting.*
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -32,6 +33,13 @@ class SettingFragment : BaseFragment(), View.OnClickListener {
         super.onStart()
         binding.setVariable(BR.viewmodel, viewModel)
         binding.setVariable(BR.onClickListener, this)
+        switch_setting_location.setOnCheckedChangeListener { _, checked ->
+            viewModel.flipLocationStatus(checked)
+        }
+        switch_setting_push.setOnCheckedChangeListener { _, checked ->
+            viewModel.flipPushStatus(checked)
+        }
+        viewModel.loadStatus()
     }
 
     override fun onDestroy() {

@@ -1,8 +1,8 @@
 package com.dumi.svq_ver10
 
 import android.app.Activity
-import android.app.Application
 import android.app.Service
+import android.support.multidex.MultiDexApplication
 import com.dumi.svq_ver10.di.component.DaggerAppComponent
 import com.dumi.svq_ver10.di.modules.AppModule
 import com.dumi.svq_ver10.persistence.di.APIModule
@@ -14,7 +14,7 @@ import dagger.android.HasActivityInjector
 import dagger.android.HasServiceInjector
 import javax.inject.Inject
 
-class App : Application(), HasActivityInjector, HasServiceInjector {
+class App : MultiDexApplication(), HasActivityInjector, HasServiceInjector {
 
     @Inject
     lateinit var activityInjector: DispatchingAndroidInjector<Activity>
