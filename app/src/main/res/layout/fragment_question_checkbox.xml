@@ -1,0 +1,86 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dumi.svq_ver10.ui.question.checkbox.CheckBoxViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/purple"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Q"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:text="Q."
+                android:textColor="@color/white"
+                android:textSize="18pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/Q"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="@{viewmodel.question}"
+                android:textColor="@color/white"
+                android:textSize="15pt" />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/ll_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:choiceMode="@{viewmodel.choiceSingle}"
+            app:options="@{viewmodel.options}" />
+
+        <RelativeLayout
+            android:id="@+id/btn_complete"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/gray_dark"
+            android:clickable="true"
+            android:onClickListener="@{onClickListener}">
+
+            <TextView
+                android:id="@+id/text_complete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/nanum_regular"
+                android:padding="5dp"
+                android:text="완 료"
+                android:textColor="@color/white"
+                android:textSize="10pt" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

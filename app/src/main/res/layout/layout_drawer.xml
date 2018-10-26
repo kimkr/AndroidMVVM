@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/btn_menu"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/dist_large">
+
+
+        <!--유저 이미지 아이콘 -->
+        <ImageView
+            android:id="@+id/img_user"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_profile_blank_black" />
+
+        <!-- 유저 이름 텍스트 -->
+        <TextView
+            android:id="@+id/text_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_user"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/nanum_regular"
+            android:text="홍길동 님"
+            android:textColor="@color/black"
+            android:textSize="12pt" />
+
+        <!-- 칸 나누는 선 -->
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/text_user_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@color/black" />
+
+        <!--자가점검 아이콘으로 변경하기-->
+
+        <Button
+            android:id="@+id/btn_self_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/view_divider"
+            android:layout_below="@+id/view_divider"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:drawablePadding="17dp"
+            android:fontFamily="@font/nanum_regular"
+            android:text="자가 점검"
+            android:textColor="#000000"
+            android:textSize="10pt" />
+
+        <View
+            android:id="@+id/view_divider2"
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/btn_self_check"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+
+            android:background="@color/black" />
+
+        <Button
+            android:id="@+id/btn_noti_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/view_divider2"
+            android:layout_below="@id/view_divider2"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:drawablePadding="17dp"
+            android:fontFamily="@font/nanum_regular"
+            android:scaleType="fitXY"
+            android:text="오늘의 알림"
+            android:textColor="#000000"
+            android:textSize="10pt" />
+
+        <View
+            android:id="@+id/view_divider3"
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/btn_noti_check"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@color/black" />
+
+        <Button
+            android:id="@+id/btn_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/view_divider3"
+            android:layout_below="@id/view_divider3"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:drawablePadding="17dp"
+            android:fontFamily="@font/nanum_regular"
+            android:gravity="left"
+            android:scaleType="fitXY"
+            android:text="설정"
+            android:textColor="#000000"
+            android:textSize="10pt" />
+
+
+    </RelativeLayout>
+</ScrollView>

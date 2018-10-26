@@ -1,0 +1,142 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dumi.svq_ver10.ui.main.home.HomeViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent_gray"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_home_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:padding="30dp"
+                android:text="@string/task_weekly_progress_rate"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_xxlarge" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:background="@color/gray_light"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large" />
+
+            <FrameLayout
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_home_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="30dp"
+                    android:text="@{@string/percent_format(viewmodel.progress)}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_medium" />
+
+                <ProgressBar
+                    android:id="@+id/pb_home"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pb_circle_purple"
+                    android:max="100"
+                    android:progress="@{viewmodel.progress}"
+                    android:progressDrawable="@drawable/pb_circle_purple"
+                    android:secondaryProgress="100" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <include
+                    layout="@layout/item_home_button"
+                    app:icon="@{@drawable/ic_send}"
+                    app:onClickListener="@{onClickListener}"
+                    app:tag="@{Screen.TASK_INCOMPLETE}"
+                    app:title="@{@string/new_task}" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_light" />
+
+                <include
+                    layout="@layout/item_home_button"
+                    app:icon="@{@drawable/ic_check_circle}"
+                    app:onClickListener="@{onClickListener}"
+                    app:tag="@{Screen.WEEKLY_STAT}"
+                    app:title="@{@string/weekly_check}" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_light" />
+
+                <include
+                    layout="@layout/item_home_button"
+                    app:icon="@{@drawable/ic_setting_purple}"
+                    app:onClickListener="@{onClickListener}"
+                    app:tag="@{Screen.SETTING}"
+                    app:title="@{@string/setting}" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_light" />
+
+                <include
+                    layout="@layout/item_home_button"
+                    app:icon="@{@drawable/ic_profile}"
+                    app:onClickListener="@{onClickListener}"
+                    app:tag="@{Screen.PROFILE}"
+                    app:title="@{@string/my_profile}" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

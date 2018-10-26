@@ -1,0 +1,105 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dumi.svq_ver10.ui.main.taskcomplete.CompleteTaskViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/app_bar"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:padding="@dimen/dist_small"
+            android:paddingLeft="10dp"
+            android:text="@string/complete_task"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white">
+
+            <ImageButton
+                android:id="@+id/btn_check_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/btn_background_transparent_to_gray"
+                android:onClickListener="@{onClickListener}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:padding="@dimen/dist_small"
+                android:text="@{@string/calendar_format(viewmodel.year, viewmodel.month)}"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:id="@+id/btn_check_next"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_background_transparent_to_gray"
+                android:onClickListener="@{onClickListener}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_next" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ListView
+                android:id="@+id/lv_task_complete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:choiceMode="singleChoice"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                app:completeTasks="@{viewmodel.tasks}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/dist_small"
+                android:text="@string/empty_list"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="@dimen/text_large"
+                app:visibleOrGone="@{viewmodel.empty}" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,227 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dumi.svq_ver10.ui.main.setting.interval.IntervalViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- 위치 수집 시간대 영역 -->
+            <RelativeLayout
+                android:id="@+id/setting1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/setting2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray_light">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+
+                        android:fontFamily="@font/nanum_regular"
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="위치 수집 시간대"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <!-- 시작 시간 -->
+                <TextView
+                    android:id="@+id/start_time_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/setting2"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nanum_light"
+                    android:text="오전 9시"
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/setting2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nanum_light"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
+
+                <!-- 끝 시간 -->
+                <TextView
+                    android:id="@+id/end_time_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/setting2"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nanum_light"
+                    android:text="오후 9시"
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
+
+                <TimePicker
+                    android:id="@+id/tp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_alignStart="@+id/start_time_btn"
+                    android:layout_below="@id/end_time_btn"
+                    android:timePickerMode="spinner"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="90dp"
+                    android:layout_height="150dp"
+                    android:layout_alignStart="@+id/start_time_btn"
+                    android:layout_below="@id/end_time_btn"
+                    android:layout_marginLeft="160dp"
+                    app:srcCompat="@color/white" />
+
+                <Button
+                    android:id="@+id/set_start_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_alignEnd="@+id/imageView"
+                    android:layout_below="@+id/end_time_btn"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/btn_rounded_purple"
+                    android:fontFamily="@font/nanum_light"
+                    android:text="완료"
+                    android:textColor="@color/purple"
+                    android:textSize="20dp"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/set_end_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_alignEnd="@+id/imageView"
+                    android:layout_below="@+id/end_time_btn"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/btn_rounded_purple"
+                    android:fontFamily="@font/nanum_light"
+                    android:text="완료"
+                    android:textColor="@color/purple"
+                    android:textSize="20dp"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <!-- 위치 수집 간격 영역 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/setting1">
+
+                <LinearLayout
+                    android:id="@+id/setting3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray_light">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nanum_regular"
+                        android:padding="@dimen/dist_xlarge"
+                        android:text="위치 수집 간격"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/complete_time_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/setting3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:focusable="false"
+                    android:gravity="bottom"
+                    android:inputType="number|phone"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/setting3"
+                    android:layout_marginTop="50dp"
+                    android:layout_toRightOf="@+id/complete_time_txt"
+                    android:gravity="center_vertical"
+                    android:text="분"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <!-- 칸 나누는 선
+                <View
+                    android:id="@+id/view_divider"
+                    android:layout_width="200dp"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/complete_time_txt"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/main_black" />
+
+                    -->
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/finish_setting_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/purple">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/nanum_regular"
+                android:padding="10dp"
+                android:text="설정 완료"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_xxlarge" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>
+

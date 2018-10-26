@@ -1,0 +1,61 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.dumi.svq_ver10.ui.main.taskincomplete.IncompleteTaskViewModel" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <import type="com.dumi.svq_ver10.ui.main.Screen" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:padding="@dimen/dist_small"
+            android:paddingLeft="10dp"
+            android:text="@string/incomplete_task"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ListView
+                android:id="@+id/lv_task_incomplete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:choiceMode="singleChoice"
+                android:divider="@color/gray_dark"
+                android:dividerHeight="1dp"
+                app:incompleteTasks="@{viewmodel.tasks}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:padding="@dimen/dist_small"
+                android:text="@string/empty_list"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                app:visibleOrGone="@{viewmodel.empty}" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

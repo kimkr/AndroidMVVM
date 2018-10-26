@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.dumi.svq_ver10.Location.LocationActivity">
+
+    <!-- header bar -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/purple"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Q"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/nanum_light"
+                android:text="Q."
+                android:textColor="@color/white"
+                android:textSize="18pt" />
+
+            <TextView
+                android:id="@+id/s_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/Q"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nanum_light"
+                android:padding="5dp"
+                android:text="지금 기분이 어떠신가요?"
+                android:textColor="@color/white"
+                android:textSize="15pt" />
+
+        </RelativeLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!-- input layout -->
+    <RelativeLayout
+        android:id="@+id/rl_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar">
+
+        <ImageButton
+            android:id="@+id/btn_search"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/et_address"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/btn_gps"
+            android:background="@drawable/line_white"
+            android:ems="10"
+            android:fontFamily="@font/nanum_light"
+            android:hint="지번, 도로명, 건물명으로 찾기"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingLeft="30dp"
+            android:paddingRight="50dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/black"
+            android:textSize="8pt" />
+
+        <ImageView
+            android:id="@+id/under0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_address"
+            android:src="@drawable/ic_line_black" />
+
+        <ImageButton
+            android:id="@+id/btn_gps"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_current_location" />
+    </RelativeLayout>
+
+    <!-- 주소 리스트 -->
+    <LinearLayout
+        android:id="@+id/view_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/rl_input"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/result1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/nanum_regular"
+                android:padding="@dimen/dist_xlarge"
+                android:text="검색 결과"
+                />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/list_address_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/set_loc_layout"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice"
+            android:divider="#dcdcdc"
+            android:dividerHeight="1dp"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/set_loc_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/purple">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/nanum_regular"
+                android:padding="12dp"
+                android:text="선택한 위치로 설정"
+                android:textColor="@color/white"
+                android:textSize="10pt" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <!-- 지도 레이아웃 -->
+    <RelativeLayout
+        android:id="@+id/rl_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/rl_input"
+        android:background="#ffffff"
+        android:visibility="invisible">
+
+        <fragment
+            android:id="@+id/map_fragment"
+            class="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_alignParentTop="true" />
+
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/map_fragment"
+            android:background="@drawable/line_gray_light"
+            android:padding="@dimen/dist_xlarge"
+            android:text="현재위치"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_choose_current"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray_dark">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="5dp"
+                android:text="완료"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!-- 최근 검색 레이아웃 -->
+    <LinearLayout
+        android:id="@+id/view_recent_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_list"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_light">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:padding="@dimen/dist_xlarge"
+                android:text="최근 검색"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_recent_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_small" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading_view"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="false"
+        android:visibility="gone" />
+
+</RelativeLayout>

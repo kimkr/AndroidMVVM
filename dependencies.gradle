@@ -1,0 +1,34 @@
+ext {
+    versions = [
+            //Application
+            versionCode            : 1,
+            versionName            : '1.0',
+            //Android
+            androidCompileSdk      : 27,
+            androidSupport         : '27.1.1',
+            androidMinSdk          : 16,
+            androidTargetSdk       : 27,
+            androidArchRoom        : '1.1.0',
+            androidArchLifeCycle   : '1.1.1',
+            androidArchPaging      : '1.0.0',
+            gradlePlugin           : '3.1.4',
+            //Test
+            testJunit              : '4.12',
+            testRunner             : '1.0.2',
+            testEspresso           : '3.0.2',
+            //Libraries
+            dagger2                : '2.13',
+            rx                     : '2.2.0',
+            rxAndroid              : '2.1.0',
+            retrofit               : '2.4.0',
+            googleMap              : '15.0.1',
+            googleMapAndroidWrapper: '1.1.3',
+            firebase               : '16.0.3',
+            firebaseAnalytics      : '16.0.3',
+            firebaseMessaging      : '17.3.2',
+            //UI
+            uiConstraintLayout     : '1.1.3',
+            // Debug
+            stetho                 : '1.5.0',
+    ]
+}
