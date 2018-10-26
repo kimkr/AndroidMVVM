@@ -8,6 +8,9 @@ import javax.inject.Singleton
 
 @Singleton
 class LocationPreferences @Inject constructor(private val manager: PreferenceManager) : LocationDataSource {
+    override fun updateGps(latitude: Double, longitude: Double): Completable =
+            Completable.complete()
+
     override fun updateAddress(address: String): Completable {
         return Completable.fromAction { manager.put(ADDRESS_KEY, address) }
     }

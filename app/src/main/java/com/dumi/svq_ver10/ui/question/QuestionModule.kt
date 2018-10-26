@@ -19,4 +19,11 @@ class QuestionModule {
         return ViewModelFactory(userRepository, taskRepository, settingRepository, locationRepository,
                 questionRepository)
     }
+
+    @Provides
+    @ActivityScope
+    fun provideQuestionViewModel(taskRepository: TaskRepository,
+                                 questionRepository: QuestionRepository): QuestionViewModel {
+        return QuestionViewModel(taskRepository, questionRepository)
+    }
 }

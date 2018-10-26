@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.View.*
 import android.widget.ImageView
+import android.widget.Switch
 
 object BaseBinding {
 
@@ -33,5 +34,11 @@ object BaseBinding {
     @JvmStatic
     fun setImageResource(imageView: ImageView, resource: Drawable) {
         imageView.setImageDrawable(resource)
+    }
+
+    @BindingAdapter("app:checked")
+    @JvmStatic
+    fun setChecked(switch: Switch, checked: Boolean) {
+        switch.isChecked = checked
     }
 }

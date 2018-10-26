@@ -7,6 +7,7 @@ import android.view.Gravity
 import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.persistence.repository.AuthRepository
 import com.dumi.svq_ver10.ui.BaseActivity
+import com.dumi.svq_ver10.ui.location.LocationActivity
 import com.dumi.svq_ver10.ui.login.LoginActivity
 import com.dumi.svq_ver10.ui.main.Screen.*
 import com.dumi.svq_ver10.ui.main.home.HomeFragment
@@ -143,6 +144,9 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
             }
             QUESTION -> {
                 navigateTo(QuestionActivity::class.java, BUNDLE_ARG, arg!!)
+            }
+            LOCATION -> {
+                navigateTo(LocationActivity::class.java)
             }
         }
     }

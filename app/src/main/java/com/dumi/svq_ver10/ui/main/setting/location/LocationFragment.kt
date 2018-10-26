@@ -7,6 +7,7 @@ import com.dumi.svq_ver10.R
 import com.dumi.svq_ver10.ui.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.fragment_setting_location.*
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -30,7 +31,10 @@ class LocationFragment : BaseFragment(), View.OnClickListener {
         super.onStart()
         binding.setVariable(BR.viewmodel, viewModel)
         binding.setVariable(BR.onClickListener, this)
-//        disposable.add()
+        switch_location_agreement.setOnCheckedChangeListener { _, checked ->
+            viewModel.flipStatus(checked)
+        }
+        viewModel.loadStatus()
     }
 
     override fun onDestroy() {
@@ -39,7 +43,7 @@ class LocationFragment : BaseFragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-//        (activity as MainActivity).addScreen(Screen.TASK_INCOMPLETE, view.tag as String)
+
     }
 
     companion object {

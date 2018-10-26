@@ -43,6 +43,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.btn_profile_logout -> (activity as MainActivity).addScreen(Screen.LOGIN, "Logout")
+            R.id.btn_profile_location -> (activity as MainActivity).goTo(Screen.LOCATION)
         }
     }
 

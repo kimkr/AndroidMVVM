@@ -1,6 +1,8 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewmodel"
             type="com.dumi.svq_ver10.ui.main.setting.location.LocationViewModel" />
@@ -34,7 +36,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-
                     android:fontFamily="@font/nanum_regular"
                     android:padding="@dimen/dist_xlarge"
                     android:text="위치 정보 수집 설정"
@@ -58,14 +59,15 @@
                     android:textColor="@color/black" />
 
                 <Switch
-                    android:id="@+id/all_agree_switch"
+                    android:id="@+id/switch_location_agreement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="30dp"
                     android:padding="10dp"
-                    android:theme="@style/CustomSwitch" />
+                    android:theme="@style/CustomSwitch"
+                    app:checked="@{viewmodel.allowed}" />
 
             </RelativeLayout>
 

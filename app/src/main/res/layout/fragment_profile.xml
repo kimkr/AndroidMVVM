@@ -3,6 +3,7 @@
     <data>
 
         <import type="android.databinding.ObservableField" />
+
         <import type="com.dumi.svq_ver10.ui.main.Screen" />
 
         <variable
@@ -161,11 +162,13 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/user_loc_layout"
+                android:id="@+id/btn_profile_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/user_birth"
-                android:background="@drawable/line_gray_light">
+                android:background="@drawable/btn_background_transparent_to_gray"
+                android:clickable="true"
+                android:onClickListener="@{onClickListener}">
 
                 <TextView
                     android:id="@+id/tv_profile_address"
@@ -180,8 +183,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/tv_profile_address"
                     android:layout_toLeftOf="@+id/btn_profile_address_more"
+                    android:layout_toRightOf="@+id/tv_profile_address"
                     android:fontFamily="@font/nanum_light"
                     android:padding="5dp"
                     android:text="@{viewmodel.location}" />

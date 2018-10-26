@@ -1,5 +1,7 @@
 package com.dumi.svq_ver10.ui.location
 
+import android.app.Activity
+import android.content.Intent
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableList
 import android.os.Bundle
@@ -14,6 +16,8 @@ import com.dumi.svq_ver10.persistence.repository.LocationRepository
 import com.dumi.svq_ver10.ui.BaseActivity
 import com.dumi.svq_ver10.ui.components.SingleDialog
 import com.dumi.svq_ver10.ui.main.MainActivity
+import com.dumi.svq_ver10.ui.question.QuestionActivity
+import com.dumi.svq_ver10.ui.question.QuestionActivity.Companion.BUNDLE_QUESTION_ID
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -21,7 +25,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_location.*
-import kotlinx.android.synthetic.main.layout_app_bar.*
 import javax.inject.Inject
 
 class LocationActivity : BaseActivity() {
@@ -31,10 +34,9 @@ class LocationActivity : BaseActivity() {
     internal lateinit var adapter: SearchResultAdapter
     @field:[Inject]
     internal lateinit var repository: LocationRepository
-
     private lateinit var map: GoogleMap
-
     private lateinit var markerPosition: LatLng
+    private var question: String? = null
 
     override fun getLayout(): Int {
         return R.layout.activity_location
@@ -48,6 +50,7 @@ class LocationActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
         binding.setVariable(BR.viewmodel, viewModel)
+        question = getArgument(QuestionActivity.BUNDLE_QUESTION_ID)
         initView()
     }
 
@@ -60,7 +63,6 @@ class LocationActivity : BaseActivity() {
         }
         btn_search.setOnClickListener { _ -> onClickSearch() }
         btn_gps.setOnClickListener { _ -> viewModel.requestCurrentLocation() }
-        btn_close.setOnClickListener { _ -> et_address.clearFocus() }
         et_address.setOnEditorActionListener { _, action, _ ->
             when (action) {
                 EditorInfo.IME_ACTION_SEARCH -> onClickSearch()
@@ -117,6 +119,13 @@ class LocationActivity : BaseActivity() {
         }
         lv_address_result.adapter = adapter
         rl_choose_current.setOnClickListener { _ -> setCurrentLocation() }
+        if (question != null) {
+            rl_location_question.visibility = View.VISIBLE
+            tv_location_question.text = question
+            tv_choose_current.text = getString(R.string.complete)
+        } else {
+            rl_location_question.visibility = View.GONE
+        }
     }
 
     private fun onClickSearch() {
@@ -137,20 +146,31 @@ class LocationActivity : BaseActivity() {
     }
 
     private fun setCurrentLocation() {
-        repository.updateLocation(markerPosition.latitude, markerPosition.longitude)
-                .andThen(repository.updateAddress(viewModel.currentAddress.get()!!))
-                .subscribe {
-                    val dialog = SingleDialog(this,
-                            "나의 위치가 설정되었습니다.",
-                            View.OnClickListener {
-                                val settingInfoIntent = intent.getStringExtra("SettingInfoActivity")
-                                if (settingInfoIntent != null) {
-                                } else {
-                                    navigateTo(MainActivity::class.java)
-                                }
-                            })
-                    dialog.show()
-                }
+        if (question != null) {
+            val intent = Intent()
+            intent.putExtra(BUNDLE_QUESTION_ID, question)
+            intent.putExtra(BUNDLE_ARG_LAT, markerPosition.latitude)
+            intent.putExtra(BUNDLE_ARG_LON, markerPosition.longitude)
+            intent.putExtra(BUNDLE_ARG_ADDR, viewModel.currentAddress.get())
+            setResult(Activity.RESULT_OK, intent)
+            finish()
+        } else {
+            repository.updateLocation(markerPosition.latitude, markerPosition.longitude)
+                    .andThen(repository.updateAddress(viewModel.currentAddress.get()!!))
+                    .subscribe {
+                        val dialog = SingleDialog(this,
+                                "나의 위치가 설정되었습니다.",
+                                View.OnClickListener {
+                                    val settingInfoIntent = intent.getStringExtra("SettingInfoActivity")
+                                    if (settingInfoIntent != null) {
+                                        navigateTo(MainActivity::class.java)
+                                    } else {
+                                        navigateTo(MainActivity::class.java)
+                                    }
+                                })
+                        dialog.show()
+                    }
+        }
     }
 
 

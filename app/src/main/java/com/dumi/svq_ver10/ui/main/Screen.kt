@@ -13,7 +13,8 @@ enum class Screen(val code: String, val activity: Boolean) {
     TASK_INCOMPLETE("TaskIncomplete", false),
     TASK_COMPLETE("TaskComplete", false),
     LOGIN("LoginActivity", true),
-    QUESTION("QuestionActivity", true)
+    QUESTION("QuestionActivity", true),
+    LOCATION("LocationActivity", true)
     ;
 
     companion object {

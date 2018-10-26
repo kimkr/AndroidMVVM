@@ -51,6 +51,10 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    protected fun getArgument(key: String): String? {
+        return if (intent != null) intent!!.getStringExtra(key) else null
+    }
+
     protected fun findFragment(id: Int): Fragment {
         return fragmentManager.findFragmentById(id)
     }
@@ -171,5 +175,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     companion object {
         const val BUNDLE_ARG = "BUNDLE_ARG"
+        const val BUNDLE_ARG_LAT = "BUNDLE_ARG_LAT"
+        const val BUNDLE_ARG_LON = "BUNDLE_ARG_LON"
+        const val BUNDLE_ARG_ADDR = "BUNDLE_ARG_ADDR"
+        const val BUNDLE_ARG_QUESTION_ID = ""
     }
 }

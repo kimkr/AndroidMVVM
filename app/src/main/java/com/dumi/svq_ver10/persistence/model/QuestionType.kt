@@ -3,6 +3,7 @@ package com.dumi.svq_ver10.persistence.model
 enum class QuestionType(val code: String) {
     RADIO("radio"),
     SLIDE("slide"),
+    LOCATION("location"),
     CHECKBOX("checkbox"),
     TEXT("simple text"),
     TREE("tree");

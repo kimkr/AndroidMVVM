@@ -51,9 +51,11 @@ class TimeUtil {
             return calendar.timeInMillis
         }
 
+        fun getHour(): Int = (DateFormat.format("HH", Date()) as String).toInt()
         fun formatToDay(date: Date) = DateFormat.format("MM.dd", date) as String
         fun formatToTime(date: Date) = DateFormat.format("hh:mm aa", date) as String
         fun formatToMilli(date: Date) = DateFormat.format("yyyy-MM-dd hh:mm:ss", date) as String
+        fun formatToGpsTime(date: Date) = DateFormat.format("yyyy-MM-dd HH:mm", date) as String
 
         const val DAY_TO_MILLISECONDS = 24 * 60 * 60 * 1000
     }

@@ -13,6 +13,10 @@ import javax.inject.Singleton
 class LocationRepository @Inject constructor(private val localDataSource: LocationPreferences,
                                              private val remoteDataSource: LocationService)
     : LocationDataSource, Repository {
+    override fun updateGps(latitude: Double, longitude: Double): Completable =
+            remoteDataSource.updateGps(latitude, longitude)
+                    .subscribeOn(Schedulers.io())
+
     override fun getAddress() = localDataSource.getAddress()
 
     override fun updateAddress(address: String) = localDataSource.updateAddress(address)

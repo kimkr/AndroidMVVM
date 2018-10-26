@@ -37,6 +37,7 @@
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.popup.PopupActivity" />
         <activity android:name=".ui.question.QuestionActivity" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/MAP_API_KEY" />
@@ -52,6 +53,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <service
+            android:name=".service.LocationTrackingService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>
